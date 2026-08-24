@@ -8,12 +8,12 @@
     <filter id="blur30" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="30"/></filter>
     <filter id="blur10" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="10"/></filter>
     <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#fff" opacity=".12"/></pattern>
-    <clipPath id="clip"><rect x="16" y="16" width="1168" height="218" rx="22"/></clipPath>
+    <clipPath id="clip"><rect x="16" y="16" width="1168" height="218" rx="32"/></clipPath>
   </defs>
-  <rect width="1200" height="250" fill="#080808"/>
+  <rect width="1200" height="250" fill="none"/>
   <g clip-path="url(#clip)">
-    <rect x="16" y="16" width="1168" height="218" rx="22" fill="url(#bg)"/>
-    <rect x="16" y="16" width="1168" height="218" rx="22" fill="url(#dots)"/>
+    <rect x="16" y="16" width="1168" height="218" rx="32" fill="url(#bg)"/>
+    <rect x="16" y="16" width="1168" height="218" rx="32" fill="url(#dots)"/>
     <g filter="url(#blur30)" opacity=".42">
       <circle cx="100" cy="40" r="90" fill="#fff"><animate attributeName="cx" values="100;250;100" dur="14s" repeatCount="indefinite"/></circle>
       <circle cx="1080" cy="214" r="120" fill="#777"><animate attributeName="cx" values="1080;940;1080" dur="16s" repeatCount="indefinite"/></circle>
@@ -49,7 +49,7 @@
         <animate attributeName="stroke-dashoffset" values="0;-140" dur="4s" repeatCount="indefinite"/>
       </path>
     </g>
-    <rect x="16" y="16" width="1168" height="218" rx="22" fill="none" stroke="#fff" stroke-opacity=".18"/>
-    <rect x="16" y="16" width="1168" height="218" rx="22" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="7" filter="url(#blur10)"/>
+    <rect x="16" y="16" width="1168" height="218" rx="32" fill="none" stroke="#fff" stroke-opacity=".18"/>
+    <rect x="16" y="16" width="1168" height="218" rx="32" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="7" filter="url(#blur10)"/>
   </g>
 </svg>
