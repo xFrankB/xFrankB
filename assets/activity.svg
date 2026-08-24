@@ -7,14 +7,14 @@
     <filter id="blur8" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="8"/></filter>
     <clipPath id="clip"><rect x="16" y="16" width="1168" height="218" rx="22"/></clipPath>
   </defs>
-  <rect width="1200" height="250" fill="#fff"/>
+  <rect width="1200" height="250" fill="#080808"/>
   <g clip-path="url(#clip)">
     <rect x="16" y="16" width="1168" height="218" rx="22" fill="url(#bg)"/>
     <g filter="url(#blur24)" opacity=".45">
       <circle cx="250" cy="112" r="80" fill="#fff"><animate attributeName="cx" values="250;420;250" dur="18s" repeatCount="indefinite"/></circle>
       <circle cx="890" cy="158" r="90" fill="#888"><animate attributeName="cy" values="158;85;158" dur="14s" repeatCount="indefinite"/></circle>
     </g>
-    <text x="52" y="58" fill="#fff" opacity=".55" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="3">ACTIVITY_FIELD / CONTRIBUTION_RHYTHM</text>
+    <text x="52" y="58" fill="#fff" opacity=".55" font-family="monospace" font-size="12" letter-spacing="3">ACTIVITY_FIELD / CONTRIBUTION_RHYTHM</text>
     <g transform="translate(54 83)">
       <rect width="1092" height="105" rx="14" fill="#fff" fill-opacity=".045" stroke="#fff" stroke-opacity=".18"/>
       <g transform="translate(24 20)">
@@ -81,7 +81,7 @@
           <animate attributeName="x" values="-4;960;-4" dur="8s" repeatCount="indefinite"/>
         </rect>
       </g>
-      <text x="24" y="92" fill="#fff" opacity=".42" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10">quiet consistency beats noisy velocity</text>
+      <text x="24" y="92" fill="#fff" opacity=".42" font-family="monospace" font-size="10">quiet consistency beats noisy velocity</text>
     </g>
     <rect x="16" y="16" width="1168" height="218" rx="22" fill="none" stroke="#fff" stroke-opacity=".18"/>
     <rect x="16" y="16" width="1168" height="218" rx="22" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="8" filter="url(#blur8)"/>

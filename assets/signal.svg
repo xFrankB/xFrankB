@@ -10,7 +10,7 @@
     <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#fff" opacity=".12"/></pattern>
     <clipPath id="clip"><rect x="16" y="16" width="1168" height="218" rx="22"/></clipPath>
   </defs>
-  <rect width="1200" height="250" fill="#fff"/>
+  <rect width="1200" height="250" fill="#080808"/>
   <g clip-path="url(#clip)">
     <rect x="16" y="16" width="1168" height="218" rx="22" fill="url(#bg)"/>
     <rect x="16" y="16" width="1168" height="218" rx="22" fill="url(#dots)"/>
@@ -18,12 +18,12 @@
       <circle cx="100" cy="40" r="90" fill="#fff"><animate attributeName="cx" values="100;250;100" dur="14s" repeatCount="indefinite"/></circle>
       <circle cx="1080" cy="214" r="120" fill="#777"><animate attributeName="cx" values="1080;940;1080" dur="16s" repeatCount="indefinite"/></circle>
     </g>
-    <text x="52" y="58" fill="#fff" opacity=".55" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="3">PUBLIC_SIGNAL / 2026</text>
+    <text x="52" y="58" fill="#fff" opacity=".55" font-family="monospace" font-size="12" letter-spacing="3">PUBLIC_SIGNAL / 2026</text>
     <g transform="translate(52 82)">
       <rect width="250" height="112" rx="15" fill="#fff" fill-opacity=".06" stroke="#fff" stroke-opacity=".2"/>
-      <text x="22" y="31" fill="#fff" opacity=".5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="2">REPOSITORIES</text>
-      <text x="22" y="78" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="36" font-weight="700">01</text>
-      <text x="100" y="76" fill="#fff" opacity=".5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11">PUBLIC</text>
+      <text x="22" y="31" fill="#fff" opacity=".5" font-family="monospace" font-size="11" letter-spacing="2">REPOSITORIES</text>
+      <text x="22" y="78" fill="#fff" font-family="monospace" font-size="36" font-weight="700">01</text>
+      <text x="100" y="76" fill="#fff" opacity=".5" font-family="monospace" font-size="11">PUBLIC</text>
       <circle cx="210" cy="70" r="12" fill="none" stroke="#fff" stroke-opacity=".3"/>
       <circle cx="210" cy="70" r="12" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="20 60">
         <animateTransform attributeName="transform" type="rotate" from="0 210 70" to="360 210 70" dur="5s" repeatCount="indefinite"/>
@@ -31,19 +31,19 @@
     </g>
     <g transform="translate(330 82)">
       <rect width="390" height="112" rx="15" fill="#fff" fill-opacity=".06" stroke="#fff" stroke-opacity=".2"/>
-      <text x="22" y="31" fill="#fff" opacity=".5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="2">STACK_DETECTED</text>
-      <text x="22" y="74" fill="#fff" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15">TypeScript</text>
+      <text x="22" y="31" fill="#fff" opacity=".5" font-family="monospace" font-size="11" letter-spacing="2">STACK_DETECTED</text>
+      <text x="22" y="74" fill="#fff" font-family="monospace" font-size="15">TypeScript</text>
       <rect x="22" y="85" width="330" height="5" rx="3" fill="#fff" fill-opacity=".18"/>
       <rect x="22" y="85" width="320" height="5" rx="3" fill="#fff">
         <animate attributeName="width" values="280;320;300;320" dur="6s" repeatCount="indefinite"/>
       </rect>
-      <text x="22" y="106" fill="#fff" opacity=".45" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10">97% TypeScript · 2.8% CSS · 0.2% HTML</text>
+      <text x="22" y="106" fill="#fff" opacity=".45" font-family="monospace" font-size="10">97% TypeScript · 2.8% CSS · 0.2% HTML</text>
     </g>
     <g transform="translate(748 82)">
       <rect width="400" height="112" rx="15" fill="#fff" fill-opacity=".06" stroke="#fff" stroke-opacity=".2"/>
-      <text x="22" y="31" fill="#fff" opacity=".5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="2">ACTIVITY_WINDOW</text>
-      <text x="22" y="74" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="34" font-weight="700">05</text>
-      <text x="96" y="72" fill="#fff" opacity=".5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11">CONTRIBUTIONS</text>
+      <text x="22" y="31" fill="#fff" opacity=".5" font-family="monospace" font-size="11" letter-spacing="2">ACTIVITY_WINDOW</text>
+      <text x="22" y="74" fill="#fff" font-family="monospace" font-size="34" font-weight="700">05</text>
+      <text x="96" y="72" fill="#fff" opacity=".5" font-family="monospace" font-size="11">CONTRIBUTIONS</text>
       <path d="M22 96H370" stroke="#fff" stroke-opacity=".2"/>
       <path d="M22 96 C74 84 96 103 145 89 S220 80 260 94 S320 88 370 76" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="5 9">
         <animate attributeName="stroke-dashoffset" values="0;-140" dur="4s" repeatCount="indefinite"/>
