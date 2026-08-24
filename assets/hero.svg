@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-labelledby="title desc">
+  <title id="title">xFrankB — Francisco Baylón</title>
+  <desc id="desc">Animated monochrome developer profile banner with soft blur, grid and terminal-inspired identity.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#050505"/>
+      <stop offset="0.5" stop-color="#161616"/>
+      <stop offset="1" stop-color="#030303"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.52"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#9e9e9e" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#9e9e9e" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur50" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="50"/>
+    </filter>
+    <filter id="blur18" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="#ffffff" stroke-opacity="0.07" stroke-width="1"/>
+      <circle cx="1" cy="1" r="1.2" fill="#ffffff" fill-opacity="0.18"/>
+    </pattern>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.48" stop-color="#ffffff" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="frame"><rect x="18" y="18" width="1164" height="344" rx="26"/></clipPath>
+  </defs>
+
+  <rect width="1200" height="380" fill="#ffffff"/>
+  <g clip-path="url(#frame)">
+    <rect x="18" y="18" width="1164" height="344" rx="26" fill="url(#bg)"/>
+    <rect x="18" y="18" width="1164" height="344" rx="26" fill="url(#grid)"/>
+
+    <g opacity="0.62" filter="url(#blur50)">
+      <circle cx="170" cy="88" r="120" fill="url(#glowA)">
+        <animate attributeName="cx" values="170;290;170" dur="17s" repeatCount="indefinite"/>
+        <animate attributeName="cy" values="88;145;88" dur="13s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="970" cy="300" r="150" fill="url(#glowB)">
+        <animate attributeName="cx" values="970;830;970" dur="19s" repeatCount="indefinite"/>
+        <animate attributeName="cy" values="300;220;300" dur="15s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="650" cy="28" r="80" fill="url(#glowB)">
+        <animate attributeName="r" values="80;120;80" dur="11s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+
+    <path d="M18 282 C190 232 250 326 412 276 S704 204 860 270 S1060 328 1182 238" fill="none" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
+    <path d="M18 285 C190 235 250 329 412 279 S704 207 860 273 S1060 331 1182 241" fill="none" stroke="url(#line)" stroke-opacity="0.78" stroke-width="1.5" stroke-dasharray="4 16">
+      <animate attributeName="stroke-dashoffset" values="0;-240" dur="9s" repeatCount="indefinite"/>
+    </path>
+
+    <g transform="translate(74 70)">
+      <text x="0" y="0" fill="#ffffff" fill-opacity="0.55" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" letter-spacing="3">/ PROFILE_IDENTITY</text>
+      <circle cx="3" cy="34" r="4" fill="#ffffff">
+        <animate attributeName="opacity" values="1;0.25;1" dur="2.4s" repeatCount="indefinite"/>
+      </circle>
+      <text x="20" y="40" fill="#ffffff" fill-opacity="0.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="2">ONLINE • BUILDING IN PUBLIC</text>
+      <text x="0" y="126" fill="#ffffff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="72" font-weight="700" letter-spacing="-3">xFrankB</text>
+      <text x="4" y="166" fill="#ffffff" fill-opacity="0.76" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="22" letter-spacing="4">FRANCISCO BAYLÓN</text>
+      <rect x="5" y="190" width="330" height="2" fill="#ffffff" fill-opacity="0.35"/>
+      <rect x="5" y="190" width="82" height="2" fill="#ffffff">
+        <animate attributeName="x" values="5;250;5" dur="6s" repeatCount="indefinite"/>
+        <animate attributeName="width" values="82;34;82" dur="6s" repeatCount="indefinite"/>
+      </rect>
+      <text x="5" y="220" fill="#ffffff" fill-opacity="0.58" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" letter-spacing="1">SOFTWARE • AI • MULTIPLATFORM</text>
+    </g>
+
+    <g transform="translate(884 74)">
+      <rect x="0" y="0" width="218" height="136" rx="18" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.24"/>
+      <text x="22" y="32" fill="#ffffff" fill-opacity="0.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="2">SYSTEM.STATUS</text>
+      <text x="22" y="67" fill="#ffffff" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18">READY</text>
+      <circle cx="183" cy="61" r="8" fill="#ffffff" fill-opacity="0.86">
+        <animate attributeName="r" values="8;11;8" dur="2.2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.86;0.3;0.86" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+      <path d="M22 93H196" stroke="#ffffff" stroke-opacity="0.24"/>
+      <text x="22" y="116" fill="#ffffff" fill-opacity="0.48" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11">ship / learn / repeat</text>
+    </g>
+
+    <rect x="18" y="18" width="1164" height="344" rx="26" fill="none" stroke="#ffffff" stroke-opacity="0.2"/>
+    <rect x="18" y="18" width="1164" height="344" rx="26" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="8" filter="url(#blur18)"/>
+  </g>
+</svg>
