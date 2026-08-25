@@ -28,12 +28,13 @@
     </rect>
     <g transform="translate(52 46)">
       <g>
-        <animateTransform attributeName="transform" type="scale" values="1;1.08;1" dur="3.7s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="3.7s" repeatCount="indefinite"/>
         <circle r="28" fill="#242a31" stroke="#fff" stroke-opacity=".2"/>
         <circle r="24" fill="none" stroke="#fff" stroke-opacity=".08"/>
         <rect x="-17" y="-12" width="34" height="24" rx="5" fill="none" stroke="#fff" stroke-width="2.1"/>
-        <path d="M-15-8L0 4 15-8M-14 9l11-9M14 9L3 0" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M-15-8L0 4 15-8M-14 9l11-9M14 9L3 0" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="54 40" stroke-dashoffset="0"><animate attributeName="stroke-dashoffset" values="94;0;-94" dur="3.7s" repeatCount="indefinite"/></path>
         <circle cy="4" r="2.3" fill="#fff"><animate attributeName="r" values="2.3;3.5;2.3" dur="2.4s" repeatCount="indefinite"/></circle>
+        <path d="M-15-8Q0 10 15-8" fill="none" stroke="#d6d6d6" stroke-width="1.2" stroke-linecap="round" opacity=".7"><animate attributeName="d" values="M-15-8Q0 10 15-8;M-15-8Q0 2 15-8;M-15-8Q0 10 15-8" dur="3.7s" repeatCount="indefinite"/></path>
         <circle r="29" fill="none" stroke="#d6d6d6" stroke-width="1.2" opacity="0"><animate attributeName="r" values="28;34;28" dur="3.7s" repeatCount="indefinite"/><animate attributeName="opacity" values=".42;0;.42" dur="3.7s" repeatCount="indefinite"/></circle>
       </g>
     </g>
