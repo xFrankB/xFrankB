@@ -1,28 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="360" height="92" viewBox="0 0 360 92" role="img" aria-labelledby="title desc">
   <title id="title">GitHub · @xFrankB</title>
-  <desc id="desc">Animated pill-shaped GitHub link with monochrome icon and cyan-white border beam.</desc>
+  <desc id="desc">Soft rounded monochrome GitHub panel with a subtle animated cyan status accent.</desc>
   <defs>
     <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#17191d" stop-opacity=".98"/><stop offset="1" stop-color="#08090b" stop-opacity=".98"/></linearGradient>
-    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#78efff" stop-opacity="0"/><stop offset=".42" stop-color="#b9f7ff"/><stop offset=".62" stop-color="#fff"/><stop offset=".82" stop-color="#63e7ff"/><stop offset="1" stop-color="#63e7ff" stop-opacity="0"/></linearGradient>
-    <filter id="beamBlur" x="-30%" y="-80%" width="160%" height="260%"><feGaussianBlur stdDeviation="4"/></filter>
     <filter id="soft" x="-20%" y="-30%" width="140%" height="160%"><feGaussianBlur stdDeviation="10"/></filter>
-    <clipPath id="clip"><rect x="2" y="2" width="356" height="88" rx="44"/></clipPath>
+    <filter id="accentBlur" x="-40%" y="-200%" width="180%" height="500%"><feGaussianBlur stdDeviation="3.5"/></filter>
+    <clipPath id="clip"><rect x="2" y="2" width="356" height="88" rx="24"/></clipPath>
   </defs>
   <rect width="360" height="92" fill="none"/>
   <g clip-path="url(#clip)">
-    <rect x="2" y="2" width="356" height="88" rx="44" fill="url(#panel)" stroke="#fff" stroke-opacity=".16" stroke-width="1"/>
-    <ellipse cx="115" cy="-2" rx="105" ry="32" fill="#fff" opacity=".1" filter="url(#soft)"/>
-    <rect x="2" y="2" width="356" height="88" rx="44" fill="none" stroke="#1d252d" stroke-width="2"/>
-    <rect x="2" y="2" width="356" height="88" rx="44" fill="none" stroke="url(#beam)" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="78 540" pathLength="618" opacity=".94">
-      <animate attributeName="stroke-dashoffset" values="0;-618" dur="2.7s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="2" y="2" width="356" height="88" rx="44" fill="none" stroke="url(#beam)" stroke-width="7" stroke-linecap="round" stroke-dasharray="78 540" pathLength="618" opacity=".34" filter="url(#beamBlur)">
-      <animate attributeName="stroke-dashoffset" values="0;-618" dur="2.7s" repeatCount="indefinite"/>
-    </rect>
+    <rect x="2" y="2" width="356" height="88" rx="24" fill="url(#panel)" stroke="#fff" stroke-opacity=".16" stroke-width="1"/>
+    <ellipse cx="112" cy="3" rx="108" ry="29" fill="#fff" opacity=".08" filter="url(#soft)"/>
+    <rect x="2" y="2" width="356" height="88" rx="24" fill="none" stroke="#2a3038" stroke-width="2"/>
+    <path d="M24 88H92" fill="none" stroke="#8feeff" stroke-width="2" stroke-linecap="round" opacity=".25" filter="url(#accentBlur)">
+      <animate attributeName="d" values="M24 88H60;M24 88H124;M24 88H60" dur="6.5s" repeatCount="indefinite"/>
+    </path>
+    <path d="M24 88H92" fill="none" stroke="#b9f7ff" stroke-width="1.2" stroke-linecap="round" opacity=".78">
+      <animate attributeName="d" values="M24 88H60;M24 88H124;M24 88H60" dur="6.5s" repeatCount="indefinite"/>
+    </path>
     <circle cx="52" cy="46" r="28" fill="#242a31" stroke="#fff" stroke-opacity=".2"/>
     <circle cx="52" cy="46" r="24" fill="none" stroke="#fff" stroke-opacity=".08"/>
     <path d="M44 38l-10 8 10 8M60 38l10 8-10 8M57 31l-10 30" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="52" cy="46" r="2.3" fill="#fff"><animate attributeName="r" values="2.3;3.4;2.3" dur="2s" repeatCount="indefinite"/></circle>
+    <circle cx="52" cy="46" r="2.3" fill="#fff"><animate attributeName="r" values="2.3;3.2;2.3" dur="2.6s" repeatCount="indefinite"/></circle>
     <g font-family="monospace">
       <text x="96" y="39" fill="#fff" opacity=".58" font-size="13" letter-spacing="1.6">GITHUB</text>
       <text x="96" y="64" fill="#fff" opacity=".96" font-size="17">@xFrankB</text>
