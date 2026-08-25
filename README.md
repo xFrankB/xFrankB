@@ -2,17 +2,10 @@
 
 <img src="./assets/hero.svg" alt="xFrankB — Francisco Baylón" width="100%" />
 
-<br />
-
-<p align="center">
-  <a href="https://github.com/xFrankB" title="GitHub">
-    <img src="./assets/github-pill.svg" alt="GitHub · @xFrankB" width="280" />
-  </a>
-  <br /><br />
-  <a href="mailto:jfby13@gmail.com" title="Contacto">
-    <img src="./assets/contact-pill.svg" alt="Contacto · jfby13@gmail.com" width="280" />
-  </a>
-</p>
+<div align="center">
+  <a href="https://github.com/xFrankB" title="GitHub"><img src="./assets/github-pill.svg" alt="GitHub · @xFrankB" width="280" /></a><br />
+  <a href="mailto:jfby13@gmail.com" title="Contacto"><img src="./assets/contact-pill.svg" alt="Contacto · jfby13@gmail.com" width="280" /></a>
+</div>
 
 </div>
 
