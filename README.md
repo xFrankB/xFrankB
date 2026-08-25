@@ -12,10 +12,11 @@
 <div align="center">
 
 <img src="./assets/content.svg" alt="Perfil técnico, enfoque, proyecto, stack y contacto de xFrankB" width="100%" />
+<p align="center"><sub><code>Software Developer Trainee · Full-stack · Applied AI · Practical problem solving</code></sub></p>
+<img src="./assets/evidence.svg" alt="Evidencia pública del proyecto U3_APM y su estructura técnica" width="100%" />
+<img src="./assets/signal.svg" alt="Señales técnicas verificables de xFrankB" width="100%" />
 
-<img src="./assets/signal.svg" alt="Señales públicas y stack técnico de xFrankB" width="100%" />
-
-<img src="./assets/activity.svg" alt="Campo de actividad de GitHub de xFrankB" width="100%" />
+<img src="./assets/activity.svg" alt="Ritmo visual de trabajo y consistencia de xFrankB" width="100%" />
 
 </div>
 
@@ -23,6 +24,7 @@
 
 <img src="./assets/footer.svg" alt="Build learn repeat — xFrankB" width="100%" />
 
-<sub>Diseñado desde cero con SVG local, animación SMIL, blur monocromático y tipografía terminal.</sub>
+<sub>Designed from scratch with local SVG, SMIL animation, monochrome blur and terminal typography.</sub><br />
+<sub><code>OPEN TO: trainee / junior opportunities · collaborative builds</code></sub>
 
 </div>

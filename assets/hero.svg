@@ -62,7 +62,7 @@
       <circle cx="3" cy="34" r="4" fill="#ffffff">
         <animate attributeName="opacity" values="1;0.25;1" dur="2.4s" repeatCount="indefinite"/>
       </circle>
-      <text x="20" y="40" fill="#ffffff" fill-opacity="0.5" font-family="monospace" font-size="12" letter-spacing="2">ONLINE • BUILDING IN PUBLIC</text>
+      <text x="20" y="40" fill="#ffffff" fill-opacity="0.5" font-family="monospace" font-size="12" letter-spacing="2">TRAINEE • BUILDING IN PUBLIC</text>
       <text x="0" y="126" fill="#ffffff" font-family="monospace" font-size="72" font-weight="700" letter-spacing="-3">xFrankB</text>
       <text x="4" y="166" fill="#ffffff" fill-opacity="0.76" font-family="monospace" font-size="22" letter-spacing="4">FRANCISCO BAYLÓN</text>
       <rect x="5" y="190" width="330" height="2" fill="#ffffff" fill-opacity="0.35"/>
@@ -70,7 +70,7 @@
         <animate attributeName="x" values="5;250;5" dur="6s" repeatCount="indefinite"/>
         <animate attributeName="width" values="82;34;82" dur="6s" repeatCount="indefinite"/>
       </rect>
-      <text x="5" y="220" fill="#ffffff" fill-opacity="0.58" font-family="monospace" font-size="13" letter-spacing="1">SOFTWARE • AI • MULTIPLATFORM</text>
+      <text x="5" y="220" fill="#ffffff" fill-opacity="0.58" font-family="monospace" font-size="13" letter-spacing="1">FULL-STACK • APPLIED AI • BUILDING</text>
     </g>
 
     <g transform="translate(884 74)">

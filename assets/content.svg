@@ -28,9 +28,9 @@
     <g class="mono">
       <text x="58" y="65" class="label">/ WHOAMI</text>
       <text x="58" y="105" class="strong">Francisco Baylón / xFrankB</text>
-      <text x="58" y="140" class="body">Desarrollador de software multiplataforma en formación.</text>
-      <text x="58" y="168" class="body">Interfaces web, arquitectura full-stack, automatización</text>
-      <text x="58" y="196" class="body">e inteligencia artificial aplicada.</text>
+      <text x="58" y="140" class="body">Software developer trainee focused on full-stack products</text>
+      <text x="58" y="168" class="body">and applied AI: interfaces, architecture, automation</text>
+      <text x="58" y="196" class="body">and practical problem solving.</text>
       <text x="58" y="236" class="muted">$ mission: entender → construir → documentar → mejorar</text>
 
       <path d="M58 270H1142" class="line"/>
@@ -49,9 +49,9 @@
       <path d="M58 412H1142" class="line"/>
       <text x="58" y="452" class="label">/ SELECTED_WORK</text>
       <text x="58" y="492" class="strong">U3_APM</text>
-      <text x="58" y="522" class="body">Aplicación full-stack organizada para crecer por módulos.</text>
+      <text x="58" y="522" class="body">Aplicación full-stack modular con límites visibles.</text>
       <text x="58" y="550" class="muted">client/   server/   shared/   patches/</text>
-      <text x="58" y="578" class="muted">TypeScript 97% · React · Vite · Express · pnpm · MIT</text>
+      <text x="58" y="578" class="muted">TypeScript 97% · React · Vite · Express · pnpm</text>
       <text x="774" y="492" class="label">BUILD_PIPELINE</text>
       <text x="774" y="526" class="body">dev</text><text x="900" y="526" class="body">build</text><text x="1026" y="526" class="body">start</text>
       <text x="774" y="560" class="body">check</text><text x="900" y="560" class="body">format</text>
