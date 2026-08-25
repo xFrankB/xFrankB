@@ -1,17 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="360" height="92" viewBox="0 0 360 92" role="img" aria-labelledby="title desc">
   <title id="title">GitHub · @xFrankB</title>
-  <desc id="desc">Soft rounded monochrome GitHub panel with a subtle animated cyan status accent.</desc>
+  <desc id="desc">GitHub panel using the same monochrome background, grid, blur and border treatment as the profile sections.</desc>
   <defs>
-    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#17191d" stop-opacity=".98"/><stop offset="1" stop-color="#08090b" stop-opacity=".98"/></linearGradient>
-    <filter id="soft" x="-20%" y="-30%" width="140%" height="160%"><feGaussianBlur stdDeviation="10"/></filter>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#050505"/><stop offset="0.55" stop-color="#141414"/><stop offset="1" stop-color="#060606"/></linearGradient>
+    <filter id="blur32" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="32"/></filter>
+    <filter id="blur10" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="10"/></filter>
     <filter id="accentBlur" x="-40%" y="-200%" width="180%" height="500%"><feGaussianBlur stdDeviation="3.5"/></filter>
+    <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse"><path d="M38 0H0V38" fill="none" stroke="#fff" stroke-opacity=".055"/><circle cx="1" cy="1" r="1" fill="#fff" opacity=".14"/></pattern>
     <clipPath id="clip"><rect x="2" y="2" width="356" height="88" rx="24"/></clipPath>
   </defs>
   <rect width="360" height="92" fill="none"/>
   <g clip-path="url(#clip)">
-    <rect x="2" y="2" width="356" height="88" rx="24" fill="url(#panel)" stroke="#fff" stroke-opacity=".16" stroke-width="1"/>
-    <ellipse cx="112" cy="3" rx="108" ry="29" fill="#fff" opacity=".08" filter="url(#soft)"/>
-    <rect x="2" y="2" width="356" height="88" rx="24" fill="none" stroke="#2a3038" stroke-width="2"/>
+    <rect x="2" y="2" width="356" height="88" rx="24" fill="url(#bg)"/>
+    <rect x="2" y="2" width="356" height="88" rx="24" fill="url(#grid)"/>
+    <g filter="url(#blur32)" opacity=".35">
+      <circle cx="54" cy="24" r="52" fill="#fff"><animate attributeName="cx" values="54;92;54" dur="18s" repeatCount="indefinite"/></circle>
+      <circle cx="308" cy="78" r="58" fill="#888"><animate attributeName="cy" values="78;54;78" dur="15s" repeatCount="indefinite"/></circle>
+    </g>
+    <rect x="2" y="2" width="356" height="88" rx="24" fill="none" stroke="#fff" stroke-opacity=".2"/>
+    <rect x="2" y="2" width="356" height="88" rx="24" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="7" filter="url(#blur10)"/>
     <path d="M24 88H92" fill="none" stroke="#8feeff" stroke-width="2" stroke-linecap="round" opacity=".25" filter="url(#accentBlur)">
       <animate attributeName="d" values="M24 88H60;M24 88H124;M24 88H60" dur="6.5s" repeatCount="indefinite"/>
     </path>
