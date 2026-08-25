@@ -5,11 +5,11 @@
 <br />
 
 <a href="https://github.com/xFrankB" title="GitHub">
-  <img src="./assets/github-icon.svg" alt="GitHub" width="30" />
+  <img src="./assets/github-pill.svg" alt="GitHub · @xFrankB" width="280" />
 </a>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <a href="mailto:jfby13@gmail.com" title="Contacto">
-  <img src="./assets/mail-icon.svg" alt="Contacto" width="30" />
+  <img src="./assets/contact-pill.svg" alt="Contacto · jfby13@gmail.com" width="280" />
 </a>
 
 </div>
