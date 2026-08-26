@@ -87,87 +87,111 @@
       </circle>
       <text x="110" y="72" text-anchor="middle" fill="#ffffff" fill-opacity="0.82" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8" letter-spacing="1">TECH</text>
       <g transform="rotate(0 110 68)">
-        <circle cx="110.0" cy="34.0" r="2.6" fill="#ffffff" fill-opacity="0.9">
+        <title>TypeScript detected in public repositories</title>
+        <rect x="103.0" y="27.0" width="14" height="14" rx="4" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.42"/>
+        <circle cx="110.0" cy="34.0" r="2.4" fill="#ffffff" fill-opacity="0.88">
           <animate attributeName="opacity" values="0.45;1;0.45" dur="2.20s" begin="0.00s" repeatCount="indefinite"/>
         </circle>
-        <text x="115.0" y="37.5" text-anchor="start" fill="#ffffff" fill-opacity="0.74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9">TypeScript</text>
+        <text x="110.0" y="36.5" text-anchor="middle" fill="#ffffff" fill-opacity="0.88" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="6.5" font-weight="700" letter-spacing="0.4">TS</text>
         <animateTransform attributeName="transform" type="rotate" from="0 110 68" to="360 110 68" dur="22s" repeatCount="indefinite"/>
       </g>
       <g transform="rotate(0 110 68)">
-        <circle cx="119.9" cy="46.3" r="2.6" fill="#ffffff" fill-opacity="0.9">
+        <title>JavaScript detected in public repositories</title>
+        <rect x="112.9" y="39.3" width="14" height="14" rx="4" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.42"/>
+        <circle cx="119.9" cy="46.3" r="2.4" fill="#ffffff" fill-opacity="0.88">
           <animate attributeName="opacity" values="0.45;1;0.45" dur="2.55s" begin="0.22s" repeatCount="indefinite"/>
         </circle>
-        <text x="124.9" y="49.8" text-anchor="start" fill="#ffffff" fill-opacity="0.74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9">JavaScript</text>
+        <text x="119.9" y="48.8" text-anchor="middle" fill="#ffffff" fill-opacity="0.88" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="6.5" font-weight="700" letter-spacing="0.4">JS</text>
         <animateTransform attributeName="transform" type="rotate" from="0 110 68" to="360 110 68" dur="17s" repeatCount="indefinite"/>
       </g>
       <g transform="rotate(0 110 68)">
-        <circle cx="181.0" cy="51.0" r="2.6" fill="#ffffff" fill-opacity="0.9">
+        <title>Python detected in public repositories</title>
+        <rect x="174.0" y="44.0" width="14" height="14" rx="4" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.42"/>
+        <circle cx="181.0" cy="51.0" r="2.4" fill="#ffffff" fill-opacity="0.88">
           <animate attributeName="opacity" values="0.45;1;0.45" dur="2.90s" begin="0.44s" repeatCount="indefinite"/>
         </circle>
-        <text x="186.0" y="54.5" text-anchor="start" fill="#ffffff" fill-opacity="0.74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9">Python</text>
+        <text x="181.0" y="53.5" text-anchor="middle" fill="#ffffff" fill-opacity="0.88" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="6.5" font-weight="700" letter-spacing="0.4">PY</text>
         <animateTransform attributeName="transform" type="rotate" from="0 110 68" to="360 110 68" dur="22s" repeatCount="indefinite"/>
       </g>
       <g transform="rotate(0 110 68)">
-        <circle cx="167.9" cy="60.2" r="2.6" fill="#ffffff" fill-opacity="0.9">
+        <title>React detected in public repositories</title>
+        <rect x="160.9" y="53.2" width="14" height="14" rx="4" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.42"/>
+        <circle cx="167.9" cy="60.2" r="2.4" fill="#ffffff" fill-opacity="0.88">
           <animate attributeName="opacity" values="0.45;1;0.45" dur="3.25s" begin="0.66s" repeatCount="indefinite"/>
         </circle>
-        <text x="172.9" y="63.7" text-anchor="start" fill="#ffffff" fill-opacity="0.74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9">React</text>
+        <text x="167.9" y="62.7" text-anchor="middle" fill="#ffffff" fill-opacity="0.88" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="6.5" font-weight="700" letter-spacing="0.4">R</text>
         <animateTransform attributeName="transform" type="rotate" from="0 110 68" to="360 110 68" dur="17s" repeatCount="indefinite"/>
       </g>
       <g transform="rotate(0 110 68)">
-        <circle cx="181.0" cy="85.0" r="2.6" fill="#ffffff" fill-opacity="0.9">
+        <title>Vite detected in public repositories</title>
+        <rect x="174.0" y="78.0" width="14" height="14" rx="4" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.42"/>
+        <circle cx="181.0" cy="85.0" r="2.4" fill="#ffffff" fill-opacity="0.88">
           <animate attributeName="opacity" values="0.45;1;0.45" dur="2.20s" begin="0.88s" repeatCount="indefinite"/>
         </circle>
-        <text x="186.0" y="88.5" text-anchor="start" fill="#ffffff" fill-opacity="0.74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9">Vite</text>
+        <text x="181.0" y="87.5" text-anchor="middle" fill="#ffffff" fill-opacity="0.88" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="6.5" font-weight="700" letter-spacing="0.4">V</text>
         <animateTransform attributeName="transform" type="rotate" from="0 110 68" to="360 110 68" dur="22s" repeatCount="indefinite"/>
       </g>
       <g transform="rotate(0 110 68)">
-        <circle cx="158.1" cy="81.9" r="2.6" fill="#ffffff" fill-opacity="0.9">
+        <title>Node.js detected in public repositories</title>
+        <rect x="151.1" y="74.9" width="14" height="14" rx="4" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.42"/>
+        <circle cx="158.1" cy="81.9" r="2.4" fill="#ffffff" fill-opacity="0.88">
           <animate attributeName="opacity" values="0.45;1;0.45" dur="2.55s" begin="0.00s" repeatCount="indefinite"/>
         </circle>
-        <text x="163.1" y="85.4" text-anchor="start" fill="#ffffff" fill-opacity="0.74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9">Node.js</text>
+        <text x="158.1" y="84.4" text-anchor="middle" fill="#ffffff" fill-opacity="0.88" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="6.5" font-weight="700" letter-spacing="0.4">N</text>
         <animateTransform attributeName="transform" type="rotate" from="0 110 68" to="360 110 68" dur="17s" repeatCount="indefinite"/>
       </g>
       <g transform="rotate(0 110 68)">
-        <circle cx="110.0" cy="102.0" r="2.6" fill="#ffffff" fill-opacity="0.9">
+        <title>Express detected in public repositories</title>
+        <rect x="103.0" y="95.0" width="14" height="14" rx="4" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.42"/>
+        <circle cx="110.0" cy="102.0" r="2.4" fill="#ffffff" fill-opacity="0.88">
           <animate attributeName="opacity" values="0.45;1;0.45" dur="2.90s" begin="0.22s" repeatCount="indefinite"/>
         </circle>
-        <text x="115.0" y="105.5" text-anchor="start" fill="#ffffff" fill-opacity="0.74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9">Express</text>
+        <text x="110.0" y="104.5" text-anchor="middle" fill="#ffffff" fill-opacity="0.88" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="6.5" font-weight="700" letter-spacing="0.4">EX</text>
         <animateTransform attributeName="transform" type="rotate" from="0 110 68" to="360 110 68" dur="22s" repeatCount="indefinite"/>
       </g>
       <g transform="rotate(0 110 68)">
-        <circle cx="100.1" cy="89.7" r="2.6" fill="#ffffff" fill-opacity="0.9">
+        <title>pnpm detected in public repositories</title>
+        <rect x="93.1" y="82.7" width="14" height="14" rx="4" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.42"/>
+        <circle cx="100.1" cy="89.7" r="2.4" fill="#ffffff" fill-opacity="0.88">
           <animate attributeName="opacity" values="0.45;1;0.45" dur="3.25s" begin="0.44s" repeatCount="indefinite"/>
         </circle>
-        <text x="95.1" y="93.2" text-anchor="end" fill="#ffffff" fill-opacity="0.74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9">pnpm</text>
+        <text x="100.1" y="92.2" text-anchor="middle" fill="#ffffff" fill-opacity="0.88" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="6.5" font-weight="700" letter-spacing="0.4">PN</text>
         <animateTransform attributeName="transform" type="rotate" from="0 110 68" to="360 110 68" dur="17s" repeatCount="indefinite"/>
       </g>
       <g transform="rotate(0 110 68)">
-        <circle cx="39.0" cy="85.0" r="2.6" fill="#ffffff" fill-opacity="0.9">
+        <title>HTML detected in public repositories</title>
+        <rect x="32.0" y="78.0" width="14" height="14" rx="4" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.42"/>
+        <circle cx="39.0" cy="85.0" r="2.4" fill="#ffffff" fill-opacity="0.88">
           <animate attributeName="opacity" values="0.45;1;0.45" dur="2.20s" begin="0.66s" repeatCount="indefinite"/>
         </circle>
-        <text x="34.0" y="88.5" text-anchor="end" fill="#ffffff" fill-opacity="0.74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9">HTML</text>
+        <text x="39.0" y="87.5" text-anchor="middle" fill="#ffffff" fill-opacity="0.88" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="6.5" font-weight="700" letter-spacing="0.4">HT</text>
         <animateTransform attributeName="transform" type="rotate" from="0 110 68" to="360 110 68" dur="22s" repeatCount="indefinite"/>
       </g>
       <g transform="rotate(0 110 68)">
-        <circle cx="52.1" cy="75.8" r="2.6" fill="#ffffff" fill-opacity="0.9">
+        <title>CSS detected in public repositories</title>
+        <rect x="45.1" y="68.8" width="14" height="14" rx="4" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.42"/>
+        <circle cx="52.1" cy="75.8" r="2.4" fill="#ffffff" fill-opacity="0.88">
           <animate attributeName="opacity" values="0.45;1;0.45" dur="2.55s" begin="0.88s" repeatCount="indefinite"/>
         </circle>
-        <text x="47.1" y="79.3" text-anchor="end" fill="#ffffff" fill-opacity="0.74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9">CSS</text>
+        <text x="52.1" y="78.3" text-anchor="middle" fill="#ffffff" fill-opacity="0.88" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="6.5" font-weight="700" letter-spacing="0.4">CS</text>
         <animateTransform attributeName="transform" type="rotate" from="0 110 68" to="360 110 68" dur="17s" repeatCount="indefinite"/>
       </g>
       <g transform="rotate(0 110 68)">
-        <circle cx="39.0" cy="51.0" r="2.6" fill="#ffffff" fill-opacity="0.9">
+        <title>Tailwind CSS detected in public repositories</title>
+        <rect x="32.0" y="44.0" width="14" height="14" rx="4" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.42"/>
+        <circle cx="39.0" cy="51.0" r="2.4" fill="#ffffff" fill-opacity="0.88">
           <animate attributeName="opacity" values="0.45;1;0.45" dur="2.90s" begin="0.00s" repeatCount="indefinite"/>
         </circle>
-        <text x="34.0" y="54.5" text-anchor="end" fill="#ffffff" fill-opacity="0.74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9">Tailwind CSS</text>
+        <text x="39.0" y="53.5" text-anchor="middle" fill="#ffffff" fill-opacity="0.88" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="6.5" font-weight="700" letter-spacing="0.4">TW</text>
         <animateTransform attributeName="transform" type="rotate" from="0 110 68" to="360 110 68" dur="22s" repeatCount="indefinite"/>
       </g>
       <g transform="rotate(0 110 68)">
-        <circle cx="61.9" cy="54.1" r="2.6" fill="#ffffff" fill-opacity="0.9">
+        <title>Git detected in public repositories</title>
+        <rect x="54.9" y="47.1" width="14" height="14" rx="4" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.42"/>
+        <circle cx="61.9" cy="54.1" r="2.4" fill="#ffffff" fill-opacity="0.88">
           <animate attributeName="opacity" values="0.45;1;0.45" dur="3.25s" begin="0.22s" repeatCount="indefinite"/>
         </circle>
-        <text x="56.9" y="57.6" text-anchor="end" fill="#ffffff" fill-opacity="0.74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9">Git</text>
+        <text x="61.9" y="56.6" text-anchor="middle" fill="#ffffff" fill-opacity="0.88" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="6.5" font-weight="700" letter-spacing="0.4">G</text>
         <animateTransform attributeName="transform" type="rotate" from="0 110 68" to="360 110 68" dur="17s" repeatCount="indefinite"/>
       </g>
     </g>

@@ -187,6 +187,19 @@ TECH_PRIORITY = [
     "Pandas", "PyTorch", "Git", "GitHub Actions", "Linux", "Docker", "Go", "Rust",
 ]
 TECH_FALLBACK = ["TypeScript", "JavaScript", "Python", "React", "Vite", "Node.js", "Express", "pnpm", "Git", "Linux", "HTML", "CSS"]
+TECH_MARKS = {
+    "TypeScript": "TS", "JavaScript": "JS", "Python": "PY", "React": "R",
+    "Vite": "V", "Node.js": "N", "Express": "EX", "pnpm": "PN",
+    "HTML": "HT", "CSS": "CS", "Tailwind CSS": "TW", "Git": "G",
+    "GitHub Actions": "CI", "Linux": "LX", "Docker": "DK",
+}
+
+
+def technology_mark(technology: str) -> str:
+    if technology in TECH_MARKS:
+        return TECH_MARKS[technology]
+    words = re.findall(r"[A-Za-z0-9]+", technology)
+    return "".join(word[0] for word in words).upper()[:3] or "•"
 
 
 def _add_technology(found: set[str], value: str | None) -> None:
@@ -228,7 +241,9 @@ def detected_technologies() -> list[str]:
             continue
         _add_technology(found, "Git")
         for language in repository.get("languages", {}).get("nodes", []):
-            _add_technology(found, language.get("name"))
+            language_name = str(language.get("name", "")).strip()
+            if language_name:
+                found.add(LANGUAGE_LABELS.get(language_name, language_name))
         package_json = repository.get("packageJson") or {}
         _scan_package_json(package_json.get("text", ""), found)
         for field in ("requirements", "pyproject", "goMod", "cargo", "dockerfile", "pom"):
@@ -268,15 +283,16 @@ def render_technology_orbit(technologies: list[str]) -> str:
         rx, ry = ((82, 34) if orbit == 0 else (62, 22))
         x = 110 + math.cos(angle) * rx
         y = 68 + math.sin(angle) * ry
-        anchor = "start" if math.cos(angle) >= 0 else "end"
-        label_x = x + (5 if anchor == "start" else -5)
         duration = "22s" if orbit == 0 else "17s"
+        mark = technology_mark(technology)
         lines.extend([
             f'      <g transform="rotate(0 110 68)">',
-            f'        <circle cx="{x:.1f}" cy="{y:.1f}" r="2.6" fill="#ffffff" fill-opacity="0.9">',
+            f'        <title>{escape(technology)} detected in public repositories</title>',
+            f'        <rect x="{x - 7:.1f}" y="{y - 7:.1f}" width="14" height="14" rx="4" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.42"/>',
+            f'        <circle cx="{x:.1f}" cy="{y:.1f}" r="2.4" fill="#ffffff" fill-opacity="0.88">',
             f'          <animate attributeName="opacity" values="0.45;1;0.45" dur="{2.2 + (index % 4) * 0.35:.2f}s" begin="{(index % 5) * 0.22:.2f}s" repeatCount="indefinite"/>',
             '        </circle>',
-            f'        <text x="{label_x:.1f}" y="{y + 3.5:.1f}" text-anchor="{anchor}" fill="#ffffff" fill-opacity="0.74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9">{escape(technology)}</text>',
+            f'        <text x="{x:.1f}" y="{y + 2.5:.1f}" text-anchor="middle" fill="#ffffff" fill-opacity="0.88" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="6.5" font-weight="700" letter-spacing="0.4">{escape(mark)}</text>',
             f'        <animateTransform attributeName="transform" type="rotate" from="0 110 68" to="360 110 68" dur="{duration}" repeatCount="indefinite"/>',
             '      </g>',
         ])
