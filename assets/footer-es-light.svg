@@ -9,12 +9,12 @@
   <rect width="1200" height="170" fill="none"/>
   <g clip-path="url(#clip)">
     <rect x="16" y="16" width="1168" height="138" rx="30" fill="url(#bg)"/>
-    <ellipse cx="200" cy="86" rx="160" ry="40" fill="#fff" opacity=".08" filter="url(#blur18)"><animate attributeName="cx" values="200;1000;200" dur="22s" repeatCount="indefinite"/></ellipse>
-    <path d="M36 86H1164" stroke="#fff" stroke-opacity=".12"/>
-    <path d="M36 86H1164" stroke="#fff" stroke-width="2" stroke-dasharray="3 18" stroke-opacity=".48"><animate attributeName="stroke-dashoffset" values="0;-210" dur="6s" repeatCount="indefinite"/></path>
-    <text x="54" y="65" fill="#fff" font-family="monospace" font-size="13" font-weight="600" letter-spacing="3" opacity=".7">FIN_DEL_PERFIL</text>
-    <text x="54" y="112" fill="#fff" font-family="monospace" font-size="24" font-weight="700" letter-spacing="2">CONSTRUIR • APRENDER • REPETIR</text>
-    <text x="1146" y="112" fill="#fff" text-anchor="end" font-family="monospace" font-size="13" font-weight="600" opacity=".7">xFrankB / 2026</text>
-    <rect x="16" y="16" width="1168" height="138" rx="30" fill="none" stroke="#fff" stroke-opacity=".2"/>
+    <ellipse cx="200" cy="86" rx="160" ry="40" fill="#151515" opacity=".08" filter="url(#blur18)"><animate attributeName="cx" values="200;1000;200" dur="22s" repeatCount="indefinite"/></ellipse>
+    <path d="M36 86H1164" stroke="#151515" stroke-opacity=".12"/>
+    <path d="M36 86H1164" stroke="#151515" stroke-width="2" stroke-dasharray="3 18" stroke-opacity=".48"><animate attributeName="stroke-dashoffset" values="0;-210" dur="6s" repeatCount="indefinite"/></path>
+    <text x="54" y="65" fill="#151515" font-family="monospace" font-size="13" font-weight="600" letter-spacing="3" opacity=".7">FIN_DEL_PERFIL</text>
+    <text x="54" y="112" fill="#151515" font-family="monospace" font-size="24" font-weight="700" letter-spacing="2">CONSTRUIR • APRENDER • REPETIR</text>
+    <text x="1146" y="112" fill="#151515" text-anchor="end" font-family="monospace" font-size="13" font-weight="600" opacity=".7">xFrankB / 2026</text>
+    <rect x="16" y="16" width="1168" height="138" rx="30" fill="none" stroke="#151515" stroke-opacity=".2"/>
   </g>
 </svg>
