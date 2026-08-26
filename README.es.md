@@ -2,8 +2,10 @@
 
 <div align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/hero-es.gif?v=18" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/hero-es-light.gif?v=18" />
+  <source type="image/webp" media="(prefers-color-scheme: dark)" srcset="./assets/hero-es.webp?v=19" />
+  <source type="image/webp" media="(prefers-color-scheme: light)" srcset="./assets/hero-es-light.webp?v=19" />
+  <source type="image/gif" media="(prefers-color-scheme: dark)" srcset="./assets/hero-es.gif?v=18" />
+  <source type="image/gif" media="(prefers-color-scheme: light)" srcset="./assets/hero-es-light.gif?v=18" />
   <img src="./assets/hero-es.gif?v=18" alt="xFrankB — Francisco Baylón" width="100%" />
 </picture>
 </div>

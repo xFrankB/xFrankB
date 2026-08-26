@@ -526,20 +526,32 @@ def picture(asset_dark: str, asset_light: str, alt: str, width: str = "100%") ->
     ])
 
 
+def animated_picture(webp_dark: str, webp_light: str, gif_dark: str, gif_light: str, alt: str, width: str = "100%") -> str:
+    return "\n".join([
+        "<picture>",
+        f'  <source type="image/webp" media="(prefers-color-scheme: dark)" srcset="./assets/{webp_dark}" />',
+        f'  <source type="image/webp" media="(prefers-color-scheme: light)" srcset="./assets/{webp_light}" />',
+        f'  <source type="image/gif" media="(prefers-color-scheme: dark)" srcset="./assets/{gif_dark}" />',
+        f'  <source type="image/gif" media="(prefers-color-scheme: light)" srcset="./assets/{gif_light}" />',
+        f'  <img src="./assets/{gif_dark}" alt="{escape(alt)}" width="{width}" />',
+        "</picture>",
+    ])
+
+
 def build_readme(years: list[int], calendars: dict[int, dict], language: str) -> str:
     spanish = language == "es"
     github_label = "&lt;/&gt; GITHUB · @xFrankB"
     contact_label = "[CORREO] CONTACTO · jfby13@gmail.com" if spanish else "[MAIL] CONTACT · jfby13@gmail.com"
     open_to = "DISPONIBLE PARA: oportunidades trainee / junior · construcciones colaborativas" if spanish else "OPEN TO: trainee / junior opportunities · collaborative builds"
     if spanish:
-        hero = picture("hero-es.gif?v=18", "hero-es-light.gif?v=18", "xFrankB — Francisco Baylón", width="100%")
+        hero = animated_picture("hero-es.webp?v=19", "hero-es-light.webp?v=19", "hero-es.gif?v=18", "hero-es-light.gif?v=18", "xFrankB — Francisco Baylón", width="100%")
         content = picture("content-es.svg", "content-es-light.svg", "Perfil técnico, enfoque, proyecto, stack y contacto de xFrankB")
         evidence = picture("evidence-es.svg", "evidence-es-light.svg", "Evidencia pública del proyecto U3_APM y su estructura técnica")
         signal = picture("signal-es.svg", "signal-es-light.svg", "Señales técnicas verificables de xFrankB")
         footer = picture("footer-es.svg", "footer-es-light.svg", "Construir, aprender y repetir — xFrankB")
         contribution_alt = "Calendario de contribuciones públicas de xFrankB"
     else:
-        hero = picture("hero.gif?v=18", "hero-light.gif?v=18", "xFrankB — Francisco Baylón", width="100%")
+        hero = animated_picture("hero.webp?v=19", "hero-light.webp?v=19", "hero.gif?v=18", "hero-light.gif?v=18", "xFrankB — Francisco Baylón", width="100%")
         content = picture("content.svg", "content-light.svg", "Technical profile, focus, project, stack and contact for xFrankB")
         evidence = picture("evidence.svg", "evidence-light.svg", "Public evidence of the U3_APM project and its technical structure")
         signal = picture("signal.svg", "signal-light.svg", "Verified technical signals for xFrankB")
