@@ -244,10 +244,8 @@ def picture(asset_dark: str, asset_light: str, alt: str) -> str:
     ])
 
 
-def build_readme(years: list[int], language: str) -> str:
+def build_readme(years: list[int], calendars: dict[int, dict], language: str) -> str:
     spanish = language == "es"
-    panel_suffix = "-es"
-    nav = '<a href="./README.md">ENGLISH</a> · <a href="./README.es.md">ESPAÑOL</a>' if spanish else '<a href="./README.es.md">ESPAÑOL</a> · <a href="./README.md">ENGLISH</a>'
     github_label = "&lt;/&gt; GITHUB · @xFrankB"
     contact_label = "[CORREO] CONTACTO · jfby13@gmail.com" if spanish else "[MAIL] CONTACT · jfby13@gmail.com"
     open_to = "DISPONIBLE PARA: oportunidades trainee / junior · construcciones colaborativas" if spanish else "OPEN TO: trainee / junior opportunities · collaborative builds"
@@ -255,33 +253,48 @@ def build_readme(years: list[int], language: str) -> str:
         hero = picture("hero-es.svg", "hero-es-light.svg", "xFrankB — Francisco Baylón")
         content = picture("content-es.svg", "content-es-light.svg", "Perfil técnico, enfoque, proyecto, stack y contacto de xFrankB")
         evidence = picture("evidence-es.svg", "evidence-es-light.svg", "Evidencia pública del proyecto U3_APM y su estructura técnica")
+        signal = picture("signal-es.svg", "signal-es-light.svg", "Señales técnicas verificables de xFrankB")
         footer = picture("footer-es.svg", "footer-es-light.svg", "Construir, aprender y repetir — xFrankB")
         contribution_alt = "Calendario dinámico de contribuciones públicas de xFrankB"
+        language_buttons = '  <a href="./README.md" title="Leer en inglés"><kbd>ENGLISH</kbd></a>  <a href="./README.es.md" title="Leer en español"><kbd>ESPAÑOL</kbd></a>'
     else:
         hero = picture("hero.svg", "hero-light.svg", "xFrankB — Francisco Baylón")
         content = picture("content.svg", "content-light.svg", "Technical profile, focus, project, stack and contact for xFrankB")
         evidence = picture("evidence.svg", "evidence-light.svg", "Public evidence of the U3_APM project and its technical structure")
+        signal = picture("signal.svg", "signal-light.svg", "Verified technical signals for xFrankB")
         footer = picture("footer.svg", "footer-light.svg", "Build, learn, repeat — xFrankB")
         contribution_alt = "Dynamic public contribution calendar for xFrankB"
-    contribution_blocks = []
-    for year in years:
+        language_buttons = '  <a href="./README.es.md" title="Leer en español"><kbd>ESPAÑOL</kbd></a>  <a href="./README.md" title="Read in English"><kbd>ENGLISH</kbd></a>'
+
+    contribution_blocks: list[str] = []
+    for index, year in enumerate(years):
+        total = int(calendars[year].get("totalContributions", 0))
         if spanish:
             dark = f"contributions-{year}-es.svg"
             light = f"contributions-{year}-es-light.svg"
         else:
             dark = f"contributions-{year}.svg"
             light = f"contributions-{year}-light.svg"
-        contribution_blocks.append(picture(dark, light, f"{contribution_alt} — {year}"))
+        open_attr = " open" if index == 0 else ""
+        if spanish:
+            word = "contribución" if total == 1 else "contribuciones"
+        else:
+            word = "contribution" if total == 1 else "contributions"
+        contribution_blocks.append(f'<details name="contribution-years"{open_attr}>')
+        contribution_blocks.append(f"  <summary>{year} · {total} {word}</summary>")
+        contribution_blocks.append("")
+        contribution_blocks.extend(f"  {line}" for line in picture(dark, light, f"{contribution_alt} — {year}").splitlines())
+        contribution_blocks.extend(["</details>", ""])
+
     return "\n".join([
-        '<div align="right">', nav, '</div>', '',
         '<div align="center">', '', hero, '',
         '<div align="center">',
-        f'  <a href="https://github.com/xFrankB" title="GitHub"><kbd>{github_label}</kbd></a><br />',
+        language_buttons,
+        f'  <br />  <a href="https://github.com/xFrankB" title="GitHub"><kbd>{github_label}</kbd></a><br />',
         f'  <a href="mailto:jfby13@gmail.com" title="Contacto"><kbd>{contact_label}</kbd></a>',
         '</div>', '', '</div>', '',
-        '<div align="center">', '', content, '', evidence, '',
-        picture("signal-es.svg", "signal-es-light.svg", "Señales técnicas verificables de xFrankB") if spanish else picture("signal.svg", "signal-light.svg", "Verified technical signals for xFrankB"), '',
-        *sum(([block, ""] for block in contribution_blocks), []),
+        '<div align="center">', '', content, '', evidence, '', signal, '',
+        *contribution_blocks,
         '</div>', '',
         '<div align="center">', '', footer, '',
         f'<sub><code>{open_to}</code></sub>', '', '</div>', ''
@@ -290,10 +303,28 @@ def build_readme(years: list[int], language: str) -> str:
 
 def main() -> int:
     ASSETS.mkdir(parents=True, exist_ok=True)
-    years = available_years()
+    candidate_years = available_years()
     build_translated_panels()
-    for year in years:
+    calendars: dict[int, dict] = {}
+    for year in candidate_years:
         calendar = calendar_for_year(year)
+        total = int(calendar.get("totalContributions", 0))
+        if total > 0:
+            calendars[year] = calendar
+        print(f"year={year} total={total} weeks={len(calendar.get('weeks', []))}")
+    years = sorted(calendars, reverse=True)
+    if not years:
+        years = [max(candidate_years)]
+        calendars[years[0]] = {"totalContributions": 0, "months": [], "weeks": []}
+    expected = set()
+    for year in years:
+        expected.update({
+            f"contributions-{year}.svg",
+            f"contributions-{year}-light.svg",
+            f"contributions-{year}-es.svg",
+            f"contributions-{year}-es-light.svg",
+        })
+        calendar = calendars[year]
         outputs = {
             ASSETS / f"contributions-{year}.svg": render_calendar(calendar, year, DARK, "en"),
             ASSETS / f"contributions-{year}-light.svg": render_calendar(calendar, year, LIGHT, "en"),
@@ -302,9 +333,11 @@ def main() -> int:
         }
         for path, content in outputs.items():
             path.write_text(content, encoding="utf-8")
-        print(f"year={year} total={calendar.get('totalContributions', 0)} weeks={len(calendar.get('weeks', []))}")
-    (ROOT / "README.md").write_text(build_readme(years, "en"), encoding="utf-8")
-    (ROOT / "README.es.md").write_text(build_readme(years, "es"), encoding="utf-8")
+    for path in ASSETS.glob("contributions-*.svg"):
+        if path.name not in expected:
+            path.unlink()
+    (ROOT / "README.md").write_text(build_readme(years, calendars, "en"), encoding="utf-8")
+    (ROOT / "README.es.md").write_text(build_readme(years, calendars, "es"), encoding="utf-8")
     print(f"years={','.join(map(str, years))}")
     return 0
 

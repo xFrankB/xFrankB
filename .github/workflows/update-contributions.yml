@@ -29,20 +29,23 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Generate contribution calendar
+      - name: Build light theme variants
+        run: python3 scripts/build_light_variants.py
+
+      - name: Generate contribution calendars and translations
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_LOGIN: xFrankB
         run: python3 scripts/update_contributions.py
 
-      - name: Commit changed calendar
+      - name: Commit changed calendars and translations
         run: |
-          if git diff --quiet -- assets/contributions.svg assets/contributions-light.svg; then
-            echo "Contribution calendar is already current."
+          if [ -z "$(git status --porcelain -- README.md README.es.md assets)" ]; then
+            echo "Contribution calendars are already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/contributions.svg assets/contributions-light.svg
-          git commit -m "Update contribution calendar"
+          git add README.md README.es.md assets
+          git commit -m "Update contribution calendars and translations"
           git push

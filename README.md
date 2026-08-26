@@ -1,7 +1,3 @@
-<div align="right">
-<a href="./README.es.md">ESPAÑOL</a> · <a href="./README.md">ENGLISH</a>
-</div>
-
 <div align="center">
 
 <picture>
@@ -11,7 +7,8 @@
 </picture>
 
 <div align="center">
-  <a href="https://github.com/xFrankB" title="GitHub"><kbd>&lt;/&gt; GITHUB · @xFrankB</kbd></a><br />
+  <a href="./README.es.md" title="Leer en español"><kbd>ESPAÑOL</kbd></a>  <a href="./README.md" title="Read in English"><kbd>ENGLISH</kbd></a>
+  <br />  <a href="https://github.com/xFrankB" title="GitHub"><kbd>&lt;/&gt; GITHUB · @xFrankB</kbd></a><br />
   <a href="mailto:jfby13@gmail.com" title="Contacto"><kbd>[MAIL] CONTACT · jfby13@gmail.com</kbd></a>
 </div>
 
@@ -37,29 +34,35 @@
   <img src="./assets/signal.svg" alt="Verified technical signals for xFrankB" width="100%" />
 </picture>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/contributions-2026.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/contributions-2026-light.svg" />
-  <img src="./assets/contributions-2026.svg" alt="Dynamic public contribution calendar for xFrankB — 2026" width="100%" />
-</picture>
+<details name="contribution-years" open>
+  <summary>2026 · 24 contributions</summary>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/contributions-2025.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/contributions-2025-light.svg" />
-  <img src="./assets/contributions-2025.svg" alt="Dynamic public contribution calendar for xFrankB — 2025" width="100%" />
-</picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/contributions-2026.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="./assets/contributions-2026-light.svg" />
+    <img src="./assets/contributions-2026.svg" alt="Dynamic public contribution calendar for xFrankB — 2026" width="100%" />
+  </picture>
+</details>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/contributions-2024.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/contributions-2024-light.svg" />
-  <img src="./assets/contributions-2024.svg" alt="Dynamic public contribution calendar for xFrankB — 2024" width="100%" />
-</picture>
+<details name="contribution-years">
+  <summary>2025 · 5 contributions</summary>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/contributions-2023.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/contributions-2023-light.svg" />
-  <img src="./assets/contributions-2023.svg" alt="Dynamic public contribution calendar for xFrankB — 2023" width="100%" />
-</picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/contributions-2025.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="./assets/contributions-2025-light.svg" />
+    <img src="./assets/contributions-2025.svg" alt="Dynamic public contribution calendar for xFrankB — 2025" width="100%" />
+  </picture>
+</details>
+
+<details name="contribution-years">
+  <summary>2023 · 1 contribution</summary>
+
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/contributions-2023.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="./assets/contributions-2023-light.svg" />
+    <img src="./assets/contributions-2023.svg" alt="Dynamic public contribution calendar for xFrankB — 2023" width="100%" />
+  </picture>
+</details>
 
 </div>
 
