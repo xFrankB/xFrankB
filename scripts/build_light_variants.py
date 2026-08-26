@@ -7,6 +7,7 @@ PANEL_NAMES = ("hero", "content", "evidence", "signal", "footer")
 
 PALETTE = (
     ("#ffffff", "__WHITE_LONG__"),
+    ("#0d1117", "#ffffff"),
     ("#fff", "__WHITE_SHORT__"),
     ("#050505", "#f3f3ef"),
     ("#060606", "#e7e7e2"),
