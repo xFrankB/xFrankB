@@ -84,6 +84,7 @@ PANEL_TRANSLATIONS = {
     "03  AI / DATA": "03  IA / DATOS",
     "04  QUALITY": "04  CALIDAD",
     "SYSTEM.STATUS": "ESTADO.SISTEMA",
+    "LANGUAGE": "IDIOMA",
     "READY": "LISTO",
     "ship / learn / repeat": "construir / aprender / repetir",
     "/ WHOAMI": "/ QUIÉN_SOY",
