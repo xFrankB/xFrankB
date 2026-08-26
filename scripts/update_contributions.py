@@ -275,8 +275,10 @@ def detected_technologies() -> list[str]:
 def render_technology_sequence(technologies: list[str]) -> str:
     """Show every unique technology one at a time inside the hero galaxy."""
     technologies = list(dict.fromkeys(technologies)) or TECH_FALLBACK
+
     count = len(technologies)
-    slot = 4.2
+    slot = 3.96
+
     duration = count * slot
     lines = [
         '    <g transform="translate(820 28)" aria-label="Animated technology sequence">',
@@ -295,22 +297,22 @@ def render_technology_sequence(technologies: list[str]) -> str:
     for index, technology in enumerate(technologies):
         mark = escape(technology_mark(technology))
         label = escape(technology)
-        start = (index * slot + 0.06) / duration
-        fade_in_end = (index * slot + 0.42) / duration
-        hold_end = (index * slot + 3.52) / duration
-        fade_out_end = (index * slot + 3.94) / duration
+        start = (index * slot + 0.08) / duration
+        fade_in_end = (index * slot + 0.38) / duration
+        hold_end = (index * slot + 3.56) / duration
+        fade_out_end = (index * slot + 3.88) / duration
         lines.extend([
             '      <g opacity="0">',
             f'        <title>{label} — detected in public repositories</title>',
-            '        <rect x="22" y="70" width="296" height="174" rx="24" fill="#050505" fill-opacity="0.90" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1.1"/>',
+            '        <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.035" stroke="#ffffff" stroke-opacity="0.20" stroke-width="1"/>',
             f'        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;{start:.5f};{fade_in_end:.5f};{hold_end:.5f};{fade_out_end:.5f}" dur="{duration:.1f}s" begin="0s" repeatCount="indefinite"/>',
             f'        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;{start:.5f};{fade_in_end:.5f};{fade_out_end:.5f};1" dur="{duration:.1f}s" begin="0s" repeatCount="indefinite"/>',
-            '        <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4">',
-            '          <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>',
+            '        <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">',
+            '          <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>',
             '        </circle>',
-            f'        <text x="170" y="142" text-anchor="middle" fill="#ffffff" fill-opacity="1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="27" font-weight="700" letter-spacing="0.5">{mark}</text>',
-            f'        <text x="170" y="204" text-anchor="middle" textLength="258" lengthAdjust="spacingAndGlyphs" fill="#ffffff" fill-opacity="0.96" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">{label}</text>',
-            f'        <text x="170" y="226" text-anchor="middle" fill="#ffffff" fill-opacity="0.44" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">{index + 1:02d} / {count:02d}</text>',
+            f'        <text x="170" y="142" text-anchor="middle" fill="#ffffff" fill-opacity="0.90" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="27" font-weight="700" letter-spacing="0.5">{mark}</text>',
+            f'        <text x="170" y="204" text-anchor="middle" textLength="258" lengthAdjust="spacingAndGlyphs" fill="#d3d3d3" fill-opacity="0.90" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">{label}</text>',
+            f'        <text x="170" y="226" text-anchor="middle" fill="#8f8f8f" fill-opacity="0.78" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">{index + 1:02d} / {count:02d}</text>',
             '      </g>',
         ])
     lines.append('    </g>')

@@ -53,11 +53,11 @@ def static_card(technology: str, ordinal: int, total: int, opacity: float) -> st
         [
             f'      <g opacity="{opacity:.2f}" aria-label="{label}">',
             f"        <title>{label} — active technology</title>",
-            '        <rect x="22" y="70" width="296" height="174" rx="24" fill="#050505" fill-opacity="0.92" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1.1"/>',
-            '        <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.92" stroke="#ffffff" stroke-opacity="0.52" stroke-width="1.4"/>',
-            f'        <text x="170" y="142" text-anchor="middle" fill="#ffffff" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="27" font-weight="700" letter-spacing="0.5">{mark}</text>',
-            f'        <text x="170" y="204" text-anchor="middle" textLength="258" lengthAdjust="spacingAndGlyphs" fill="#ffffff" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">{label}</text>',
-            f'        <text x="170" y="226" text-anchor="middle" fill="#ffffff" fill-opacity="0.48" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">{ordinal:02d} / {total:02d}</text>',
+            '        <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.035" stroke="#ffffff" stroke-opacity="0.20" stroke-width="1"/>',
+            '        <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2"/>',
+            f'        <text x="170" y="142" text-anchor="middle" fill="#ffffff" fill-opacity="0.90" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="27" font-weight="700" letter-spacing="0.5">{mark}</text>',
+            f'        <text x="170" y="204" text-anchor="middle" textLength="258" lengthAdjust="spacingAndGlyphs" fill="#d3d3d3" fill-opacity="0.90" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">{label}</text>',
+            f'        <text x="170" y="226" text-anchor="middle" fill="#8f8f8f" fill-opacity="0.78" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">{ordinal:02d} / {total:02d}</text>',
             "      </g>",
         ]
     )
@@ -92,7 +92,7 @@ def build_gif(source_path: Path, output_path: Path) -> None:
     durations: list[int] = []
     # Each technology owns the full slot. The label fades in and out alone,
     # so no two technology names are ever composited in the same frame.
-    sequence = ((0.24, 180), (0.62, 180), (1.0, 3000), (0.62, 180), (0.20, 180))
+    sequence = ((0.12, 260), (0.34, 220), (1.0, 3000), (0.34, 220), (0.12, 260))
     for ordinal, technology in enumerate(technologies, start=1):
         for opacity, duration in sequence:
             svg = frame_svg(source, prefix, suffix, technology, ordinal, len(technologies), opacity)
