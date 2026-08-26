@@ -9,18 +9,18 @@
     <clipPath id="clip"><rect x="16" y="16" width="1168" height="298" rx="32"/></clipPath>
     <style>
       .mono { font-family: monospace; }
-      .label { fill: #fff; opacity: .46; font-size: 12px; letter-spacing: 3px; }
-      .body { fill: #fff; opacity: .74; font-size: 15px; }
-      .strong { fill: #fff; opacity: .94; font-size: 18px; }
-      .muted { fill: #fff; opacity: .42; font-size: 12px; }
-      .line { stroke: #fff; stroke-opacity: .18; }
+      .label { fill: #fff; opacity: .66; font-size: 13px; font-weight: 600; letter-spacing: 3px; }
+      .body { fill: #fff; opacity: .88; font-size: 17px; }
+      .strong { fill: #fff; opacity: 1; font-size: 20px; font-weight: 700; }
+      .muted { fill: #fff; opacity: .60; font-size: 14px; }
+      .line { stroke: #fff; stroke-opacity: .25; }
     </style>
   </defs>
   <rect width="1200" height="330" fill="none"/>
   <g clip-path="url(#clip)">
     <rect x="16" y="16" width="1168" height="298" rx="32" fill="url(#bg)"/>
     <rect x="16" y="16" width="1168" height="298" rx="32" fill="url(#grid)"/>
-    <g filter="url(#blur28)" opacity=".3">
+    <g filter="url(#blur28)" opacity=".16">
       <circle cx="160" cy="45" r="105" fill="#fff"><animate attributeName="cx" values="160;280;160" dur="17s" repeatCount="indefinite"/></circle>
       <circle cx="1040" cy="280" r="130" fill="#888"><animate attributeName="cy" values="280;210;280" dur="14s" repeatCount="indefinite"/></circle>
     </g>
@@ -43,7 +43,7 @@
       <text x="58" y="286" class="muted">architecture visible in repository · modular boundaries · reproducible commands</text>
     </g>
     <rect x="16" y="16" width="1168" height="298" rx="32" fill="none" stroke="#fff" stroke-opacity=".2"/>
-    <rect x="16" y="16" width="1168" height="298" rx="32" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="8" filter="url(#blur8)"/>
-    <rect x="30" y="16" width="2" height="298" fill="#fff" opacity=".18" filter="url(#blur8)"><animate attributeName="x" values="30;1168;30" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="16" y="16" width="1168" height="298" rx="32" fill="none" stroke="#fff" stroke-opacity=".045" stroke-width="7" filter="url(#blur8)"/>
+    <rect x="30" y="16" width="2" height="298" fill="#fff" opacity=".08" filter="url(#blur8)"><animate attributeName="x" values="30;1168;30" dur="18s" repeatCount="indefinite"/></rect>
   </g>
 </svg>
