@@ -12,7 +12,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"
 LOGIN = os.getenv("GITHUB_LOGIN", "xFrankB")
-INTERACTIVE_CALENDAR_URL = f"https://{LOGIN.lower()}.github.io/{LOGIN}/"
 
 YEARS_QUERY = """
 query($login: String!) {
@@ -87,7 +86,9 @@ LANG = {
 PANEL_TRANSLATIONS = {
     "/ PROFILE_IDENTITY": "/ IDENTIDAD",
     "TRAINEE • BUILDING IN PUBLIC": "TRAINEE • CONSTRUYENDO EN PÚBLICO",
+    "ONLINE • BUILDING IN PUBLIC": "EN LÍNEA • CONSTRUYENDO EN PÚBLICO",
     "FULL-STACK • APPLIED AI • BUILDING": "FULL-STACK • IA APLICADA • CONSTRUYENDO",
+    "SOFTWARE • AI • MULTIPLATFORM": "SOFTWARE • IA • MULTIPLATAFORMA",
     "03  AI / DATA": "03  IA / DATOS",
     "04  QUALITY": "04  CALIDAD",
     "SYSTEM.STATUS": "ESTADO.SISTEMA",
@@ -328,32 +329,23 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
     contact_label = "[CORREO] CONTACTO · jfby13@gmail.com" if spanish else "[MAIL] CONTACT · jfby13@gmail.com"
     open_to = "DISPONIBLE PARA: oportunidades trainee / junior · construcciones colaborativas" if spanish else "OPEN TO: trainee / junior opportunities · collaborative builds"
     if spanish:
-        hero = picture("hero-es.svg", "hero-es-light.svg", "xFrankB — Francisco Baylón", width="72%")
+        hero = picture("hero-es.svg", "hero-es-light.svg", "xFrankB — Francisco Baylón", width="100%")
         content = picture("content-es.svg", "content-es-light.svg", "Perfil técnico, enfoque, proyecto, stack y contacto de xFrankB")
         evidence = picture("evidence-es.svg", "evidence-es-light.svg", "Evidencia pública del proyecto U3_APM y su estructura técnica")
         signal = picture("signal-es.svg", "signal-es-light.svg", "Señales técnicas verificables de xFrankB")
         footer = picture("footer-es.svg", "footer-es-light.svg", "Construir, aprender y repetir — xFrankB")
         contribution_alt = "Calendario de contribuciones públicas de xFrankB"
-        contribution_link_title = "Abrir el calendario interactivo completo"
-        language_buttons = '<a href="./README.md" title="Leer en inglés"><kbd>EN</kbd></a><br /><a href="./README.es.md" title="Leer en español"><kbd>ES</kbd></a>'
     else:
-        hero = picture("hero.svg", "hero-light.svg", "xFrankB — Francisco Baylón", width="72%")
+        hero = picture("hero.svg", "hero-light.svg", "xFrankB — Francisco Baylón", width="100%")
         content = picture("content.svg", "content-light.svg", "Technical profile, focus, project, stack and contact for xFrankB")
         evidence = picture("evidence.svg", "evidence-light.svg", "Public evidence of the U3_APM project and its technical structure")
         signal = picture("signal.svg", "signal-light.svg", "Verified technical signals for xFrankB")
         footer = picture("footer.svg", "footer-light.svg", "Build, learn, repeat — xFrankB")
         contribution_alt = "Current-year public contribution calendar for xFrankB"
-        contribution_link_title = "Open the complete interactive contribution calendar"
-        language_buttons = '<a href="./README.es.md" title="Leer en español"><kbd>ES</kbd></a><br /><a href="./README.md" title="Read in English"><kbd>EN</kbd></a>'
 
-    language_label = "IDIOMA" if spanish else "LANGUAGE"
     hero_layout = "\n".join([
         '<div align="center">',
         hero,
-        '<span style="display:inline-block;vertical-align:middle;margin-left:8px;line-height:2.0;text-align:center;">',
-        f'<sub><code>{language_label}</code></sub><br />',
-        language_buttons,
-        '</span>',
         '</div>',
     ])
 
@@ -362,12 +354,6 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
         "contributions-es-light.svg" if spanish else "contributions-light.svg",
         contribution_alt,
     )
-    history_link_label = "ABRIR CALENDARIO INTERACTIVO" if spanish else "OPEN INTERACTIVE CALENDAR"
-    contribution = "\n".join([
-        contribution,
-        f'<sub><a href="{INTERACTIVE_CALENDAR_URL}" title="{contribution_link_title}"><kbd>{history_link_label} ↗</kbd></a></sub>',
-    ])
-
     return "\n".join([
         '<div align="center">', '', hero_layout, '',
         '<div align="center">',

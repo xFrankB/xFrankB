@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="364" viewBox="0 0 1200 364" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-labelledby="title desc">
   <title id="title">xFrankB — Francisco Baylón</title>
   <desc id="desc">Animated monochrome developer profile banner with soft blur, grid and terminal-inspired identity.</desc>
   <defs>
@@ -30,15 +30,15 @@
       <stop offset="0.48" stop-color="#ffffff" stop-opacity="0.85"/>
       <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
     </linearGradient>
-    <clipPath id="frame"><rect x="18" y="18" width="1164" height="344" rx="36"/></clipPath>
+    <clipPath id="frame"><rect x="18" y="18" width="1164" height="344" rx="26"/></clipPath>
   </defs>
 
-  <rect width="1200" height="380" fill="none"/>
+  <rect width="1200" height="380" fill="#ffffff"/>
   <g clip-path="url(#frame)">
-    <rect x="18" y="18" width="1164" height="344" rx="36" fill="url(#bg)"/>
-    <rect x="18" y="18" width="1164" height="344" rx="36" fill="url(#grid)"/>
+    <rect x="18" y="18" width="1164" height="344" rx="26" fill="url(#bg)"/>
+    <rect x="18" y="18" width="1164" height="344" rx="26" fill="url(#grid)"/>
 
-    <g opacity="0.28" filter="url(#blur50)">
+    <g opacity="0.62" filter="url(#blur50)">
       <circle cx="170" cy="88" r="120" fill="url(#glowA)">
         <animate attributeName="cx" values="170;290;170" dur="17s" repeatCount="indefinite"/>
         <animate attributeName="cy" values="88;145;88" dur="13s" repeatCount="indefinite"/>
@@ -52,40 +52,40 @@
       </circle>
     </g>
 
-    <path d="M18 282 C190 232 250 326 412 276 S704 204 860 270 S1060 328 1182 238" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="1"/>
-    <path d="M18 285 C190 235 250 329 412 279 S704 207 860 273 S1060 331 1182 241" fill="none" stroke="url(#line)" stroke-opacity="0.48" stroke-width="1.5" stroke-dasharray="4 16">
+    <path d="M18 282 C190 232 250 326 412 276 S704 204 860 270 S1060 328 1182 238" fill="none" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
+    <path d="M18 285 C190 235 250 329 412 279 S704 207 860 273 S1060 331 1182 241" fill="none" stroke="url(#line)" stroke-opacity="0.78" stroke-width="1.5" stroke-dasharray="4 16">
       <animate attributeName="stroke-dashoffset" values="0;-240" dur="9s" repeatCount="indefinite"/>
     </path>
 
     <g transform="translate(74 70)">
-      <text x="0" y="0" fill="#ffffff" fill-opacity="0.72" font-family="monospace" font-size="14" font-weight="600" letter-spacing="3">/ IDENTIDAD</text>
+      <text x="0" y="0" fill="#ffffff" fill-opacity="0.55" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" letter-spacing="3">/ IDENTIDAD</text>
       <circle cx="3" cy="34" r="4" fill="#ffffff">
         <animate attributeName="opacity" values="1;0.25;1" dur="2.4s" repeatCount="indefinite"/>
       </circle>
-      <text x="20" y="40" fill="#ffffff" fill-opacity="0.68" font-family="monospace" font-size="14" font-weight="600" letter-spacing="2">TRAINEE • CONSTRUYENDO EN PÚBLICO</text>
-      <text x="0" y="126" fill="#ffffff" font-family="monospace" font-size="72" font-weight="700" letter-spacing="-3">xFrankB</text>
-      <text x="4" y="166" fill="#ffffff" fill-opacity="0.9" font-family="monospace" font-size="24" font-weight="600" letter-spacing="4">FRANCISCO BAYLÓN</text>
+      <text x="20" y="40" fill="#ffffff" fill-opacity="0.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="2">EN LÍNEA • CONSTRUYENDO EN PÚBLICO</text>
+      <text x="0" y="126" fill="#ffffff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="72" font-weight="700" letter-spacing="-3">xFrankB</text>
+      <text x="4" y="166" fill="#ffffff" fill-opacity="0.76" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="22" letter-spacing="4">FRANCISCO BAYLÓN</text>
       <rect x="5" y="190" width="330" height="2" fill="#ffffff" fill-opacity="0.35"/>
       <rect x="5" y="190" width="82" height="2" fill="#ffffff">
         <animate attributeName="x" values="5;250;5" dur="6s" repeatCount="indefinite"/>
         <animate attributeName="width" values="82;34;82" dur="6s" repeatCount="indefinite"/>
       </rect>
-      <text x="5" y="220" fill="#ffffff" fill-opacity="0.76" font-family="monospace" font-size="14" font-weight="600" letter-spacing="1">FULL-STACK • IA APLICADA • CONSTRUYENDO</text>
+      <text x="5" y="220" fill="#ffffff" fill-opacity="0.58" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" letter-spacing="1">SOFTWARE • IA • MULTIPLATAFORMA</text>
     </g>
 
     <g transform="translate(884 74)">
       <rect x="0" y="0" width="218" height="136" rx="18" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.24"/>
-      <text x="22" y="32" fill="#ffffff" fill-opacity="0.7" font-family="monospace" font-size="12" font-weight="600" letter-spacing="2">ESTADO.SISTEMA</text>
-      <text x="22" y="67" fill="#ffffff" font-family="monospace" font-size="20" font-weight="600">LISTO</text>
+      <text x="22" y="32" fill="#ffffff" fill-opacity="0.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="2">ESTADO.SISTEMA</text>
+      <text x="22" y="67" fill="#ffffff" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18">LISTO</text>
       <circle cx="183" cy="61" r="8" fill="#ffffff" fill-opacity="0.86">
         <animate attributeName="r" values="8;11;8" dur="2.2s" repeatCount="indefinite"/>
         <animate attributeName="opacity" values="0.86;0.3;0.86" dur="2.2s" repeatCount="indefinite"/>
       </circle>
       <path d="M22 93H196" stroke="#ffffff" stroke-opacity="0.24"/>
-      <text x="22" y="116" fill="#ffffff" fill-opacity="0.68" font-family="monospace" font-size="13">construir / aprender / repetir</text>
+      <text x="22" y="116" fill="#ffffff" fill-opacity="0.48" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11">construir / aprender / repetir</text>
     </g>
 
-    <rect x="18" y="18" width="1164" height="344" rx="36" fill="none" stroke="#ffffff" stroke-opacity="0.2"/>
-    <rect x="18" y="18" width="1164" height="344" rx="36" fill="none" stroke="#ffffff" stroke-opacity="0.045" stroke-width="7" filter="url(#blur18)"/>
+    <rect x="18" y="18" width="1164" height="344" rx="26" fill="none" stroke="#ffffff" stroke-opacity="0.2"/>
+    <rect x="18" y="18" width="1164" height="344" rx="26" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="8" filter="url(#blur18)"/>
   </g>
 </svg>

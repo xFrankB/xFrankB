@@ -4,12 +4,8 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/hero.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/hero-light.svg" />
-  <img src="./assets/hero.svg" alt="xFrankB — Francisco Baylón" width="72%" />
+  <img src="./assets/hero.svg" alt="xFrankB — Francisco Baylón" width="100%" />
 </picture>
-<span style="display:inline-block;vertical-align:middle;margin-left:8px;line-height:2.0;text-align:center;">
-<sub><code>LANGUAGE</code></sub><br />
-<a href="./README.es.md" title="Leer en español"><kbd>ES</kbd></a><br /><a href="./README.md" title="Read in English"><kbd>EN</kbd></a>
-</span>
 </div>
 
 <div align="center">
@@ -44,7 +40,6 @@
   <source media="(prefers-color-scheme: light)" srcset="./assets/contributions-light.svg" />
   <img src="./assets/contributions.svg" alt="Current-year public contribution calendar for xFrankB" width="100%" />
 </picture>
-<sub><a href="https://xfrankb.github.io/xFrankB/" title="Open the complete interactive contribution calendar"><kbd>OPEN INTERACTIVE CALENDAR ↗</kbd></a></sub>
 </div>
 
 <div align="center">
