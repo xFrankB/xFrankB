@@ -86,9 +86,9 @@
         <animate attributeName="r" values="2;5;2" dur="4s" repeatCount="indefinite"/>
       </circle>
       <text x="170" y="46" text-anchor="middle" fill="#ffffff" fill-opacity="0.42" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="2">/ ACTIVE_STACK</text>
-      <g>
+      <g opacity="0">
         <title>TypeScript — detected in public repositories</title>
-        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.10;0.18;0.70;0.84;1" dur="71.4s" begin="-0.0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.00084;0.00588;0.04930;0.05518" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -96,9 +96,9 @@
         <text x="170" y="204" text-anchor="middle" fill="#ffffff" fill-opacity="0.96" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">TypeScript</text>
         <text x="170" y="226" text-anchor="middle" fill="#ffffff" fill-opacity="0.44" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">01 / 17</text>
       </g>
-      <g>
+      <g opacity="0">
         <title>JavaScript — detected in public repositories</title>
-        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.10;0.18;0.70;0.84;1" dur="71.4s" begin="-4.2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.05966;0.06471;0.10812;0.11401" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -106,9 +106,9 @@
         <text x="170" y="204" text-anchor="middle" fill="#ffffff" fill-opacity="0.96" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">JavaScript</text>
         <text x="170" y="226" text-anchor="middle" fill="#ffffff" fill-opacity="0.44" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">02 / 17</text>
       </g>
-      <g>
+      <g opacity="0">
         <title>Python — detected in public repositories</title>
-        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.10;0.18;0.70;0.84;1" dur="71.4s" begin="-8.4s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.11849;0.12353;0.16695;0.17283" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -116,9 +116,9 @@
         <text x="170" y="204" text-anchor="middle" fill="#ffffff" fill-opacity="0.96" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">Python</text>
         <text x="170" y="226" text-anchor="middle" fill="#ffffff" fill-opacity="0.44" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">03 / 17</text>
       </g>
-      <g>
+      <g opacity="0">
         <title>React — detected in public repositories</title>
-        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.10;0.18;0.70;0.84;1" dur="71.4s" begin="-12.6s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.17731;0.18235;0.22577;0.23165" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -126,9 +126,9 @@
         <text x="170" y="204" text-anchor="middle" fill="#ffffff" fill-opacity="0.96" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">React</text>
         <text x="170" y="226" text-anchor="middle" fill="#ffffff" fill-opacity="0.44" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">04 / 17</text>
       </g>
-      <g>
+      <g opacity="0">
         <title>Vite — detected in public repositories</title>
-        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.10;0.18;0.70;0.84;1" dur="71.4s" begin="-16.8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.23613;0.24118;0.28459;0.29048" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -136,9 +136,9 @@
         <text x="170" y="204" text-anchor="middle" fill="#ffffff" fill-opacity="0.96" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">Vite</text>
         <text x="170" y="226" text-anchor="middle" fill="#ffffff" fill-opacity="0.44" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">05 / 17</text>
       </g>
-      <g>
+      <g opacity="0">
         <title>Node.js — detected in public repositories</title>
-        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.10;0.18;0.70;0.84;1" dur="71.4s" begin="-21.0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.29496;0.30000;0.34342;0.34930" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -146,9 +146,9 @@
         <text x="170" y="204" text-anchor="middle" fill="#ffffff" fill-opacity="0.96" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">Node.js</text>
         <text x="170" y="226" text-anchor="middle" fill="#ffffff" fill-opacity="0.44" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">06 / 17</text>
       </g>
-      <g>
+      <g opacity="0">
         <title>Express — detected in public repositories</title>
-        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.10;0.18;0.70;0.84;1" dur="71.4s" begin="-25.2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.35378;0.35882;0.40224;0.40812" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -156,9 +156,9 @@
         <text x="170" y="204" text-anchor="middle" fill="#ffffff" fill-opacity="0.96" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">Express</text>
         <text x="170" y="226" text-anchor="middle" fill="#ffffff" fill-opacity="0.44" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">07 / 17</text>
       </g>
-      <g>
+      <g opacity="0">
         <title>pnpm — detected in public repositories</title>
-        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.10;0.18;0.70;0.84;1" dur="71.4s" begin="-29.4s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.41261;0.41765;0.46106;0.46695" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -166,9 +166,9 @@
         <text x="170" y="204" text-anchor="middle" fill="#ffffff" fill-opacity="0.96" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">pnpm</text>
         <text x="170" y="226" text-anchor="middle" fill="#ffffff" fill-opacity="0.44" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">08 / 17</text>
       </g>
-      <g>
+      <g opacity="0">
         <title>HTML — detected in public repositories</title>
-        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.10;0.18;0.70;0.84;1" dur="71.4s" begin="-33.6s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.47143;0.47647;0.51989;0.52577" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -176,9 +176,9 @@
         <text x="170" y="204" text-anchor="middle" fill="#ffffff" fill-opacity="0.96" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">HTML</text>
         <text x="170" y="226" text-anchor="middle" fill="#ffffff" fill-opacity="0.44" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">09 / 17</text>
       </g>
-      <g>
+      <g opacity="0">
         <title>CSS — detected in public repositories</title>
-        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.10;0.18;0.70;0.84;1" dur="71.4s" begin="-37.8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.53025;0.53529;0.57871;0.58459" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -186,9 +186,9 @@
         <text x="170" y="204" text-anchor="middle" fill="#ffffff" fill-opacity="0.96" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">CSS</text>
         <text x="170" y="226" text-anchor="middle" fill="#ffffff" fill-opacity="0.44" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">10 / 17</text>
       </g>
-      <g>
+      <g opacity="0">
         <title>Tailwind CSS — detected in public repositories</title>
-        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.10;0.18;0.70;0.84;1" dur="71.4s" begin="-42.0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.58908;0.59412;0.63754;0.64342" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -196,9 +196,9 @@
         <text x="170" y="204" text-anchor="middle" fill="#ffffff" fill-opacity="0.96" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">Tailwind CSS</text>
         <text x="170" y="226" text-anchor="middle" fill="#ffffff" fill-opacity="0.44" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">11 / 17</text>
       </g>
-      <g>
+      <g opacity="0">
         <title>Git — detected in public repositories</title>
-        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.10;0.18;0.70;0.84;1" dur="71.4s" begin="-46.2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.64790;0.65294;0.69636;0.70224" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -206,9 +206,9 @@
         <text x="170" y="204" text-anchor="middle" fill="#ffffff" fill-opacity="0.96" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">Git</text>
         <text x="170" y="226" text-anchor="middle" fill="#ffffff" fill-opacity="0.44" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">12 / 17</text>
       </g>
-      <g>
+      <g opacity="0">
         <title>GitHub Actions — detected in public repositories</title>
-        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.10;0.18;0.70;0.84;1" dur="71.4s" begin="-50.4s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.70672;0.71176;0.75518;0.76106" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -216,9 +216,9 @@
         <text x="170" y="204" text-anchor="middle" fill="#ffffff" fill-opacity="0.96" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">GitHub Actions</text>
         <text x="170" y="226" text-anchor="middle" fill="#ffffff" fill-opacity="0.44" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">13 / 17</text>
       </g>
-      <g>
+      <g opacity="0">
         <title>Linux — detected in public repositories</title>
-        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.10;0.18;0.70;0.84;1" dur="71.4s" begin="-54.6s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.76555;0.77059;0.81401;0.81989" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -226,9 +226,9 @@
         <text x="170" y="204" text-anchor="middle" fill="#ffffff" fill-opacity="0.96" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">Linux</text>
         <text x="170" y="226" text-anchor="middle" fill="#ffffff" fill-opacity="0.44" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">14 / 17</text>
       </g>
-      <g>
+      <g opacity="0">
         <title>Axios — detected in public repositories</title>
-        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.10;0.18;0.70;0.84;1" dur="71.4s" begin="-58.8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.82437;0.82941;0.87283;0.87871" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -236,9 +236,9 @@
         <text x="170" y="204" text-anchor="middle" fill="#ffffff" fill-opacity="0.96" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">Axios</text>
         <text x="170" y="226" text-anchor="middle" fill="#ffffff" fill-opacity="0.44" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">15 / 17</text>
       </g>
-      <g>
+      <g opacity="0">
         <title>Framer Motion — detected in public repositories</title>
-        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.10;0.18;0.70;0.84;1" dur="71.4s" begin="-63.0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.88319;0.88824;0.93165;0.93754" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -246,9 +246,9 @@
         <text x="170" y="204" text-anchor="middle" fill="#ffffff" fill-opacity="0.96" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">Framer Motion</text>
         <text x="170" y="226" text-anchor="middle" fill="#ffffff" fill-opacity="0.44" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">16 / 17</text>
       </g>
-      <g>
+      <g opacity="0">
         <title>Zod — detected in public repositories</title>
-        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.10;0.18;0.70;0.84;1" dur="71.4s" begin="-67.2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.94202;0.94706;0.99048;0.99636" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>

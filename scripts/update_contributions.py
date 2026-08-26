@@ -295,11 +295,14 @@ def render_technology_sequence(technologies: list[str]) -> str:
     for index, technology in enumerate(technologies):
         mark = escape(technology_mark(technology))
         label = escape(technology)
-        begin = -(index * slot)
+        start = (index * slot + 0.06) / duration
+        fade_in_end = (index * slot + 0.42) / duration
+        hold_end = (index * slot + 3.52) / duration
+        fade_out_end = (index * slot + 3.94) / duration
         lines.extend([
-            '      <g>',
+            '      <g opacity="0">',
             f'        <title>{label} — detected in public repositories</title>',
-            '        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.10;0.18;0.70;0.84;1" dur="{duration:.1f}s" begin="{begin:.1f}s" repeatCount="indefinite"/>'.format(duration=duration, begin=begin),
+            f'        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;{start:.5f};{fade_in_end:.5f};{hold_end:.5f};{fade_out_end:.5f}" dur="{duration:.1f}s" begin="0s" repeatCount="indefinite"/>',
             '        <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4">',
             '          <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>',
             '        </circle>',
