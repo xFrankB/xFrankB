@@ -200,6 +200,13 @@ TECH_MARKS = {
     "HTML": "HT", "CSS": "CS", "Tailwind CSS": "TW", "Git": "GI",
     "GitHub Actions": "CI", "Linux": "LX", "Docker": "DK",
 }
+TECH_ICON_FILES = {
+    "TypeScript": "typescript.svg", "JavaScript": "javascript.svg", "Python": "python.svg",
+    "React": "react.svg", "Vite": "vite.svg", "Node.js": "nodedotjs.svg", "Express": "express.svg",
+    "pnpm": "pnpm.svg", "HTML": "html5.svg", "CSS": "css.svg", "Tailwind CSS": "tailwindcss.svg",
+    "Git": "git.svg", "GitHub Actions": "githubactions.svg", "Linux": "linux.svg", "Axios": "axios.svg",
+    "Framer Motion": "framer.svg", "Zod": "zod.svg",
+}
 
 
 def canonical_technology(value: str) -> str:
@@ -214,6 +221,17 @@ def technology_mark(technology: str) -> str:
         return TECH_MARKS[technology]
     words = re.findall(r"[A-Za-z0-9]+", technology)
     return "".join(word[0] for word in words).upper()[:3] or "•"
+
+
+def technology_icon_paths(technology: str) -> list[str]:
+    filename = TECH_ICON_FILES.get(technology)
+    if filename:
+        icon = ASSETS / "tech-icons" / filename
+        if icon.exists():
+            paths = re.findall(r'<path\b[^>]*\bd="([^"]+)"', icon.read_text(encoding="utf-8"))
+            if paths:
+                return paths
+    return ["M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm0 3a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13Zm-1.5 3h3v3h-3v-3Zm0 4.5h3v3h-3v-3Z"]
 
 
 def _add_technology(found: set[str], value: str | None) -> None:
@@ -292,11 +310,10 @@ def render_technology_sequence(technologies: list[str]) -> str:
         '      <circle cx="170" cy="132" r="3" fill="#ffffff" fill-opacity="0.76">',
         '        <animate attributeName="r" values="2;5;2" dur="4s" repeatCount="indefinite"/>',
         '      </circle>',
-        '      <text x="170" y="46" text-anchor="middle" fill="#ffffff" fill-opacity="0.42" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="2">/ ACTIVE_STACK</text>',
     ]
     for index, technology in enumerate(technologies):
-        mark = escape(technology_mark(technology))
         label = escape(technology)
+        paths = technology_icon_paths(technology)
         start = (index * slot + 0.08) / duration
         fade_in_end = (index * slot + 0.38) / duration
         hold_end = (index * slot + 3.56) / duration
@@ -304,15 +321,15 @@ def render_technology_sequence(technologies: list[str]) -> str:
         lines.extend([
             '      <g opacity="0">',
             f'        <title>{label} — detected in public repositories</title>',
-            '        <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.035" stroke="#ffffff" stroke-opacity="0.20" stroke-width="1"/>',
+            '        <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>',
             f'        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;{start:.5f};{fade_in_end:.5f};{hold_end:.5f};{fade_out_end:.5f}" dur="{duration:.1f}s" begin="0s" repeatCount="indefinite"/>',
             f'        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;{start:.5f};{fade_in_end:.5f};{fade_out_end:.5f};1" dur="{duration:.1f}s" begin="0s" repeatCount="indefinite"/>',
             '        <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">',
             '          <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>',
             '        </circle>',
-            f'        <text x="170" y="142" text-anchor="middle" fill="#ffffff" fill-opacity="0.90" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="27" font-weight="700" letter-spacing="0.5">{mark}</text>',
-            f'        <text x="170" y="204" text-anchor="middle" textLength="258" lengthAdjust="spacingAndGlyphs" fill="#d3d3d3" fill-opacity="0.90" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">{label}</text>',
-            f'        <text x="170" y="226" text-anchor="middle" fill="#8f8f8f" fill-opacity="0.78" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">{index + 1:02d} / {count:02d}</text>',
+            '        <svg x="138" y="100" width="64" height="64" viewBox="0 0 24 24" aria-hidden="true">',
+            *[f'          <path d="{escape(path)}" fill="#d3d3d3" fill-opacity="0.66"/>' for path in paths],
+            '        </svg>',
             '      </g>',
         ])
     lines.append('    </g>')
@@ -515,14 +532,14 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
     contact_label = "[CORREO] CONTACTO · jfby13@gmail.com" if spanish else "[MAIL] CONTACT · jfby13@gmail.com"
     open_to = "DISPONIBLE PARA: oportunidades trainee / junior · construcciones colaborativas" if spanish else "OPEN TO: trainee / junior opportunities · collaborative builds"
     if spanish:
-        hero = picture("hero-es.gif?v=15", "hero-es-light.gif?v=15", "xFrankB — Francisco Baylón", width="100%")
+        hero = picture("hero-es.gif?v=16", "hero-es-light.gif?v=16", "xFrankB — Francisco Baylón", width="100%")
         content = picture("content-es.svg", "content-es-light.svg", "Perfil técnico, enfoque, proyecto, stack y contacto de xFrankB")
         evidence = picture("evidence-es.svg", "evidence-es-light.svg", "Evidencia pública del proyecto U3_APM y su estructura técnica")
         signal = picture("signal-es.svg", "signal-es-light.svg", "Señales técnicas verificables de xFrankB")
         footer = picture("footer-es.svg", "footer-es-light.svg", "Construir, aprender y repetir — xFrankB")
         contribution_alt = "Calendario de contribuciones públicas de xFrankB"
     else:
-        hero = picture("hero.gif?v=15", "hero-light.gif?v=15", "xFrankB — Francisco Baylón", width="100%")
+        hero = picture("hero.gif?v=16", "hero-light.gif?v=16", "xFrankB — Francisco Baylón", width="100%")
         content = picture("content.svg", "content-light.svg", "Technical profile, focus, project, stack and contact for xFrankB")
         evidence = picture("evidence.svg", "evidence-light.svg", "Public evidence of the U3_APM project and its technical structure")
         signal = picture("signal.svg", "signal-light.svg", "Verified technical signals for xFrankB")
