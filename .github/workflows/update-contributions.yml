@@ -30,14 +30,14 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Build light theme variants
-        run: python3 scripts/build_light_variants.py
-
-      - name: Generate contribution calendars and translations
+      - name: Generate contribution calendars, translations and technology orbit
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_LOGIN: xFrankB
         run: python3 scripts/update_contributions.py
+
+      - name: Build light theme variants
+        run: python3 scripts/build_light_variants.py
 
       - name: Commit changed calendars and translations
         run: |

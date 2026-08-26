@@ -24,12 +24,13 @@ PALETTE = (
 )
 
 for name in PANEL_NAMES:
-    source = ASSETS / f"{name}.svg"
-    target = ASSETS / f"{name}-light.svg"
-    text = source.read_text(encoding="utf-8")
-    for old, new in PALETTE:
-        text = text.replace(old, new)
-    # Guard against malformed concatenation from any cached/legacy short-hex transform.
-    text = text.replace("#151515fff", "#ffffff")
-    target.write_text(text, encoding="utf-8")
-    print(f"wrote {target.name}")
+    for language_suffix in ("", "-es"):
+        source = ASSETS / f"{name}{language_suffix}.svg"
+        target = ASSETS / f"{name}{language_suffix}-light.svg"
+        text = source.read_text(encoding="utf-8")
+        for old, new in PALETTE:
+            text = text.replace(old, new)
+        # Guard against malformed concatenation from any cached/legacy short-hex transform.
+        text = text.replace("#151515fff", "#ffffff")
+        target.write_text(text, encoding="utf-8")
+        print(f"wrote {target.name}")

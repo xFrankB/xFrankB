@@ -2,7 +2,9 @@
 from __future__ import annotations
 
 import json
+import math
 import os
+import re
 import sys
 import urllib.request
 from datetime import datetime, timezone
@@ -32,6 +34,29 @@ query($login: String!, $from: DateTime!, $to: DateTime!) {
           firstDay
           contributionDays { date contributionCount contributionLevel weekday }
         }
+      }
+    }
+  }
+}
+"""
+
+TECH_QUERY = """
+query($login: String!) {
+  user(login: $login) {
+    repositories(first: 100, ownerAffiliations: OWNER, privacy: PUBLIC, orderBy: {field: UPDATED_AT, direction: DESC}) {
+      nodes {
+        name
+        isFork
+        isArchived
+        languages(first: 20, orderBy: {field: SIZE, direction: DESC}) { nodes { name } }
+        packageJson: object(expression: "HEAD:package.json") { ... on Blob { text } }
+        requirements: object(expression: "HEAD:requirements.txt") { ... on Blob { text } }
+        pyproject: object(expression: "HEAD:pyproject.toml") { ... on Blob { text } }
+        goMod: object(expression: "HEAD:go.mod") { ... on Blob { text } }
+        cargo: object(expression: "HEAD:Cargo.toml") { ... on Blob { text } }
+        dockerfile: object(expression: "HEAD:Dockerfile") { ... on Blob { text } }
+        pom: object(expression: "HEAD:pom.xml") { ... on Blob { text } }
+        workflows: object(expression: "HEAD:.github/workflows") { __typename }
       }
     }
   }
@@ -91,10 +116,6 @@ PANEL_TRANSLATIONS = {
     "SOFTWARE • AI • MULTIPLATFORM": "SOFTWARE • IA • MULTIPLATAFORMA",
     "03  AI / DATA": "03  IA / DATOS",
     "04  QUALITY": "04  CALIDAD",
-    "SYSTEM.STATUS": "ESTADO.SISTEMA",
-    "LANGUAGE": "IDIOMA",
-    "READY": "LISTO",
-    "ship / learn / repeat": "construir / aprender / repetir",
     "/ WHOAMI": "/ QUIÉN_SOY",
     "Software developer trainee focused on full-stack products": "Desarrollador trainee enfocado en productos full-stack",
     "and applied AI: interfaces, architecture, automation": "e IA aplicada: interfaces, arquitectura, automatización",
@@ -142,6 +163,136 @@ def graphql(query: str, variables: dict) -> dict:
     if payload.get("errors"):
         raise RuntimeError(json.dumps(payload["errors"], ensure_ascii=False))
     return payload["data"]
+
+
+LANGUAGE_LABELS = {
+    "TypeScript": "TypeScript", "JavaScript": "JavaScript", "Python": "Python",
+    "CSS": "CSS", "HTML": "HTML", "C++": "C++", "C": "C", "C#": "C#",
+    "Java": "Java", "Go": "Go", "Rust": "Rust", "Dart": "Dart",
+    "Kotlin": "Kotlin", "Swift": "Swift", "Shell": "Shell",
+}
+
+DEPENDENCY_LABELS = {
+    "react": "React", "react-dom": "React", "vite": "Vite", "express": "Express",
+    "typescript": "TypeScript", "next": "Next.js", "vue": "Vue", "svelte": "Svelte",
+    "angular": "Angular", "tailwindcss": "Tailwind CSS", "framer-motion": "Framer Motion",
+    "fastapi": "FastAPI", "flask": "Flask", "django": "Django", "numpy": "NumPy",
+    "pandas": "Pandas", "torch": "PyTorch", "pytorch": "PyTorch", "scikit-learn": "scikit-learn",
+    "matplotlib": "Matplotlib", "axios": "Axios", "zod": "Zod",
+}
+
+TECH_PRIORITY = [
+    "TypeScript", "JavaScript", "Python", "React", "Vite", "Node.js", "Express",
+    "pnpm", "HTML", "CSS", "Tailwind CSS", "FastAPI", "Flask", "Django", "NumPy",
+    "Pandas", "PyTorch", "Git", "GitHub Actions", "Linux", "Docker", "Go", "Rust",
+]
+TECH_FALLBACK = ["TypeScript", "JavaScript", "Python", "React", "Vite", "Node.js", "Express", "pnpm", "Git", "Linux", "HTML", "CSS"]
+
+
+def _add_technology(found: set[str], value: str | None) -> None:
+    if not value:
+        return
+    value = value.strip()
+    if value in LANGUAGE_LABELS:
+        found.add(LANGUAGE_LABELS[value])
+    elif value in DEPENDENCY_LABELS.values() or value in {"Node.js", "pnpm", "Git", "GitHub Actions", "Linux", "Docker"}:
+        found.add(value)
+
+
+def _scan_package_json(text: str, found: set[str]) -> None:
+    try:
+        package = json.loads(text)
+    except (TypeError, ValueError, json.JSONDecodeError):
+        return
+    _add_technology(found, "Node.js")
+    if str(package.get("packageManager", "")).lower().startswith("pnpm@"):
+        _add_technology(found, "pnpm")
+    for group in ("dependencies", "devDependencies", "peerDependencies", "optionalDependencies"):
+        for dependency in (package.get(group) or {}):
+            label = DEPENDENCY_LABELS.get(str(dependency).lower())
+            _add_technology(found, label)
+
+
+def _scan_manifest(text: str, found: set[str]) -> None:
+    lowered = (text or "").lower()
+    for dependency, label in DEPENDENCY_LABELS.items():
+        if re.search(rf"(?<![a-z0-9_-]){re.escape(dependency)}(?![a-z0-9_-])", lowered):
+            _add_technology(found, label)
+
+
+def detected_technologies() -> list[str]:
+    data = graphql(TECH_QUERY, {"login": LOGIN})
+    found: set[str] = set()
+    for repository in data["user"]["repositories"].get("nodes", []):
+        if not repository or repository.get("isFork") or repository.get("isArchived"):
+            continue
+        _add_technology(found, "Git")
+        for language in repository.get("languages", {}).get("nodes", []):
+            _add_technology(found, language.get("name"))
+        package_json = repository.get("packageJson") or {}
+        _scan_package_json(package_json.get("text", ""), found)
+        for field in ("requirements", "pyproject", "goMod", "cargo", "dockerfile", "pom"):
+            manifest = repository.get(field) or {}
+            _scan_manifest(manifest.get("text", ""), found)
+        if repository.get("dockerfile"):
+            _add_technology(found, "Docker")
+        if (repository.get("workflows") or {}).get("__typename") == "Tree":
+            _add_technology(found, "GitHub Actions")
+            _add_technology(found, "Linux")
+    if not found:
+        found.update(TECH_FALLBACK)
+    priority = {name: index for index, name in enumerate(TECH_PRIORITY)}
+    return sorted(found, key=lambda name: (priority.get(name, 999), name.lower()))[:12]
+
+
+def render_technology_orbit(technologies: list[str]) -> str:
+    technologies = technologies[:12] or TECH_FALLBACK
+    total = len(technologies)
+    lines = [
+        '    <g transform="translate(884 74)" aria-label="Technology orbit">',
+        '      <ellipse cx="110" cy="68" rx="84" ry="34" transform="rotate(-12 110 68)" fill="none" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="2 9">',
+        '        <animate attributeName="stroke-dashoffset" values="0;-80" dur="10s" repeatCount="indefinite"/>',
+        '      </ellipse>',
+        '      <ellipse cx="110" cy="68" rx="62" ry="22" transform="rotate(18 110 68)" fill="none" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="1 8">',
+        '        <animate attributeName="stroke-dashoffset" values="0;70" dur="8s" repeatCount="indefinite"/>',
+        '      </ellipse>',
+        '      <circle cx="110" cy="68" r="8" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.48">',
+        '        <animate attributeName="r" values="7;11;7" dur="3.8s" repeatCount="indefinite"/>',
+        '        <animate attributeName="opacity" values="0.62;1;0.62" dur="3.8s" repeatCount="indefinite"/>',
+        '      </circle>',
+        '      <text x="110" y="72" text-anchor="middle" fill="#ffffff" fill-opacity="0.82" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8" letter-spacing="1">TECH</text>',
+    ]
+    for index, technology in enumerate(technologies):
+        orbit = index % 2
+        angle = (-math.pi / 2) + (index // 2) * (2 * math.pi / max(1, (total + 1) // 2)) + (0.16 if orbit else 0)
+        rx, ry = ((82, 34) if orbit == 0 else (62, 22))
+        x = 110 + math.cos(angle) * rx
+        y = 68 + math.sin(angle) * ry
+        anchor = "start" if math.cos(angle) >= 0 else "end"
+        label_x = x + (5 if anchor == "start" else -5)
+        duration = "22s" if orbit == 0 else "17s"
+        lines.extend([
+            f'      <g transform="rotate(0 110 68)">',
+            f'        <circle cx="{x:.1f}" cy="{y:.1f}" r="2.6" fill="#ffffff" fill-opacity="0.9">',
+            f'          <animate attributeName="opacity" values="0.45;1;0.45" dur="{2.2 + (index % 4) * 0.35:.2f}s" begin="{(index % 5) * 0.22:.2f}s" repeatCount="indefinite"/>',
+            '        </circle>',
+            f'        <text x="{label_x:.1f}" y="{y + 3.5:.1f}" text-anchor="{anchor}" fill="#ffffff" fill-opacity="0.74" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9">{escape(technology)}</text>',
+            f'        <animateTransform attributeName="transform" type="rotate" from="0 110 68" to="360 110 68" dur="{duration}" repeatCount="indefinite"/>',
+            '      </g>',
+        ])
+    lines.append('    </g>')
+    return "\n".join(lines)
+
+
+def update_technology_orbit(technologies: list[str]) -> None:
+    source = ASSETS / "hero.svg"
+    text = source.read_text(encoding="utf-8")
+    pattern = r'    <!-- TECH_ORBIT_START -->.*?    <!-- TECH_ORBIT_END -->'
+    replacement = "    <!-- TECH_ORBIT_START -->\n" + render_technology_orbit(technologies) + "\n    <!-- TECH_ORBIT_END -->"
+    updated, count = re.subn(pattern, replacement, text, count=1, flags=re.S)
+    if count != 1:
+        raise RuntimeError("TECH_ORBIT markers were not found in assets/hero.svg")
+    source.write_text(updated, encoding="utf-8")
 
 
 def available_years() -> list[int]:
@@ -328,16 +479,15 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
     github_label = "&lt;/&gt; GITHUB · @xFrankB"
     contact_label = "[CORREO] CONTACTO · jfby13@gmail.com" if spanish else "[MAIL] CONTACT · jfby13@gmail.com"
     open_to = "DISPONIBLE PARA: oportunidades trainee / junior · construcciones colaborativas" if spanish else "OPEN TO: trainee / junior opportunities · collaborative builds"
-    project_label = "U3_APM · VER CÓDIGO →" if spanish else "U3_APM · VIEW SOURCE →"
     if spanish:
-        hero = picture("hero-es.svg?v=7", "hero-es-light.svg?v=7", "xFrankB — Francisco Baylón", width="100%")
+        hero = picture("hero-es.svg?v=9", "hero-es-light.svg?v=9", "xFrankB — Francisco Baylón", width="100%")
         content = picture("content-es.svg", "content-es-light.svg", "Perfil técnico, enfoque, proyecto, stack y contacto de xFrankB")
         evidence = picture("evidence-es.svg", "evidence-es-light.svg", "Evidencia pública del proyecto U3_APM y su estructura técnica")
         signal = picture("signal-es.svg", "signal-es-light.svg", "Señales técnicas verificables de xFrankB")
         footer = picture("footer-es.svg", "footer-es-light.svg", "Construir, aprender y repetir — xFrankB")
         contribution_alt = "Calendario de contribuciones públicas de xFrankB"
     else:
-        hero = picture("hero.svg?v=7", "hero-light.svg?v=7", "xFrankB — Francisco Baylón", width="100%")
+        hero = picture("hero.svg?v=9", "hero-light.svg?v=9", "xFrankB — Francisco Baylón", width="100%")
         content = picture("content.svg", "content-light.svg", "Technical profile, focus, project, stack and contact for xFrankB")
         evidence = picture("evidence.svg", "evidence-light.svg", "Public evidence of the U3_APM project and its technical structure")
         signal = picture("signal.svg", "signal-light.svg", "Verified technical signals for xFrankB")
@@ -359,8 +509,7 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
         '<div align="center">', '', hero_layout, '',
         '<div align="center">',
         f'  <a href="https://github.com/xFrankB" title="GitHub"><kbd>{github_label}</kbd></a><br />',
-        f'  <a href="mailto:jfby13@gmail.com" title="Contacto"><kbd>{contact_label}</kbd></a><br />',
-        f'  <sub><a href="https://github.com/xFrankB/U3_APM" title="U3_APM source code">{project_label}</a></sub>',
+        f'  <a href="mailto:jfby13@gmail.com" title="Contacto"><kbd>{contact_label}</kbd></a>',
         '</div>', '', '</div>', '',
         '<div align="center">', '', content, '', evidence, '', signal, '',
         contribution,
@@ -373,6 +522,9 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
 def main() -> int:
     ASSETS.mkdir(parents=True, exist_ok=True)
     candidate_years = available_years()
+    technologies = detected_technologies()
+    update_technology_orbit(technologies)
+    print(f"technologies={', '.join(technologies)}")
     build_translated_panels()
     calendars: dict[int, dict] = {}
     for year in candidate_years:

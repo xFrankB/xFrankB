@@ -33,7 +33,7 @@
       <g transform="translate(58 224)">
         <text x="0" y="0" class="label">TYPE</text>
         <text x="0" y="30" class="strong">FULL-STACK</text>
-        <text x="250" y="0" class="label">PRIMARY_IDIOMA</text>
+        <text x="250" y="0" class="label">LENGUAJE_PRINCIPAL</text>
         <text x="250" y="30" class="strong">TYPESCRIPT 97%</text>
         <text x="545" y="0" class="label">ESTRUCTURA</text>
         <text x="545" y="30" class="strong">CLIENT / SERVER / SHARED</text>

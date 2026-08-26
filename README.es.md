@@ -2,16 +2,15 @@
 
 <div align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/hero-es.svg?v=7" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/hero-es-light.svg?v=7" />
-  <img src="./assets/hero-es.svg?v=7" alt="xFrankB — Francisco Baylón" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/hero-es.svg?v=9" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/hero-es-light.svg?v=9" />
+  <img src="./assets/hero-es.svg?v=9" alt="xFrankB — Francisco Baylón" width="100%" />
 </picture>
 </div>
 
 <div align="center">
   <a href="https://github.com/xFrankB" title="GitHub"><kbd>&lt;/&gt; GITHUB · @xFrankB</kbd></a><br />
-  <a href="mailto:jfby13@gmail.com" title="Contacto"><kbd>[CORREO] CONTACTO · jfby13@gmail.com</kbd></a><br />
-  <sub><a href="https://github.com/xFrankB/U3_APM" title="U3_APM source code">U3_APM · VER CÓDIGO →</a></sub>
+  <a href="mailto:jfby13@gmail.com" title="Contacto"><kbd>[CORREO] CONTACTO · jfby13@gmail.com</kbd></a>
 </div>
 
 </div>
