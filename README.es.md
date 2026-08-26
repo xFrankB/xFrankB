@@ -2,9 +2,9 @@
 
 <div align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/hero-es.svg?v=12" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/hero-es-light.svg?v=12" />
-  <img src="./assets/hero-es.svg?v=12" alt="xFrankB — Francisco Baylón" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/hero-es.svg?v=13" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/hero-es-light.svg?v=13" />
+  <img src="./assets/hero-es.svg?v=13" alt="xFrankB — Francisco Baylón" width="100%" />
 </picture>
 </div>
 
@@ -16,12 +16,6 @@
 </div>
 
 <div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/tech-stack-es.svg?v=3298ed2cb6" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/tech-stack-es-light.svg?v=3298ed2cb6" />
-  <img src="./assets/tech-stack-es.svg?v=3298ed2cb6" alt="Tecnologías únicas detectadas automáticamente" width="100%" />
-</picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/content-es.svg" />

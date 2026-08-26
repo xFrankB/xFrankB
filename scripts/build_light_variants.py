@@ -3,7 +3,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"
-PANEL_NAMES = ("hero", "content", "evidence", "signal", "tech-stack", "footer")
+PANEL_NAMES = ("hero", "content", "evidence", "signal", "footer")
 
 PALETTE = (
     ("#ffffff", "__WHITE_LONG__"),
