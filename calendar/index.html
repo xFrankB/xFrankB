@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" data-theme="system">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080808" />
+    <title>xFrankB · Contribution history</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" data-i18n="eyebrow">/ CONTRIBUTIONS / LIVE HISTORY</p>
+          <h1 data-i18n="title">Contribution history</h1>
+          <p class="lede" data-i18n="lede">A compact, interactive view of public GitHub activity.</p>
+        </div>
+        <div class="language-switch" aria-label="Language">
+          <button type="button" class="text-button active" data-language="en">ENGLISH</button>
+          <span aria-hidden="true">·</span>
+          <button type="button" class="text-button" data-language="es">ESPAÑOL</button>
+        </div>
+      </header>
+
+      <section class="controlbar" aria-label="Calendar controls">
+        <div>
+          <p class="control-label" data-i18n="yearLabel">YEAR</p>
+          <div class="year-controls">
+            <button type="button" class="icon-button" id="previousYear" aria-label="Previous year">←</button>
+            <select id="yearPicker" aria-label="Select year"></select>
+            <button type="button" class="icon-button" id="nextYear" aria-label="Next year">→</button>
+          </div>
+        </div>
+        <div class="summary" aria-live="polite">
+          <strong id="totalCount">0</strong>
+          <span id="totalLabel">contributions</span>
+        </div>
+      </section>
+
+      <section class="calendar-card" aria-label="Contribution calendar">
+        <div class="calendar-head">
+          <div id="calendarSubtitle" data-i18n="calendarSubtitle">public activity · daily sync · contribution count by day</div>
+          <div id="dateRange">—</div>
+        </div>
+        <div class="month-row" id="monthRow" aria-hidden="true"></div>
+        <div class="calendar-grid-wrap">
+          <div class="weekday-labels" aria-hidden="true">
+            <span></span><span data-weekday="1">MON</span><span></span><span data-weekday="3">WED</span><span></span><span data-weekday="5">FRI</span><span></span>
+          </div>
+          <div class="calendar-grid" id="calendarGrid" role="grid" aria-label="Contribution days"></div>
+        </div>
+        <div class="legend">
+          <span id="lessLabel" data-i18n="less">LESS</span>
+          <span class="legend-cell level-0"></span>
+          <span class="legend-cell level-1"></span>
+          <span class="legend-cell level-2"></span>
+          <span class="legend-cell level-3"></span>
+          <span class="legend-cell level-4"></span>
+          <span id="moreLabel" data-i18n="more">MORE</span>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p data-i18n="footer">Use the year controls to move through every year with public activity.</p>
+        <a href="https://github.com/xFrankB" data-i18n="backToProfile">BACK TO PROFILE ↗</a>
+      </footer>
+    </main>
+    <script src="./app.js" defer></script>
+  </body>
+</html>

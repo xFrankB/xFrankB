@@ -44,7 +44,7 @@
   <source media="(prefers-color-scheme: light)" srcset="./assets/contributions-light.svg" />
   <img src="./assets/contributions.svg" alt="Current-year public contribution calendar for xFrankB" width="100%" />
 </picture>
-<sub><a href="https://github.com/xFrankB?tab=overview" title="Open the complete contribution history on GitHub"><kbd>VIEW COMPLETE HISTORY</kbd></a></sub>
+<sub><a href="https://xfrankb.github.io/xFrankB/" title="Open the complete interactive contribution calendar"><kbd>OPEN INTERACTIVE CALENDAR ↗</kbd></a></sub>
 </div>
 
 <div align="center">

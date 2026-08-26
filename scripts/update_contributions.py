@@ -12,6 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"
 LOGIN = os.getenv("GITHUB_LOGIN", "xFrankB")
+INTERACTIVE_CALENDAR_URL = f"https://{LOGIN.lower()}.github.io/{LOGIN}/"
 
 YEARS_QUERY = """
 query($login: String!) {
@@ -333,7 +334,7 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
         signal = picture("signal-es.svg", "signal-es-light.svg", "Señales técnicas verificables de xFrankB")
         footer = picture("footer-es.svg", "footer-es-light.svg", "Construir, aprender y repetir — xFrankB")
         contribution_alt = "Calendario de contribuciones públicas de xFrankB"
-        contribution_link_title = "Abrir el historial completo de contribuciones en GitHub"
+        contribution_link_title = "Abrir el calendario interactivo completo"
         language_buttons = '<a href="./README.md" title="Leer en inglés"><kbd>EN</kbd></a><br /><a href="./README.es.md" title="Leer en español"><kbd>ES</kbd></a>'
     else:
         hero = picture("hero.svg", "hero-light.svg", "xFrankB — Francisco Baylón", width="72%")
@@ -342,7 +343,7 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
         signal = picture("signal.svg", "signal-light.svg", "Verified technical signals for xFrankB")
         footer = picture("footer.svg", "footer-light.svg", "Build, learn, repeat — xFrankB")
         contribution_alt = "Current-year public contribution calendar for xFrankB"
-        contribution_link_title = "Open the complete contribution history on GitHub"
+        contribution_link_title = "Open the complete interactive contribution calendar"
         language_buttons = '<a href="./README.es.md" title="Leer en español"><kbd>ES</kbd></a><br /><a href="./README.md" title="Read in English"><kbd>EN</kbd></a>'
 
     language_label = "IDIOMA" if spanish else "LANGUAGE"
@@ -361,10 +362,10 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
         "contributions-es-light.svg" if spanish else "contributions-light.svg",
         contribution_alt,
     )
-    history_link_label = "VER HISTORIAL COMPLETO" if spanish else "VIEW COMPLETE HISTORY"
+    history_link_label = "ABRIR CALENDARIO INTERACTIVO" if spanish else "OPEN INTERACTIVE CALENDAR"
     contribution = "\n".join([
         contribution,
-        f'<sub><a href="https://github.com/{LOGIN}?tab=overview" title="{contribution_link_title}"><kbd>{history_link_label}</kbd></a></sub>',
+        f'<sub><a href="{INTERACTIVE_CALENDAR_URL}" title="{contribution_link_title}"><kbd>{history_link_label} ↗</kbd></a></sub>',
     ])
 
     return "\n".join([
@@ -406,6 +407,12 @@ def main() -> int:
     }
     for path, content in outputs.items():
         path.write_text(content, encoding="utf-8")
+    calendar_dir = ROOT / "calendar"
+    calendar_dir.mkdir(parents=True, exist_ok=True)
+    (calendar_dir / "data.json").write_text(
+        json.dumps({"login": LOGIN, "currentYear": current_year, "years": years, "calendars": calendars}, ensure_ascii=False),
+        encoding="utf-8",
+    )
     expected = {path.name for path in outputs}
     for path in ASSETS.glob("contributions-*.svg"):
         if path.name not in expected:
