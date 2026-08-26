@@ -1,27 +1,53 @@
 <div align="center">
 
-<img src="./assets/hero.svg" alt="xFrankB — Francisco Baylón" width="100%" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/hero.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/hero-light.svg" />
+  <img src="./assets/hero.svg" alt="xFrankB — Francisco Baylón" width="100%" />
+</picture>
 
 <div align="center">
-  <a href="https://github.com/xFrankB" title="GitHub"><img src="./assets/github-pill.png" alt="GitHub · @xFrankB" width="100%" /></a><br />
-  <a href="mailto:jfby13@gmail.com" title="Contacto"><img src="./assets/contact-pill.png" alt="Contacto · jfby13@gmail.com" width="100%" /></a>
+  <a href="https://github.com/xFrankB" title="GitHub"><kbd>&lt;/&gt; GITHUB · @xFrankB</kbd></a><br />
+  <a href="mailto:jfby13@gmail.com" title="Contacto"><kbd>[MAIL] CONTACT · jfby13@gmail.com</kbd></a>
 </div>
 
 </div>
 
 <div align="center">
 
-<img src="./assets/content.svg" alt="Perfil técnico, enfoque, proyecto, stack y contacto de xFrankB" width="100%" />
-<img src="./assets/evidence.svg" alt="Evidencia pública del proyecto U3_APM y su estructura técnica" width="100%" />
-<img src="./assets/signal.svg" alt="Señales técnicas verificables de xFrankB" width="100%" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/content.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/content-light.svg" />
+  <img src="./assets/content.svg" alt="Perfil técnico, enfoque, proyecto, stack y contacto de xFrankB" width="100%" />
+</picture>
 
-<img src="./assets/activity.svg" alt="Ritmo visual de trabajo y consistencia de xFrankB" width="100%" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/evidence.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/evidence-light.svg" />
+  <img src="./assets/evidence.svg" alt="Evidencia pública del proyecto U3_APM y su estructura técnica" width="100%" />
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/signal.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/signal-light.svg" />
+  <img src="./assets/signal.svg" alt="Señales técnicas verificables de xFrankB" width="100%" />
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/activity.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/activity-light.svg" />
+  <img src="./assets/activity.svg" alt="Ritmo visual de trabajo y consistencia de xFrankB" width="100%" />
+</picture>
 
 </div>
 
 <div align="center">
 
-<img src="./assets/footer.svg" alt="Build learn repeat — xFrankB" width="100%" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/footer.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/footer-light.svg" />
+  <img src="./assets/footer.svg" alt="Build learn repeat — xFrankB" width="100%" />
+</picture>
 
 <sub><code>OPEN TO: trainee / junior opportunities · collaborative builds</code></sub>
 

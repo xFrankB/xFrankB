@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="170" viewBox="0 0 1200 170" role="img" aria-labelledby="title desc">
+  <title id="title">End of profile — xFrankB</title>
+  <desc id="desc">Animated monochrome closing strip with a soft blurred scanline.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2f2f2"/><stop offset="1" stop-color="#dedede"/></linearGradient>
+    <filter id="blur18" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+    <clipPath id="clip"><rect x="16" y="16" width="1168" height="138" rx="30"/></clipPath>
+  </defs>
+  <rect width="1200" height="170" fill="none"/>
+  <g clip-path="url(#clip)">
+    <rect x="16" y="16" width="1168" height="138" rx="30" fill="url(#bg)"/>
+    <ellipse cx="200" cy="86" rx="160" ry="40" fill="#111111" opacity=".08" filter="url(#blur18)"><animate attributeName="cx" values="200;1000;200" dur="22s" repeatCount="indefinite"/></ellipse>
+    <path d="M36 86H1164" stroke="#111111" stroke-opacity=".12"/>
+    <path d="M36 86H1164" stroke="#111111" stroke-width="2" stroke-dasharray="3 18" stroke-opacity=".48"><animate attributeName="stroke-dashoffset" values="0;-210" dur="6s" repeatCount="indefinite"/></path>
+    <text x="54" y="65" fill="#111111" font-family="monospace" font-size="13" font-weight="600" letter-spacing="3" opacity=".7">END_OF_PROFILE</text>
+    <text x="54" y="112" fill="#111111" font-family="monospace" font-size="24" font-weight="700" letter-spacing="2">BUILD • LEARN • REPEAT</text>
+    <text x="1146" y="112" fill="#111111" text-anchor="end" font-family="monospace" font-size="13" font-weight="600" opacity=".7">xFrankB / 2026</text>
+    <rect x="16" y="16" width="1168" height="138" rx="30" fill="none" stroke="#111111" stroke-opacity=".2"/>
+  </g>
+</svg>
