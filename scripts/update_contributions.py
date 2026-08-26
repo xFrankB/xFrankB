@@ -537,8 +537,6 @@ def animated_picture(webp_dark: str, webp_light: str, gif_dark: str, gif_light: 
 
 def build_readme(years: list[int], calendars: dict[int, dict], language: str) -> str:
     spanish = language == "es"
-    github_label = "&lt;/&gt; GITHUB · @xFrankB"
-    contact_label = "[CORREO] CONTACTO · jfby13@gmail.com" if spanish else "[MAIL] CONTACT · jfby13@gmail.com"
     open_to = "DISPONIBLE PARA: oportunidades trainee / junior · construcciones colaborativas" if spanish else "OPEN TO: trainee / junior opportunities · collaborative builds"
     if spanish:
         hero = animated_picture("hero-es.webp?v=23", "hero-es-light.webp?v=23", "hero-es.gif?v=18", "hero-es-light.gif?v=18", "xFrankB — Francisco Baylón", width="100%")
@@ -567,11 +565,7 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
         contribution_alt,
     )
     return "\n".join([
-        '<div align="center">', '', hero_layout, '',
-        '<div align="center">',
-        f'  <a href="https://github.com/xFrankB" title="GitHub"><kbd>{github_label}</kbd></a><br />',
-        f'  <a href="mailto:jfby13@gmail.com" title="Contacto"><kbd>{contact_label}</kbd></a>',
-        '</div>', '', '</div>', '',
+        '<div align="center">', '', hero_layout, '', '</div>', '',
         '<div align="center">', '', content, '', evidence, '', signal, '',
         contribution,
         '</div>', '',

@@ -10,11 +10,6 @@
 </picture>
 </div>
 
-<div align="center">
-  <a href="https://github.com/xFrankB" title="GitHub"><kbd>&lt;/&gt; GITHUB · @xFrankB</kbd></a><br />
-  <a href="mailto:jfby13@gmail.com" title="Contacto"><kbd>[CORREO] CONTACTO · jfby13@gmail.com</kbd></a>
-</div>
-
 </div>
 
 <div align="center">

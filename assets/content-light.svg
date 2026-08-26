@@ -63,11 +63,13 @@
 
       <path d="M58 630H1142" class="line"/>
       <text x="58" y="670" class="label">/ STACK</text>
+      <text x="58" y="710" class="body">TypeScript · JavaScript · Python · C++ · React · Vite · Node.js</text>
+      <text x="58" y="740" class="body">Express · PyTorch · NumPy · Pandas · Matplotlib · Scikit-learn</text>
+      <text x="58" y="770" class="body">Git · Linux · pnpm · Tailwind CSS · VS Code</text>
 
       <path d="M58 812H1142" class="line"/>
       <text x="58" y="852" class="label">/ CONTACT</text>
-      <text x="58" y="882" class="body">github.com/xFrankB  ·</text>
-      <a href="mailto:jfby13@gmail.com" aria-label="Enviar correo a jfby13@gmail.com"><text x="300" y="882" class="body">jfby13@gmail.com</text></a>
+      <a href="mailto:jfby13@gmail.com" aria-label="Enviar correo a jfby13@gmail.com"><text x="58" y="882" class="body">jfby13@gmail.com</text></a>
     </g>
     <rect x="16" y="16" width="1168" height="888" rx="36" fill="none" stroke="#151515" stroke-opacity=".045" stroke-width="7" filter="url(#blur10)"/>
     <rect x="30" y="16" width="2" height="888" fill="#151515" opacity=".09" filter="url(#blur10)">
