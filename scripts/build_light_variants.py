@@ -7,7 +7,7 @@ PANEL_NAMES = ("hero", "content", "evidence", "signal", "footer")
 
 PALETTE = (
     ("#ffffff", "__WHITE_LONG__"),
-    ("#0d1117", "#ffffff"),
+    ("#0d1117", "__GITHUB_DARK__"),
     ("#fff", "__WHITE_SHORT__"),
     ("#050505", "#f3f3ef"),
     ("#060606", "#e7e7e2"),
@@ -20,6 +20,7 @@ PALETTE = (
     ("#888", "#777777"),
     ("__WHITE_LONG__", "#151515"),
     ("__WHITE_SHORT__", "#151515"),
+    ("__GITHUB_DARK__", "#ffffff"),
 )
 
 for name in PANEL_NAMES:

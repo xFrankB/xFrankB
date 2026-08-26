@@ -33,7 +33,7 @@
     <clipPath id="frame"><rect x="18" y="18" width="1164" height="344" rx="26"/></clipPath>
   </defs>
 
-  <rect width="1200" height="380" fill="#151515fff"/>
+  <rect width="1200" height="380" fill="#ffffff"/>
   <g clip-path="url(#frame)">
     <rect x="18" y="18" width="1164" height="344" rx="26" fill="url(#bg)"/>
     <rect x="18" y="18" width="1164" height="344" rx="26" fill="url(#grid)"/>
