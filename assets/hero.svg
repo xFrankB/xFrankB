@@ -74,7 +74,7 @@
     </g>
 
     <g transform="translate(884 74)">
-      <rect x="0" y="0" width="218" height="194" rx="18" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.24"/>
+      <rect x="0" y="0" width="218" height="136" rx="18" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.24"/>
       <text x="22" y="32" fill="#ffffff" fill-opacity="0.7" font-family="monospace" font-size="12" font-weight="600" letter-spacing="2">SYSTEM.STATUS</text>
       <text x="22" y="67" fill="#ffffff" font-family="monospace" font-size="20" font-weight="600">READY</text>
       <circle cx="183" cy="61" r="8" fill="#ffffff" fill-opacity="0.86">
@@ -83,11 +83,6 @@
       </circle>
       <path d="M22 93H196" stroke="#ffffff" stroke-opacity="0.24"/>
       <text x="22" y="116" fill="#ffffff" fill-opacity="0.68" font-family="monospace" font-size="13">ship / learn / repeat</text>
-      <text x="22" y="145" fill="#ffffff" fill-opacity="0.68" font-family="monospace" font-size="11" font-weight="600" letter-spacing="2">LANGUAGE</text>
-      <rect x="22" y="157" width="86" height="28" rx="14" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.34"/>
-      <text x="65" y="175" text-anchor="middle" fill="#ffffff" fill-opacity="0.82" font-family="monospace" font-size="11" font-weight="600">ESPAÑOL</text>
-      <rect x="114" y="157" width="82" height="28" rx="14" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.34"/>
-      <text x="155" y="175" text-anchor="middle" fill="#ffffff" fill-opacity="0.82" font-family="monospace" font-size="11" font-weight="600">ENGLISH</text>
     </g>
 
     <rect x="18" y="18" width="1164" height="344" rx="36" fill="none" stroke="#ffffff" stroke-opacity="0.2"/>

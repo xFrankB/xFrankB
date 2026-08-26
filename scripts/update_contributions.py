@@ -341,12 +341,12 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
 
     language_label = "IDIOMA" if spanish else "LANGUAGE"
     hero_layout = "\n".join([
-        '<table align="center" width="100%" cellpadding="0" cellspacing="0">',
+        '<table align="center" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:0;border-collapse:collapse;background:transparent;" role="presentation">',
         '<tr>',
-        '<td width="86%" valign="top">',
+        '<td width="82%" valign="top" style="border:0;padding:0 6px;background:transparent;">',
         hero,
         '</td>',
-        '<td width="14%" align="center" valign="middle">',
+        '<td width="18%" align="center" valign="middle" style="border:0;padding:0 6px;background:transparent;">',
         f'<sub><code>{language_label}</code></sub><br />',
         language_buttons,
         '</td>',
