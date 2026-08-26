@@ -35,7 +35,7 @@
 </picture>
 
 <details name="contribution-years" open>
-  <summary>2026 · 24 contributions</summary>
+  <summary>2026 · 25 contributions</summary>
 
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./assets/contributions-2026.svg" />
