@@ -31,14 +31,15 @@ ORBIT_X = 820
 ORBIT_Y = 28
 ORBIT_WIDTH = 340
 ORBIT_HEIGHT = 280
-ORBIT_PHASE_COUNT = 64
-ORBIT_CYCLES_PER_LOOP = 3.0
+ORBIT_PHASE_COUNT = 96
+ORBIT_CYCLES_PER_LOOP = 12.0
+DYNAMIC_RENDER_SCALE = 3
 TECHNOLOGIES_RE = re.compile(r"<title>(.*?) — detected in public repositories</title>")
 FADE_IN = ((0.06, 80), (0.12, 80), (0.20, 80), (0.30, 80), (0.44, 80), (0.62, 80), (0.82, 80))
 FADE_OUT = ((0.82, 80), (0.62, 80), (0.44, 80), (0.30, 80), (0.20, 80), (0.12, 80), (0.06, 80))
 HOLD_OPACITY = 1.0
 HOLD_DURATION = 2080
-HOLD_FRAME_DURATION = 520
+HOLD_FRAME_DURATION = 80
 SLOT_DURATION = sum(duration for _, duration in FADE_IN) + HOLD_DURATION + sum(duration for _, duration in FADE_OUT)
 
 
@@ -52,6 +53,14 @@ def technologies(source: str) -> list[str]:
 def render(svg: str, width: int, height: int) -> Image.Image:
     png = cairosvg.svg2png(bytestring=svg.encode("utf-8"), output_width=width, output_height=height)
     return Image.open(BytesIO(png)).convert("RGBA")
+
+
+def render_dynamic(svg: str) -> Image.Image:
+    """Supersample the moving area before reducing it to the composite size."""
+    width = ORBIT_WIDTH * DYNAMIC_RENDER_SCALE
+    height = ORBIT_HEIGHT * DYNAMIC_RENDER_SCALE
+    high_res = render(svg, width, height)
+    return high_res.resize((ORBIT_WIDTH, ORBIT_HEIGHT), Image.Resampling.LANCZOS)
 
 
 def static_base_svg(source: str) -> str:
@@ -82,7 +91,7 @@ def logo_layer_svg(technology: str, ordinal: int, total: int, opacity: float, li
 def phase_key(elapsed_ms: int, total_duration_ms: int) -> int:
     if total_duration_ms <= 0:
         return 0
-    # The orbit has its own faster clock: three complete revolutions per
+    # The orbit has its own faster clock: twelve complete revolutions per
     # technology cycle, while elapsed_ms remains continuous across logos.
     return int((elapsed_ms * ORBIT_PHASE_COUNT * ORBIT_CYCLES_PER_LOOP) / total_duration_ms) % ORBIT_PHASE_COUNT
 
@@ -98,17 +107,15 @@ def build(source_path: Path, output_path: Path) -> None:
     # are recomposited per frame, so the fixed text never accumulates codec blur.
     base = render(static_base_svg(source), OUTPUT_WIDTH, OUTPUT_HEIGHT)
     orbit_frames = [
-        render(orbit_layer_svg(prefix, suffix, key / ORBIT_PHASE_COUNT), ORBIT_WIDTH, ORBIT_HEIGHT)
+        render_dynamic(orbit_layer_svg(prefix, suffix, key / ORBIT_PHASE_COUNT))
         for key in range(ORBIT_PHASE_COUNT)
     ]
     logo_cache: dict[tuple[str, int], Image.Image] = {}
     opacities = tuple(opacity for opacity, _ in FADE_IN) + (HOLD_OPACITY,) + tuple(opacity for opacity, _ in FADE_OUT)
     for ordinal, technology in enumerate(techs, start=1):
         for state, opacity in enumerate(opacities):
-            logo_cache[(technology, state)] = render(
-                logo_layer_svg(technology, ordinal, len(techs), opacity, light),
-                ORBIT_WIDTH,
-                ORBIT_HEIGHT,
+            logo_cache[(technology, state)] = render_dynamic(
+                logo_layer_svg(technology, ordinal, len(techs), opacity, light)
             )
 
     frames: list[Image.Image] = []
@@ -123,7 +130,7 @@ def build(source_path: Path, output_path: Path) -> None:
             durations.append(duration)
             elapsed_ms += duration
 
-        # Keep the logo recognizable while advancing the orbit every 100 ms.
+        # Keep the logo recognizable while advancing the orbit every 80 ms.
         hold_frames = HOLD_DURATION // HOLD_FRAME_DURATION
         for _ in range(hold_frames):
             frame = base.copy()
@@ -148,8 +155,8 @@ def build(source_path: Path, output_path: Path) -> None:
         duration=durations,
         loop=0,
         lossless=False,
-        quality=80,
-        method=0,
+        quality=92,
+        method=6,
     )
     print(f"{output_path.name}: {len(techs)} technologies, {len(frames)} frames, {output_path.stat().st_size} bytes")
 

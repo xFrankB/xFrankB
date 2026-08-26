@@ -23,6 +23,7 @@ OUTPUT_FILES = {
 }
 ORBIT_START = "    <!-- TECH_ORBIT_START -->"
 ORBIT_END = "    <!-- TECH_ORBIT_END -->"
+ORBIT_CYCLES_PER_LOOP = 12.0
 TECH_GROUP_START = '      <g opacity="0">'
 ICON_FILES = {
     "TypeScript": "typescript.svg",
@@ -154,16 +155,15 @@ def build_gif(source_path: Path, output_path: Path) -> None:
     frames: list[Image.Image] = []
     durations: list[int] = []
     light = "-light" in source_path.stem
-    # Nine intermediate opacity states make the transition continuous while
-    # only one logo is ever present in a frame. The active state stays long
-    # enough to be recognizable in a short mobile screen recording.
-    sequence = ((0.06, 160), (0.16, 160), (0.30, 160), (0.52, 140), (1.0, 2600), (0.52, 140), (0.30, 160), (0.16, 160), (0.06, 160))
+    # Fine 80 ms opacity states keep the transition continuous while only one
+    # logo is ever present in a frame. The active state remains recognizable.
+    sequence = ((0.06, 80), (0.16, 80), (0.30, 80), (0.52, 80), *((1.0, 80),) * 26, (0.52, 80), (0.30, 80), (0.16, 80), (0.06, 80))
     for ordinal, technology in enumerate(technologies, start=1):
         for phase_index, (opacity, duration) in enumerate(sequence):
             # Keep the dash motion continuous across technology boundaries;
-            # it completes one orbit cycle every two technology slots.
-            phase = (((ordinal - 1) * len(sequence)) + phase_index) / (len(sequence) * 2)
-            phase %= 1.0
+            # the orbit has its own faster clock and never resets per logo.
+            progress = ((ordinal - 1) + (phase_index / len(sequence))) / len(technologies)
+            phase = (progress * ORBIT_CYCLES_PER_LOOP) % 1.0
             svg = frame_svg(source, prefix, suffix, technology, ordinal, len(technologies), opacity, light, phase)
             png = cairosvg.svg2png(bytestring=svg.encode("utf-8"), output_width=OUTPUT_WIDTH, output_height=OUTPUT_HEIGHT)
             frames.append(rgba_to_gif_frame(png))

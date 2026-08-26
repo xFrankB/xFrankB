@@ -307,9 +307,6 @@ def render_technology_sequence(technologies: list[str]) -> str:
         '        <animate attributeName="stroke-dashoffset" values="0;90" dur="9s" repeatCount="indefinite"/>',
         '      </ellipse>',
         '      <circle cx="170" cy="132" r="80" fill="none" stroke="#ffffff" stroke-opacity="0.07" stroke-width="1"/>',
-        '      <circle cx="170" cy="132" r="3" fill="#ffffff" fill-opacity="0.76">',
-        '        <animate attributeName="r" values="2;5;2" dur="4s" repeatCount="indefinite"/>',
-        '      </circle>',
     ]
     for index, technology in enumerate(technologies):
         label = escape(technology)
@@ -544,14 +541,14 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
     contact_label = "[CORREO] CONTACTO · jfby13@gmail.com" if spanish else "[MAIL] CONTACT · jfby13@gmail.com"
     open_to = "DISPONIBLE PARA: oportunidades trainee / junior · construcciones colaborativas" if spanish else "OPEN TO: trainee / junior opportunities · collaborative builds"
     if spanish:
-        hero = animated_picture("hero-es.webp?v=22", "hero-es-light.webp?v=22", "hero-es.gif?v=18", "hero-es-light.gif?v=18", "xFrankB — Francisco Baylón", width="100%")
+        hero = animated_picture("hero-es.webp?v=23", "hero-es-light.webp?v=23", "hero-es.gif?v=18", "hero-es-light.gif?v=18", "xFrankB — Francisco Baylón", width="100%")
         content = picture("content-es.svg", "content-es-light.svg", "Perfil técnico, enfoque, proyecto, stack y contacto de xFrankB")
         evidence = picture("evidence-es.svg", "evidence-es-light.svg", "Evidencia pública del proyecto U3_APM y su estructura técnica")
         signal = picture("signal-es.svg", "signal-es-light.svg", "Señales técnicas verificables de xFrankB")
         footer = picture("footer-es.svg", "footer-es-light.svg", "Construir, aprender y repetir — xFrankB")
         contribution_alt = "Calendario de contribuciones públicas de xFrankB"
     else:
-        hero = animated_picture("hero.webp?v=22", "hero-light.webp?v=22", "hero.gif?v=18", "hero-light.gif?v=18", "xFrankB — Francisco Baylón", width="100%")
+        hero = animated_picture("hero.webp?v=23", "hero-light.webp?v=23", "hero.gif?v=18", "hero-light.gif?v=18", "xFrankB — Francisco Baylón", width="100%")
         content = picture("content.svg", "content-light.svg", "Technical profile, focus, project, stack and contact for xFrankB")
         evidence = picture("evidence.svg", "evidence-light.svg", "Public evidence of the U3_APM project and its technical structure")
         signal = picture("signal.svg", "signal-light.svg", "Verified technical signals for xFrankB")

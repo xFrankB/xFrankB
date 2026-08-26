@@ -2,8 +2,8 @@
 
 <div align="center">
 <picture>
-  <source type="image/webp" media="(prefers-color-scheme: dark)" srcset="./assets/hero.webp?v=22" />
-  <source type="image/webp" media="(prefers-color-scheme: light)" srcset="./assets/hero-light.webp?v=22" />
+  <source type="image/webp" media="(prefers-color-scheme: dark)" srcset="./assets/hero.webp?v=23" />
+  <source type="image/webp" media="(prefers-color-scheme: light)" srcset="./assets/hero-light.webp?v=23" />
   <source type="image/gif" media="(prefers-color-scheme: dark)" srcset="./assets/hero.gif?v=18" />
   <source type="image/gif" media="(prefers-color-scheme: light)" srcset="./assets/hero-light.gif?v=18" />
   <img src="./assets/hero.gif?v=18" alt="xFrankB — Francisco Baylón" width="100%" />

@@ -82,9 +82,6 @@
         <animate attributeName="stroke-dashoffset" values="0;90" dur="9s" repeatCount="indefinite"/>
       </ellipse>
       <circle cx="170" cy="132" r="80" fill="none" stroke="#ffffff" stroke-opacity="0.07" stroke-width="1"/>
-      <circle cx="170" cy="132" r="3" fill="#ffffff" fill-opacity="0.76">
-        <animate attributeName="r" values="2;5;2" dur="4s" repeatCount="indefinite"/>
-      </circle>
       <g opacity="0">
         <title>TypeScript — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
