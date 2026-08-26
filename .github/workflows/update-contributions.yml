@@ -8,8 +8,11 @@ on:
     branches:
       - main
     paths-ignore:
-      - "assets/contributions.svg"
-      - "assets/contributions-light.svg"
+      - "README.md"
+      - "README.es.md"
+      - "assets/contributions*.svg"
+      - "assets/*-es.svg"
+      - "assets/*-es-light.svg"
 
 permissions:
   contents: write

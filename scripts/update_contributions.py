@@ -5,13 +5,23 @@ import json
 import os
 import sys
 import urllib.request
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from html import escape
 from pathlib import Path
 
+ROOT = Path(__file__).resolve().parents[1]
+ASSETS = ROOT / "assets"
 LOGIN = os.getenv("GITHUB_LOGIN", "xFrankB")
-OUT_DIR = Path(__file__).resolve().parents[1] / "assets"
-QUERY = """
+
+YEARS_QUERY = """
+query($login: String!) {
+  user(login: $login) {
+    contributionsCollection { contributionYears }
+  }
+}
+"""
+
+CALENDAR_QUERY = """
 query($login: String!, $from: DateTime!, $to: DateTime!) {
   user(login: $login) {
     contributionsCollection(from: $from, to: $to) {
@@ -20,12 +30,7 @@ query($login: String!, $from: DateTime!, $to: DateTime!) {
         months { firstDay name totalWeeks year }
         weeks {
           firstDay
-          contributionDays {
-            date
-            contributionCount
-            contributionLevel
-            weekday
-          }
+          contributionDays { date contributionCount contributionLevel weekday }
         }
       }
     }
@@ -34,182 +39,273 @@ query($login: String!, $from: DateTime!, $to: DateTime!) {
 """
 
 DARK = {
-    "bg_start": "#050505",
-    "bg_mid": "#141414",
-    "bg_end": "#060606",
-    "ink": "#f4f4f4",
-    "body": "#d3d3d3",
-    "muted": "#8f8f8f",
-    "grid": "#ffffff",
-    "panel_stroke": "#ffffff",
-    "cell_stroke": "#2b2b2b",
+    "bg_start": "#050505", "bg_mid": "#141414", "bg_end": "#060606",
+    "ink": "#f4f4f4", "body": "#d3d3d3", "muted": "#8f8f8f",
+    "grid": "#ffffff", "panel_stroke": "#ffffff", "cell_stroke": "#2b2b2b",
     "none": "#111111",
-    "levels": {
-        "FIRST_QUARTILE": "#444444",
-        "SECOND_QUARTILE": "#777777",
-        "THIRD_QUARTILE": "#b7b7b7",
-        "FOURTH_QUARTILE": "#f2f2f2",
-    },
+    "levels": {"FIRST_QUARTILE": "#444444", "SECOND_QUARTILE": "#777777", "THIRD_QUARTILE": "#b7b7b7", "FOURTH_QUARTILE": "#f2f2f2"},
 }
 
 LIGHT = {
-    "bg_start": "#f3f3ef",
-    "bg_mid": "#fbfbf8",
-    "bg_end": "#e7e7e2",
-    "ink": "#151515",
-    "body": "#353535",
-    "muted": "#686862",
-    "grid": "#222222",
-    "panel_stroke": "#777771",
-    "cell_stroke": "#c3c3bd",
+    "bg_start": "#f3f3ef", "bg_mid": "#fbfbf8", "bg_end": "#e7e7e2",
+    "ink": "#151515", "body": "#353535", "muted": "#686862",
+    "grid": "#222222", "panel_stroke": "#777771", "cell_stroke": "#c3c3bd",
     "none": "#e4e4df",
-    "levels": {
-        "FIRST_QUARTILE": "#c6c6c0",
-        "SECOND_QUARTILE": "#96968f",
-        "THIRD_QUARTILE": "#5d5d57",
-        "FOURTH_QUARTILE": "#181818",
+    "levels": {"FIRST_QUARTILE": "#c6c6c0", "SECOND_QUARTILE": "#96968f", "THIRD_QUARTILE": "#5d5d57", "FOURTH_QUARTILE": "#181818"},
+}
+
+LANG = {
+    "en": {
+        "title": "/ CONTRIBUTIONS / {year}",
+        "total": "TOTAL",
+        "subtitle": "public activity · daily sync · contribution count by day",
+        "less": "LESS", "more": "MORE",
+        "weekdays": {1: "MON", 3: "WED", 5: "FRI"},
+        "contribution": "contribution", "contributions": "contributions",
+        "desc": "Live contribution calendar for {login}, {total} contributions between {start} and {end}.",
+        "alt": "Live GitHub contribution calendar for {login} in {year}",
+    },
+    "es": {
+        "title": "/ CONTRIBUCIONES / {year}",
+        "total": "TOTAL",
+        "subtitle": "actividad pública · sincronización diaria · contribuciones por día",
+        "less": "MENOS", "more": "MÁS",
+        "weekdays": {1: "LUN", 3: "MIÉ", 5: "VIE"},
+        "contribution": "contribución", "contributions": "contribuciones",
+        "desc": "Calendario de contribuciones de {login}, {total} contribuciones entre {start} y {end}.",
+        "alt": "Calendario vivo de contribuciones de GitHub de {login} en {year}",
     },
 }
 
+PANEL_TRANSLATIONS = {
+    "/ PROFILE_IDENTITY": "/ IDENTIDAD",
+    "TRAINEE • BUILDING IN PUBLIC": "TRAINEE • CONSTRUYENDO EN PÚBLICO",
+    "FULL-STACK • APPLIED AI • BUILDING": "FULL-STACK • IA APLICADA • CONSTRUYENDO",
+    "03  AI / DATA": "03  IA / DATOS",
+    "04  QUALITY": "04  CALIDAD",
+    "SYSTEM.STATUS": "ESTADO.SISTEMA",
+    "READY": "LISTO",
+    "ship / learn / repeat": "construir / aprender / repetir",
+    "/ WHOAMI": "/ QUIÉN_SOY",
+    "Software developer trainee focused on full-stack products": "Desarrollador trainee enfocado en productos full-stack",
+    "and applied AI: interfaces, architecture, automation": "e IA aplicada: interfaces, arquitectura, automatización",
+    "and practical problem solving.": "y resolución práctica de problemas.",
+    "$ mission: entender → construir → documentar → mejorar": "$ misión: entender → construir → documentar → mejorar",
+    "/ FOCUS": "/ ENFOQUE",
+    "03 AI / DATA": "03 IA / DATOS",
+    "04 QUALITY": "04 CALIDAD",
+    "/ SELECTED_WORK": "/ PROYECTO_CLAVE",
+    "Aplicación full-stack modular con límites visibles.": "Aplicación full-stack modular con límites claros.",
+    "BUILD_PIPELINE": "CICLO_DE_BUILD",
+    "/ CONTACT": "/ CONTACTO",
+    "/ PROOF_OF_WORK": "/ PRUEBA_DEL_TRABAJO",
+    "Aplicación full-stack organizada para crecer por módulos.": "Aplicación full-stack modular y preparada para crecer.",
+    "public repository · main · MIT": "repositorio público · main · MIT",
+    "PRIMARY_LANGUAGE": "LENGUAJE_PRINCIPAL",
+    "STRUCTURE": "ESTRUCTURA",
+    "architecture visible in repository · modular boundaries · reproducible commands": "arquitectura visible en el repo · límites modulares · comandos reproducibles",
+    "VERIFIED_SIGNAL / PUBLIC_REPO": "SEÑAL_VERIFICADA / REPO_PÚBLICO",
+    "PRIMARY_REPOSITORY": "REPOSITORIO_PRINCIPAL",
+    "STACK_DETECTED": "STACK_DETECTADO",
+    "BUILD_LOOP": "CICLO_DE_BUILD",
+    "format · reproducible commands": "format · comandos reproducibles",
+    "END_OF_PROFILE": "FIN_DEL_PERFIL",
+    "BUILD • LEARN • REPEAT": "CONSTRUIR • APRENDER • REPETIR",
+}
 
-def iso(value: datetime) -> str:
-    return value.astimezone(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+def iso_year(year: int, end: bool = False) -> str:
+    suffix = "12-31T23:59:59Z" if end else "01-01T00:00:00Z"
+    return f"{year:04d}-{suffix}"
 
 
-def fetch_calendar() -> dict:
+def graphql(query: str, variables: dict) -> dict:
     token = os.getenv("GITHUB_TOKEN") or os.getenv("GH_TOKEN")
     if not token:
         raise RuntimeError("GITHUB_TOKEN or GH_TOKEN is required")
-
-    now = datetime.now(timezone.utc)
-    variables = {
-        "login": LOGIN,
-        "from": iso(now - timedelta(days=365)),
-        "to": iso(now),
-    }
-    body = json.dumps({"query": QUERY, "variables": variables}).encode("utf-8")
+    body = json.dumps({"query": query, "variables": variables}).encode("utf-8")
     request = urllib.request.Request(
-        "https://api.github.com/graphql",
-        data=body,
-        method="POST",
-        headers={
-            "Authorization": f"Bearer {token}",
-            "Content-Type": "application/json",
-            "User-Agent": "xFrankB-contribution-calendar",
-        },
+        "https://api.github.com/graphql", data=body, method="POST",
+        headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json", "User-Agent": "xFrankB-contribution-calendar"},
     )
     with urllib.request.urlopen(request, timeout=30) as response:
         payload = json.loads(response.read().decode("utf-8"))
     if payload.get("errors"):
         raise RuntimeError(json.dumps(payload["errors"], ensure_ascii=False))
-    try:
-        return payload["data"]["user"]["contributionsCollection"]["contributionCalendar"]
-    except (KeyError, TypeError) as error:
-        raise RuntimeError(f"Unexpected GitHub GraphQL response: {payload}") from error
+    return payload["data"]
 
 
-def month_label(month: dict) -> str:
-    names = {
-        1: "JAN", 2: "FEB", 3: "MAR", 4: "APR", 5: "MAY", 6: "JUN",
-        7: "JUL", 8: "AUG", 9: "SEP", 10: "OCT", 11: "NOV", 12: "DEC",
-    }
+def available_years() -> list[int]:
+    data = graphql(YEARS_QUERY, {"login": LOGIN})
+    years = data["user"]["contributionsCollection"].get("contributionYears", [])
+    current = datetime.now(timezone.utc).year
+    normalized = sorted({int(year) for year in years} | {current}, reverse=True)
+    return normalized
+
+
+def calendar_for_year(year: int) -> dict:
+    now = datetime.now(timezone.utc)
+    end = min(now.strftime("%Y-%m-%dT%H:%M:%SZ"), iso_year(year, end=True)) if year == now.year else iso_year(year, end=True)
+    data = graphql(CALENDAR_QUERY, {"login": LOGIN, "from": iso_year(year), "to": end})
+    return data["user"]["contributionsCollection"]["contributionCalendar"]
+
+
+def month_label(month: dict, language: str) -> str:
+    english = {1: "JAN", 2: "FEB", 3: "MAR", 4: "APR", 5: "MAY", 6: "JUN", 7: "JUL", 8: "AUG", 9: "SEP", 10: "OCT", 11: "NOV", 12: "DEC"}
+    spanish = {1: "ENE", 2: "FEB", 3: "MAR", 4: "ABR", 5: "MAY", 6: "JUN", 7: "JUL", 8: "AGO", 9: "SEP", 10: "OCT", 11: "NOV", 12: "DIC"}
     try:
-        month_number = int(month["firstDay"][5:7])
+        number = int(str(month["firstDay"])[5:7])
     except (KeyError, ValueError):
         return str(month.get("name", ""))[:3].upper()
-    return names.get(month_number, str(month.get("name", ""))[:3].upper())
+    return (spanish if language == "es" else english).get(number, "")
 
 
-def render(calendar: dict, theme: dict, theme_name: str) -> str:
+def render_calendar(calendar: dict, year: int, theme: dict, language: str) -> str:
+    labels = LANG[language]
     weeks = calendar.get("weeks", [])
     total = int(calendar.get("totalContributions", 0))
     all_days = [day for week in weeks for day in week.get("contributionDays", [])]
-    dates = [day["date"] for day in all_days if day.get("date")]
-    start_date = min(dates) if dates else "unknown"
-    end_date = max(dates) if dates else "unknown"
-
+    dates = [str(day["date"]) for day in all_days if day.get("date")]
+    start_date = min(dates) if dates else f"{year}-01-01"
+    end_date = max(dates) if dates else f"{year}-12-31"
     width, height = 1200, 360
     panel_x, panel_y, panel_w, panel_h, radius = 16, 16, 1168, 328, 34
     grid_x, grid_y, step, cell = 70, 142, 20, 13
-    month_y = 116
     level_colors = theme["levels"]
     lines: list[str] = []
-
     lines.append(f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">''')
-    lines.append(f"  <title id=\"title\">GitHub contributions — {LOGIN}</title>")
-    lines.append(f"  <desc id=\"desc\">Live contribution calendar for {LOGIN}, {total} contributions between {start_date} and {end_date}.</desc>")
+    lines.append(f"  <title id=\"title\">{escape(labels['alt'].format(login=LOGIN, year=year))}</title>")
+    lines.append(f"  <desc id=\"desc\">{escape(labels['desc'].format(login=LOGIN, total=total, start=start_date, end=end_date))}</desc>")
     lines.append("  <defs>")
     lines.append(f'''    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{theme['bg_start']}"/><stop offset="0.55" stop-color="{theme['bg_mid']}"/><stop offset="1" stop-color="{theme['bg_end']}"/></linearGradient>''')
     lines.append(f'''    <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse"><path d="M38 0H0V38" fill="none" stroke="{theme['grid']}" stroke-opacity=".055"/><circle cx="1" cy="1" r="1" fill="{theme['grid']}" opacity=".12"/></pattern>''')
     lines.append(f'''    <clipPath id="clip"><rect x="{panel_x}" y="{panel_y}" width="{panel_w}" height="{panel_h}" rx="{radius}"/></clipPath>''')
     lines.append("  </defs>")
-    lines.append("  <rect width=\"1200\" height=\"360\" fill=\"none\"/>")
-    lines.append("  <g clip-path=\"url(#clip)\">")
-    lines.append(f'''    <rect x="{panel_x}" y="{panel_y}" width="{panel_w}" height="{panel_h}" rx="{radius}" fill="url(#bg)"/>''')
-    lines.append(f'''    <rect x="{panel_x}" y="{panel_y}" width="{panel_w}" height="{panel_h}" rx="{radius}" fill="url(#grid)"/>''')
-    lines.append(f'''    <rect x="{panel_x}" y="{panel_y}" width="{panel_w}" height="{panel_h}" rx="{radius}" fill="none" stroke="{theme['panel_stroke']}" stroke-opacity=".22"/>''')
+    lines.append(f'''  <g clip-path="url(#clip)"><rect x="{panel_x}" y="{panel_y}" width="{panel_w}" height="{panel_h}" rx="{radius}" fill="url(#bg)"/><rect x="{panel_x}" y="{panel_y}" width="{panel_w}" height="{panel_h}" rx="{radius}" fill="url(#grid)"/><rect x="{panel_x}" y="{panel_y}" width="{panel_w}" height="{panel_h}" rx="{radius}" fill="none" stroke="{theme['panel_stroke']}" stroke-opacity=".22"/>''')
     lines.append("    <g font-family=\"monospace\">")
-    lines.append(f'''      <text x="58" y="64" fill="{theme['ink']}" opacity=".78" font-size="14" font-weight="600" letter-spacing="3">/ CONTRIBUTIONS / LAST 12 MONTHS</text>''')
-    lines.append(f'''      <text x="1142" y="64" text-anchor="end" fill="{theme['ink']}" font-size="22" font-weight="700">{total} <tspan font-size="12" opacity=".72">TOTAL</tspan></text>''')
-    lines.append(f'''      <text x="58" y="92" fill="{theme['body']}" opacity=".86" font-size="14">public activity · daily sync · contribution count by day</text>''')
-
+    lines.append(f'''      <text x="58" y="64" fill="{theme['ink']}" opacity=".82" font-size="14" font-weight="600" letter-spacing="3">{escape(labels['title'].format(year=year))}</text>''')
+    lines.append(f'''      <text x="1142" y="64" text-anchor="end" fill="{theme['ink']}" font-size="22" font-weight="700">{total} <tspan font-size="12" opacity=".72">{labels['total']}</tspan></text>''')
+    lines.append(f'''      <text x="58" y="92" fill="{theme['body']}" opacity=".9" font-size="14">{escape(labels['subtitle'])}</text>''')
     month_positions: dict[str, int] = {}
     for index, week in enumerate(weeks):
         for day in week.get("contributionDays", []):
             if day.get("date"):
-                month_positions.setdefault(day["date"][:7], index)
+                month_positions.setdefault(str(day["date"])[:7], index)
     for month in calendar.get("months", []):
         key = str(month.get("firstDay", ""))[:7]
         if key in month_positions:
             x = grid_x + month_positions[key] * step
-            lines.append(f'''      <text x="{x}" y="{month_y}" fill="{theme['muted']}" opacity=".88" font-size="11" font-weight="600" letter-spacing="1">{escape(month_label(month))}</text>''')
-
-    for weekday, label in ((1, "MON"), (3, "WED"), (5, "FRI")):
-        y = grid_y + weekday * step + 10
-        lines.append(f'''      <text x="32" y="{y}" text-anchor="end" fill="{theme['muted']}" opacity=".8" font-size="10">{label}</text>''')
-
+            lines.append(f'''      <text x="{x}" y="116" fill="{theme['muted']}" opacity=".9" font-size="11" font-weight="600" letter-spacing="1">{month_label(month, language)}</text>''')
+    for weekday, label in labels["weekdays"].items():
+        lines.append(f'''      <text x="32" y="{grid_y + weekday * step + 10}" text-anchor="end" fill="{theme['muted']}" opacity=".84" font-size="10">{label}</text>''')
     for week_index, week in enumerate(weeks):
         x = grid_x + week_index * step
         for day in week.get("contributionDays", []):
             try:
                 weekday = int(day.get("weekday", 0))
+                count = int(day.get("contributionCount", 0))
             except (TypeError, ValueError):
-                weekday = 0
-            y = grid_y + weekday * step
+                weekday, count = 0, 0
             level = day.get("contributionLevel", "NONE")
-            fill = level_colors.get(level, theme["none"]) if int(day.get("contributionCount", 0)) else theme["none"]
-            count = int(day.get("contributionCount", 0))
+            fill = level_colors.get(level, theme["none"]) if count else theme["none"]
             date_value = escape(str(day.get("date", "")))
-            label = f"{date_value}: {count} contribution" + ("s" if count != 1 else "")
-            lines.append(f'''      <rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="3" fill="{fill}" stroke="{theme['cell_stroke']}" stroke-width="1"><title>{escape(label)}</title></rect>''')
-
+            word = labels["contribution"] if count == 1 else labels["contributions"]
+            lines.append(f'''      <rect x="{x}" y="{grid_y + weekday * step}" width="{cell}" height="{cell}" rx="3" fill="{fill}" stroke="{theme['cell_stroke']}" stroke-width="1"><title>{date_value}: {count} {word}</title></rect>''')
     legend_y = 306
-    lines.append(f'''      <text x="58" y="{legend_y + 10}" fill="{theme['muted']}" opacity=".86" font-size="11">LESS</text>''')
-    legend_x = 98
+    lines.append(f'''      <text x="58" y="316" fill="{theme['muted']}" opacity=".9" font-size="11">{labels['less']}</text>''')
     legend_colors = [theme["none"], level_colors["FIRST_QUARTILE"], level_colors["SECOND_QUARTILE"], level_colors["THIRD_QUARTILE"], level_colors["FOURTH_QUARTILE"]]
     for index, fill in enumerate(legend_colors):
-        x = legend_x + index * 22
-        lines.append(f'''      <rect x="{x}" y="{legend_y}" width="14" height="14" rx="3" fill="{fill}" stroke="{theme['cell_stroke']}" stroke-width="1"/>''')
-    lines.append(f'''      <text x="218" y="{legend_y + 10}" fill="{theme['muted']}" opacity=".86" font-size="11">MORE</text>''')
-    lines.append(f'''      <text x="1142" y="{legend_y + 10}" text-anchor="end" fill="{theme['muted']}" opacity=".76" font-size="11">{escape(start_date)} → {escape(end_date)}</text>''')
-    lines.append("    </g>")
-    lines.append("  </g>")
+        lines.append(f'''      <rect x="{98 + index * 22}" y="{legend_y}" width="14" height="14" rx="3" fill="{fill}" stroke="{theme['cell_stroke']}" stroke-width="1"/>''')
+    lines.append(f'''      <text x="218" y="316" fill="{theme['muted']}" opacity=".9" font-size="11">{labels['more']}</text>''')
+    lines.append(f'''      <text x="1142" y="316" text-anchor="end" fill="{theme['muted']}" opacity=".8" font-size="11">{start_date} → {end_date}</text>''')
+    lines.append("    </g></g>")
     lines.append("</svg>")
     return "\n".join(lines) + "\n"
 
 
+def build_translated_panels() -> None:
+    for name in ("hero", "content", "evidence", "signal", "footer"):
+        for suffix in ("", "-light"):
+            source = ASSETS / f"{name}{suffix}.svg"
+            target = ASSETS / f"{name}-es{suffix}.svg"
+            text = source.read_text(encoding="utf-8")
+            for old, new in PANEL_TRANSLATIONS.items():
+                text = text.replace(old, new)
+            target.write_text(text, encoding="utf-8")
+
+
+def picture(asset_dark: str, asset_light: str, alt: str) -> str:
+    return "\n".join([
+        "<picture>",
+        f'  <source media="(prefers-color-scheme: dark)" srcset="./assets/{asset_dark}" />',
+        f'  <source media="(prefers-color-scheme: light)" srcset="./assets/{asset_light}" />',
+        f'  <img src="./assets/{asset_dark}" alt="{escape(alt)}" width="100%" />',
+        "</picture>",
+    ])
+
+
+def build_readme(years: list[int], language: str) -> str:
+    spanish = language == "es"
+    panel_suffix = "-es"
+    nav = '<a href="./README.md">ENGLISH</a> · <a href="./README.es.md">ESPAÑOL</a>' if spanish else '<a href="./README.es.md">ESPAÑOL</a> · <a href="./README.md">ENGLISH</a>'
+    github_label = "&lt;/&gt; GITHUB · @xFrankB"
+    contact_label = "[CORREO] CONTACTO · jfby13@gmail.com" if spanish else "[MAIL] CONTACT · jfby13@gmail.com"
+    open_to = "DISPONIBLE PARA: oportunidades trainee / junior · construcciones colaborativas" if spanish else "OPEN TO: trainee / junior opportunities · collaborative builds"
+    if spanish:
+        hero = picture("hero-es.svg", "hero-es-light.svg", "xFrankB — Francisco Baylón")
+        content = picture("content-es.svg", "content-es-light.svg", "Perfil técnico, enfoque, proyecto, stack y contacto de xFrankB")
+        evidence = picture("evidence-es.svg", "evidence-es-light.svg", "Evidencia pública del proyecto U3_APM y su estructura técnica")
+        footer = picture("footer-es.svg", "footer-es-light.svg", "Construir, aprender y repetir — xFrankB")
+        contribution_alt = "Calendario dinámico de contribuciones públicas de xFrankB"
+    else:
+        hero = picture("hero.svg", "hero-light.svg", "xFrankB — Francisco Baylón")
+        content = picture("content.svg", "content-light.svg", "Technical profile, focus, project, stack and contact for xFrankB")
+        evidence = picture("evidence.svg", "evidence-light.svg", "Public evidence of the U3_APM project and its technical structure")
+        footer = picture("footer.svg", "footer-light.svg", "Build, learn, repeat — xFrankB")
+        contribution_alt = "Dynamic public contribution calendar for xFrankB"
+    contribution_blocks = []
+    for year in years:
+        if spanish:
+            dark = f"contributions-{year}-es.svg"
+            light = f"contributions-{year}-es-light.svg"
+        else:
+            dark = f"contributions-{year}.svg"
+            light = f"contributions-{year}-light.svg"
+        contribution_blocks.append(picture(dark, light, f"{contribution_alt} — {year}"))
+    return "\n".join([
+        '<div align="right">', nav, '</div>', '',
+        '<div align="center">', '', hero, '',
+        '<div align="center">',
+        f'  <a href="https://github.com/xFrankB" title="GitHub"><kbd>{github_label}</kbd></a><br />',
+        f'  <a href="mailto:jfby13@gmail.com" title="Contacto"><kbd>{contact_label}</kbd></a>',
+        '</div>', '', '</div>', '',
+        '<div align="center">', '', content, '', evidence, '',
+        picture("signal-es.svg", "signal-es-light.svg", "Señales técnicas verificables de xFrankB") if spanish else picture("signal.svg", "signal-light.svg", "Verified technical signals for xFrankB"), '',
+        *sum(([block, ""] for block in contribution_blocks), []),
+        '</div>', '',
+        '<div align="center">', '', footer, '',
+        f'<sub><code>{open_to}</code></sub>', '', '</div>', ''
+    ])
+
+
 def main() -> int:
-    calendar = fetch_calendar()
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
-    outputs = {
-        OUT_DIR / "contributions.svg": render(calendar, DARK, "dark"),
-        OUT_DIR / "contributions-light.svg": render(calendar, LIGHT, "light"),
-    }
-    for path, content in outputs.items():
-        path.write_text(content, encoding="utf-8")
-        print(f"wrote {path} ({path.stat().st_size} bytes)")
-    print(f"total contributions: {calendar.get('totalContributions', 0)}")
-    print(f"weeks: {len(calendar.get('weeks', []))}")
+    ASSETS.mkdir(parents=True, exist_ok=True)
+    years = available_years()
+    build_translated_panels()
+    for year in years:
+        calendar = calendar_for_year(year)
+        outputs = {
+            ASSETS / f"contributions-{year}.svg": render_calendar(calendar, year, DARK, "en"),
+            ASSETS / f"contributions-{year}-light.svg": render_calendar(calendar, year, LIGHT, "en"),
+            ASSETS / f"contributions-{year}-es.svg": render_calendar(calendar, year, DARK, "es"),
+            ASSETS / f"contributions-{year}-es-light.svg": render_calendar(calendar, year, LIGHT, "es"),
+        }
+        for path, content in outputs.items():
+            path.write_text(content, encoding="utf-8")
+        print(f"year={year} total={calendar.get('totalContributions', 0)} weeks={len(calendar.get('weeks', []))}")
+    (ROOT / "README.md").write_text(build_readme(years, "en"), encoding="utf-8")
+    (ROOT / "README.es.md").write_text(build_readme(years, "es"), encoding="utf-8")
+    print(f"years={','.join(map(str, years))}")
     return 0
 
 

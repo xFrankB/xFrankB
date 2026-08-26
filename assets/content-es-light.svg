@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="920" viewBox="0 0 1200 920" role="img" aria-labelledby="title desc">
+  <title id="title">xFrankB profile content</title>
+  <desc id="desc">Monochrome animated terminal panel with profile identity, focus, selected work, stack and contact information.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3f3ef"/><stop offset="0.55" stop-color="#fbfbf8"/><stop offset="1" stop-color="#e7e7e2"/></linearGradient>
+    <filter id="blur32" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="32"/></filter>
+    <filter id="blur10" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="10"/></filter>
+    <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse"><path d="M38 0H0V38" fill="none" stroke="#151515" stroke-opacity=".055"/><circle cx="1" cy="1" r="1" fill="#151515" opacity=".14"/></pattern>
+    <clipPath id="clip"><rect x="16" y="16" width="1168" height="888" rx="36"/></clipPath>
+    <style>
+      .mono { font-family: monospace; }
+      .label { fill: #151515; opacity: .66; font-size: 14px; font-weight: 600; letter-spacing: 3px; }
+      .body { fill: #151515; opacity: .86; font-size: 17px; }
+      .muted { fill: #151515; opacity: .60; font-size: 14px; }
+      .strong { fill: #151515; opacity: 1; font-size: 20px; font-weight: 700; }
+      .line { stroke: #151515; stroke-opacity: .25; }
+    </style>
+  </defs>
+  <rect width="1200" height="920" fill="none"/>
+  <g clip-path="url(#clip)">
+    <rect x="16" y="16" width="1168" height="888" rx="36" fill="url(#bg)"/>
+    <rect x="16" y="16" width="1168" height="888" rx="36" fill="url(#grid)"/>
+    <g filter="url(#blur32)" opacity=".18">
+      <circle cx="170" cy="190" r="170" fill="#151515"><animate attributeName="cx" values="170;360;170" dur="18s" repeatCount="indefinite"/></circle>
+      <circle cx="1010" cy="630" r="190" fill="#777777"><animate attributeName="cy" values="630;500;630" dur="15s" repeatCount="indefinite"/></circle>
+    </g>
+    <rect x="16" y="16" width="1168" height="888" rx="36" fill="none" stroke="#151515" stroke-opacity=".2"/>
+    <g class="mono">
+      <text x="58" y="65" class="label">/ QUIÉN_SOY</text>
+      <text x="58" y="105" class="strong">Francisco Baylón / xFrankB</text>
+      <text x="58" y="140" class="body">Desarrollador trainee enfocado en productos full-stack</text>
+      <text x="58" y="168" class="body">e IA aplicada: interfaces, arquitectura, automatización</text>
+      <text x="58" y="196" class="body">y resolución práctica de problemas.</text>
+      <text x="58" y="236" class="muted">$ misión: entender → construir → documentar → mejorar</text>
+
+      <path d="M58 270H1142" class="line"/>
+      <text x="58" y="310" class="label">/ ENFOQUE</text>
+      <g transform="translate(58 342)">
+        <text x="0" y="0" class="strong">01  WEB</text>
+        <text x="0" y="30" class="muted">TypeScript · React · Vite</text>
+        <text x="265" y="0" class="strong">02  BACKEND</text>
+        <text x="265" y="30" class="muted">Node.js · Express</text>
+        <text x="510" y="0" class="strong">03  IA / DATOS</text>
+        <text x="510" y="30" class="muted">Python · PyTorch · NumPy</text>
+        <text x="820" y="0" class="strong">04  CALIDAD</text>
+        <text x="820" y="30" class="muted">Git · Linux · docs</text>
+      </g>
+
+      <path d="M58 412H1142" class="line"/>
+      <text x="58" y="452" class="label">/ PROYECTO_CLAVE</text>
+      <text x="58" y="492" class="strong">U3_APM</text>
+      <text x="58" y="522" class="body">Aplicación full-stack modular con límites claros.</text>
+      <text x="58" y="550" class="muted">client/   server/   shared/   patches/</text>
+      <text x="58" y="578" class="muted">TypeScript 97% · React · Vite · Express · pnpm</text>
+      <text x="774" y="492" class="label">CICLO_DE_BUILD</text>
+      <text x="774" y="526" class="body">dev</text><text x="900" y="526" class="body">build</text><text x="1026" y="526" class="body">start</text>
+      <text x="774" y="560" class="body">check</text><text x="900" y="560" class="body">format</text>
+      <rect x="774" y="582" width="300" height="3" rx="2" fill="#151515" opacity=".22"/>
+      <rect x="774" y="582" width="108" height="3" rx="2" fill="#151515">
+        <animate attributeName="x" values="774;966;774" dur="6s" repeatCount="indefinite"/>
+        <animate attributeName="width" values="108;42;108" dur="6s" repeatCount="indefinite"/>
+      </rect>
+
+      <path d="M58 630H1142" class="line"/>
+      <text x="58" y="670" class="label">/ STACK</text>
+      <text x="58" y="710" class="body">TypeScript · JavaScript · Python · C++ · React · Vite · Node.js</text>
+      <text x="58" y="740" class="body">Express · PyTorch · NumPy · Pandas · Matplotlib · Scikit-learn</text>
+      <text x="58" y="770" class="body">Git · Linux · pnpm · Tailwind CSS · VS Code</text>
+
+      <path d="M58 812H1142" class="line"/>
+      <text x="58" y="852" class="label">/ CONTACTO</text>
+      <text x="58" y="882" class="body">github.com/xFrankB  ·  jfby13@gmail.com</text>
+    </g>
+    <rect x="16" y="16" width="1168" height="888" rx="36" fill="none" stroke="#151515" stroke-opacity=".045" stroke-width="7" filter="url(#blur10)"/>
+    <rect x="30" y="16" width="2" height="888" fill="#151515" opacity=".09" filter="url(#blur10)">
+      <animate attributeName="x" values="30;1168;30" dur="12s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</svg>
