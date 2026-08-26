@@ -12,8 +12,8 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"
-OUTPUT_WIDTH = 900
-OUTPUT_HEIGHT = 285
+OUTPUT_WIDTH = 840
+OUTPUT_HEIGHT = 266
 HERO_FILES = ("hero.svg", "hero-light.svg", "hero-es.svg", "hero-es-light.svg")
 OUTPUT_FILES = {
     "hero.svg": "hero.gif",
@@ -100,17 +100,39 @@ def static_logo(technology: str, ordinal: int, total: int, opacity: float, light
     )
 
 
-def frame_svg(source: str, prefix: str, suffix: str, technology: str, ordinal: int, total: int, opacity: float, light: bool) -> str:
+def moving_orbit_prefix(prefix: str, phase: float) -> str:
+    """Bake a small dash offset into each raster frame; GIFs do not run SMIL."""
+    first_offset = -120.0 * phase
+    second_offset = 90.0 * ((phase * 0.78) % 1.0)
+    prefix, first_count = re.subn(
+        r'(<ellipse\b[^>]*stroke-dasharray="3 12")',
+        rf'\1 stroke-dashoffset="{first_offset:.2f}"',
+        prefix,
+        count=1,
+    )
+    prefix, second_count = re.subn(
+        r'(<ellipse\b[^>]*stroke-dasharray="2 10")',
+        rf'\1 stroke-dashoffset="{second_offset:.2f}"',
+        prefix,
+        count=1,
+    )
+    if first_count != 1 or second_count != 1:
+        raise RuntimeError("Expected two orbit ellipses in the hero SVG")
+    return prefix
+
+
+def frame_svg(source: str, prefix: str, suffix: str, technology: str, ordinal: int, total: int, opacity: float, light: bool, phase: float) -> str:
     start = source.index(ORBIT_START)
     end = source.index(ORBIT_END, start) + len(ORBIT_END)
-    replacement = prefix + static_logo(technology, ordinal, total, opacity, light) + suffix + ORBIT_END
+    moving_prefix = moving_orbit_prefix(prefix, phase)
+    replacement = moving_prefix + static_logo(technology, ordinal, total, opacity, light) + suffix + ORBIT_END
     return source[:start] + replacement + source[end:]
 
 
 def rgba_to_gif_frame(png_bytes: bytes) -> Image.Image:
     rgba = Image.open(BytesIO(png_bytes)).convert("RGBA")
     alpha = rgba.getchannel("A")
-    frame = rgba.convert("RGB").quantize(colors=63, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE)
+    frame = rgba.convert("RGB").quantize(colors=47, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE)
     transparent_index = 255
     palette = frame.getpalette()
     palette[transparent_index * 3 : transparent_index * 3 + 3] = [0, 0, 0]
@@ -137,8 +159,12 @@ def build_gif(source_path: Path, output_path: Path) -> None:
     # enough to be recognizable in a short mobile screen recording.
     sequence = ((0.06, 160), (0.16, 160), (0.30, 160), (0.52, 140), (1.0, 2600), (0.52, 140), (0.30, 160), (0.16, 160), (0.06, 160))
     for ordinal, technology in enumerate(technologies, start=1):
-        for opacity, duration in sequence:
-            svg = frame_svg(source, prefix, suffix, technology, ordinal, len(technologies), opacity, light)
+        for phase_index, (opacity, duration) in enumerate(sequence):
+            # Keep the dash motion continuous across technology boundaries;
+            # it completes one orbit cycle every two technology slots.
+            phase = (((ordinal - 1) * len(sequence)) + phase_index) / (len(sequence) * 2)
+            phase %= 1.0
+            svg = frame_svg(source, prefix, suffix, technology, ordinal, len(technologies), opacity, light, phase)
             png = cairosvg.svg2png(bytestring=svg.encode("utf-8"), output_width=OUTPUT_WIDTH, output_height=OUTPUT_HEIGHT)
             frames.append(rgba_to_gif_frame(png))
             durations.append(duration)

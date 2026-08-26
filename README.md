@@ -2,9 +2,9 @@
 
 <div align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/hero.gif?v=17" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/hero-light.gif?v=17" />
-  <img src="./assets/hero.gif?v=17" alt="xFrankB — Francisco Baylón" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/hero.gif?v=18" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/hero-light.gif?v=18" />
+  <img src="./assets/hero.gif?v=18" alt="xFrankB — Francisco Baylón" width="100%" />
 </picture>
 </div>
 
