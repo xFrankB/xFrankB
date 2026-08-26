@@ -307,12 +307,12 @@ def build_translated_panels() -> None:
             target.write_text(text, encoding="utf-8")
 
 
-def picture(asset_dark: str, asset_light: str, alt: str) -> str:
+def picture(asset_dark: str, asset_light: str, alt: str, width: str = "100%") -> str:
     return "\n".join([
         "<picture>",
         f'  <source media="(prefers-color-scheme: dark)" srcset="./assets/{asset_dark}" />',
         f'  <source media="(prefers-color-scheme: light)" srcset="./assets/{asset_light}" />',
-        f'  <img src="./assets/{asset_dark}" alt="{escape(alt)}" width="100%" />',
+        f'  <img src="./assets/{asset_dark}" alt="{escape(alt)}" width="{width}" />',
         "</picture>",
     ])
 
@@ -323,42 +323,41 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
     contact_label = "[CORREO] CONTACTO · jfby13@gmail.com" if spanish else "[MAIL] CONTACT · jfby13@gmail.com"
     open_to = "DISPONIBLE PARA: oportunidades trainee / junior · construcciones colaborativas" if spanish else "OPEN TO: trainee / junior opportunities · collaborative builds"
     if spanish:
-        hero = picture("hero-es.svg", "hero-es-light.svg", "xFrankB — Francisco Baylón")
+        hero = picture("hero-es.svg", "hero-es-light.svg", "xFrankB — Francisco Baylón", width="82%")
         content = picture("content-es.svg", "content-es-light.svg", "Perfil técnico, enfoque, proyecto, stack y contacto de xFrankB")
         evidence = picture("evidence-es.svg", "evidence-es-light.svg", "Evidencia pública del proyecto U3_APM y su estructura técnica")
         signal = picture("signal-es.svg", "signal-es-light.svg", "Señales técnicas verificables de xFrankB")
         footer = picture("footer-es.svg", "footer-es-light.svg", "Construir, aprender y repetir — xFrankB")
-        contribution_alt = "Calendario dinámico de contribuciones públicas de xFrankB"
+        contribution_alt = "Calendario de contribuciones públicas de xFrankB"
+        contribution_link_title = "Abrir el historial completo de contribuciones en GitHub"
         language_buttons = '<a href="./README.md" title="Leer en inglés"><kbd>EN</kbd></a><br /><a href="./README.es.md" title="Leer en español"><kbd>ES</kbd></a>'
     else:
-        hero = picture("hero.svg", "hero-light.svg", "xFrankB — Francisco Baylón")
+        hero = picture("hero.svg", "hero-light.svg", "xFrankB — Francisco Baylón", width="82%")
         content = picture("content.svg", "content-light.svg", "Technical profile, focus, project, stack and contact for xFrankB")
         evidence = picture("evidence.svg", "evidence-light.svg", "Public evidence of the U3_APM project and its technical structure")
         signal = picture("signal.svg", "signal-light.svg", "Verified technical signals for xFrankB")
         footer = picture("footer.svg", "footer-light.svg", "Build, learn, repeat — xFrankB")
-        contribution_alt = "Dynamic public contribution calendar for xFrankB"
+        contribution_alt = "Current-year public contribution calendar for xFrankB"
+        contribution_link_title = "Open the complete contribution history on GitHub"
         language_buttons = '<a href="./README.es.md" title="Leer en español"><kbd>ES</kbd></a><br /><a href="./README.md" title="Read in English"><kbd>EN</kbd></a>'
 
     language_label = "IDIOMA" if spanish else "LANGUAGE"
     hero_layout = "\n".join([
-        '<table align="center" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:0;border-collapse:collapse;background:transparent;" role="presentation">',
-        '<tr>',
-        '<td width="82%" valign="top" style="border:0;padding:0 6px;background:transparent;">',
+        '<div align="center">',
         hero,
-        '</td>',
-        '<td width="18%" align="center" valign="middle" style="border:0;padding:0 6px;background:transparent;">',
+        '<span style="display:inline-block;vertical-align:middle;margin-left:10px;line-height:1.8;">',
         f'<sub><code>{language_label}</code></sub><br />',
         language_buttons,
-        '</td>',
-        '</tr>',
-        '</table>',
+        '</span>',
+        '</div>',
     ])
 
     contribution = picture(
-        "contributions-history-es.svg" if spanish else "contributions-history.svg",
-        "contributions-history-es-light.svg" if spanish else "contributions-history-light.svg",
+        "contributions-es.svg" if spanish else "contributions.svg",
+        "contributions-es-light.svg" if spanish else "contributions-light.svg",
         contribution_alt,
     )
+    contribution = f'<a href="https://github.com/{LOGIN}?tab=overview" title="{contribution_link_title}">\n{contribution}\n</a>'
 
     return "\n".join([
         '<div align="center">', '', hero_layout, '',
@@ -389,11 +388,13 @@ def main() -> int:
     if not years:
         years = [max(candidate_years)]
         calendars[years[0]] = {"totalContributions": 0, "months": [], "weeks": []}
+    current_year = max(years)
+    current_calendar = calendars[current_year]
     outputs = {
-        ASSETS / "contributions-history.svg": render_history(calendars, years, DARK, "en"),
-        ASSETS / "contributions-history-light.svg": render_history(calendars, years, LIGHT, "en"),
-        ASSETS / "contributions-history-es.svg": render_history(calendars, years, DARK, "es"),
-        ASSETS / "contributions-history-es-light.svg": render_history(calendars, years, LIGHT, "es"),
+        ASSETS / "contributions.svg": render_calendar(current_calendar, current_year, DARK, "en"),
+        ASSETS / "contributions-light.svg": render_calendar(current_calendar, current_year, LIGHT, "en"),
+        ASSETS / "contributions-es.svg": render_calendar(current_calendar, current_year, DARK, "es"),
+        ASSETS / "contributions-es-light.svg": render_calendar(current_calendar, current_year, LIGHT, "es"),
     }
     for path, content in outputs.items():
         path.write_text(content, encoding="utf-8")

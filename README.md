@@ -1,20 +1,16 @@
 <div align="center">
 
-<table align="center" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:0;border-collapse:collapse;background:transparent;" role="presentation">
-<tr>
-<td width="82%" valign="top" style="border:0;padding:0 6px;background:transparent;">
+<div align="center">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/hero.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/hero-light.svg" />
-  <img src="./assets/hero.svg" alt="xFrankB — Francisco Baylón" width="100%" />
+  <img src="./assets/hero.svg" alt="xFrankB — Francisco Baylón" width="82%" />
 </picture>
-</td>
-<td width="18%" align="center" valign="middle" style="border:0;padding:0 6px;background:transparent;">
+<span style="display:inline-block;vertical-align:middle;margin-left:10px;line-height:1.8;">
 <sub><code>LANGUAGE</code></sub><br />
 <a href="./README.es.md" title="Leer en español"><kbd>ES</kbd></a><br /><a href="./README.md" title="Read in English"><kbd>EN</kbd></a>
-</td>
-</tr>
-</table>
+</span>
+</div>
 
 <div align="center">
   <a href="https://github.com/xFrankB" title="GitHub"><kbd>&lt;/&gt; GITHUB · @xFrankB</kbd></a><br />
@@ -43,11 +39,13 @@
   <img src="./assets/signal.svg" alt="Verified technical signals for xFrankB" width="100%" />
 </picture>
 
+<a href="https://github.com/xFrankB?tab=overview" title="Open the complete contribution history on GitHub">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/contributions-history.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/contributions-history-light.svg" />
-  <img src="./assets/contributions-history.svg" alt="Dynamic public contribution calendar for xFrankB" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/contributions.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/contributions-light.svg" />
+  <img src="./assets/contributions.svg" alt="Current-year public contribution calendar for xFrankB" width="100%" />
 </picture>
+</a>
 </div>
 
 <div align="center">

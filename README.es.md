@@ -1,20 +1,16 @@
 <div align="center">
 
-<table align="center" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:0;border-collapse:collapse;background:transparent;" role="presentation">
-<tr>
-<td width="82%" valign="top" style="border:0;padding:0 6px;background:transparent;">
+<div align="center">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/hero-es.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/hero-es-light.svg" />
-  <img src="./assets/hero-es.svg" alt="xFrankB — Francisco Baylón" width="100%" />
+  <img src="./assets/hero-es.svg" alt="xFrankB — Francisco Baylón" width="82%" />
 </picture>
-</td>
-<td width="18%" align="center" valign="middle" style="border:0;padding:0 6px;background:transparent;">
+<span style="display:inline-block;vertical-align:middle;margin-left:10px;line-height:1.8;">
 <sub><code>IDIOMA</code></sub><br />
 <a href="./README.md" title="Leer en inglés"><kbd>EN</kbd></a><br /><a href="./README.es.md" title="Leer en español"><kbd>ES</kbd></a>
-</td>
-</tr>
-</table>
+</span>
+</div>
 
 <div align="center">
   <a href="https://github.com/xFrankB" title="GitHub"><kbd>&lt;/&gt; GITHUB · @xFrankB</kbd></a><br />
@@ -43,11 +39,13 @@
   <img src="./assets/signal-es.svg" alt="Señales técnicas verificables de xFrankB" width="100%" />
 </picture>
 
+<a href="https://github.com/xFrankB?tab=overview" title="Abrir el historial completo de contribuciones en GitHub">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/contributions-history-es.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/contributions-history-es-light.svg" />
-  <img src="./assets/contributions-history-es.svg" alt="Calendario dinámico de contribuciones públicas de xFrankB" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/contributions-es.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/contributions-es-light.svg" />
+  <img src="./assets/contributions-es.svg" alt="Calendario de contribuciones públicas de xFrankB" width="100%" />
 </picture>
+</a>
 </div>
 
 <div align="center">
