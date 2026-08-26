@@ -302,13 +302,14 @@ def render_technology_sequence(technologies: list[str]) -> str:
         lines.extend([
             '      <g opacity="0">',
             f'        <title>{label} — detected in public repositories</title>',
+            '        <rect x="22" y="70" width="296" height="174" rx="24" fill="#050505" fill-opacity="0.90" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1.1"/>',
             f'        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;{start:.5f};{fade_in_end:.5f};{hold_end:.5f};{fade_out_end:.5f}" dur="{duration:.1f}s" begin="0s" repeatCount="indefinite"/>',
             f'        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;{start:.5f};{fade_in_end:.5f};{fade_out_end:.5f};1" dur="{duration:.1f}s" begin="0s" repeatCount="indefinite"/>',
             '        <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4">',
             '          <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>',
             '        </circle>',
             f'        <text x="170" y="142" text-anchor="middle" fill="#ffffff" fill-opacity="1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="27" font-weight="700" letter-spacing="0.5">{mark}</text>',
-            f'        <text x="170" y="204" text-anchor="middle" fill="#ffffff" fill-opacity="0.96" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">{label}</text>',
+            f'        <text x="170" y="204" text-anchor="middle" textLength="258" lengthAdjust="spacingAndGlyphs" fill="#ffffff" fill-opacity="0.96" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" font-weight="700">{label}</text>',
             f'        <text x="170" y="226" text-anchor="middle" fill="#ffffff" fill-opacity="0.44" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">{index + 1:02d} / {count:02d}</text>',
             '      </g>',
         ])
