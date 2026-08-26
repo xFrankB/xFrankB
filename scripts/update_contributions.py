@@ -328,6 +328,7 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
     github_label = "&lt;/&gt; GITHUB · @xFrankB"
     contact_label = "[CORREO] CONTACTO · jfby13@gmail.com" if spanish else "[MAIL] CONTACT · jfby13@gmail.com"
     open_to = "DISPONIBLE PARA: oportunidades trainee / junior · construcciones colaborativas" if spanish else "OPEN TO: trainee / junior opportunities · collaborative builds"
+    project_label = "U3_APM · VER CÓDIGO →" if spanish else "U3_APM · VIEW SOURCE →"
     if spanish:
         hero = picture("hero-es.svg?v=7", "hero-es-light.svg?v=7", "xFrankB — Francisco Baylón", width="100%")
         content = picture("content-es.svg", "content-es-light.svg", "Perfil técnico, enfoque, proyecto, stack y contacto de xFrankB")
@@ -358,7 +359,8 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
         '<div align="center">', '', hero_layout, '',
         '<div align="center">',
         f'  <a href="https://github.com/xFrankB" title="GitHub"><kbd>{github_label}</kbd></a><br />',
-        f'  <a href="mailto:jfby13@gmail.com" title="Contacto"><kbd>{contact_label}</kbd></a>',
+        f'  <a href="mailto:jfby13@gmail.com" title="Contacto"><kbd>{contact_label}</kbd></a><br />',
+        f'  <sub><a href="https://github.com/xFrankB/U3_APM" title="U3_APM source code">{project_label}</a></sub>',
         '</div>', '', '</div>', '',
         '<div align="center">', '', content, '', evidence, '', signal, '',
         contribution,
