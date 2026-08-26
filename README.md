@@ -34,9 +34,9 @@
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/activity.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/activity-light.svg" />
-  <img src="./assets/activity.svg" alt="Ritmo visual de trabajo y consistencia de xFrankB" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/contributions.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/contributions-light.svg" />
+  <img src="./assets/contributions.svg" alt="Calendario dinámico de contribuciones públicas de xFrankB" width="100%" />
 </picture>
 
 </div>
