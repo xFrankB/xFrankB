@@ -187,12 +187,26 @@ TECH_PRIORITY = [
     "Pandas", "PyTorch", "Git", "GitHub Actions", "Linux", "Docker", "Go", "Rust",
 ]
 TECH_FALLBACK = ["TypeScript", "JavaScript", "Python", "React", "Vite", "Node.js", "Express", "pnpm", "Git", "Linux", "HTML", "CSS"]
+TECH_ALIASES = {
+    "react-dom": "React", "reactjs": "React", "node": "Node.js", "nodejs": "Node.js",
+    "npm": "npm", "pnpm": "pnpm", "github-actions": "GitHub Actions",
+    "tailwind": "Tailwind CSS", "tailwindcss": "Tailwind CSS", "scikit learn": "scikit-learn",
+    "pytorch": "PyTorch", "torch": "PyTorch", "numpy": "NumPy", "pandas": "Pandas",
+}
+
 TECH_MARKS = {
     "TypeScript": "TS", "JavaScript": "JS", "Python": "PY", "React": "RE",
     "Vite": "VT", "Node.js": "ND", "Express": "EX", "pnpm": "PN",
     "HTML": "HT", "CSS": "CS", "Tailwind CSS": "TW", "Git": "GI",
     "GitHub Actions": "CI", "Linux": "LX", "Docker": "DK",
 }
+
+
+def canonical_technology(value: str) -> str:
+    value = str(value).strip()
+    key = re.sub(r"[._/]+", "-", value.lower())
+    key = re.sub(r"\s+", " ", key)
+    return TECH_ALIASES.get(key, value)
 
 
 def technology_mark(technology: str) -> str:
@@ -205,10 +219,8 @@ def technology_mark(technology: str) -> str:
 def _add_technology(found: set[str], value: str | None) -> None:
     if not value:
         return
-    value = value.strip()
-    if value in LANGUAGE_LABELS:
-        found.add(LANGUAGE_LABELS[value])
-    elif value in DEPENDENCY_LABELS.values() or value in {"Node.js", "pnpm", "Git", "GitHub Actions", "Linux", "Docker"}:
+    value = canonical_technology(value)
+    if value in LANGUAGE_LABELS or value in DEPENDENCY_LABELS.values() or value in {"Node.js", "pnpm", "Git", "GitHub Actions", "Linux", "Docker", "npm"}:
         found.add(value)
 
 
@@ -243,7 +255,7 @@ def detected_technologies() -> list[str]:
         for language in repository.get("languages", {}).get("nodes", []):
             language_name = str(language.get("name", "")).strip()
             if language_name:
-                found.add(LANGUAGE_LABELS.get(language_name, language_name))
+                found.add(canonical_technology(LANGUAGE_LABELS.get(language_name, language_name)))
         package_json = repository.get("packageJson") or {}
         _scan_package_json(package_json.get("text", ""), found)
         for field in ("requirements", "pyproject", "goMod", "cargo", "dockerfile", "pom"):
@@ -264,36 +276,36 @@ def render_technology_orbit(technologies: list[str]) -> str:
     technologies = technologies[:12] or TECH_FALLBACK
     total = len(technologies)
     lines = [
-        '    <g transform="translate(820 42)" aria-label="Technology orbit">',
-        '      <ellipse cx="170" cy="116" rx="150" ry="76" transform="rotate(-16 170 116)" fill="none" stroke="#ffffff" stroke-opacity="0.66" stroke-width="1.8" stroke-dasharray="3 10">',
-        '        <animate attributeName="stroke-dashoffset" values="0;-104" dur="11s" repeatCount="indefinite"/>',
+        '    <g transform="translate(790 20)" aria-label="Technology orbit">',
+        '      <ellipse cx="200" cy="136" rx="184" ry="104" transform="rotate(-16 200 136)" fill="none" stroke="#ffffff" stroke-opacity="0.72" stroke-width="2.2" stroke-dasharray="4 11">',
+        '        <animate attributeName="stroke-dashoffset" values="0;-118" dur="11s" repeatCount="indefinite"/>',
         '      </ellipse>',
-        '      <ellipse cx="170" cy="116" rx="116" ry="52" transform="rotate(20 170 116)" fill="none" stroke="#ffffff" stroke-opacity="0.44" stroke-width="1.3" stroke-dasharray="2 8">',
-        '        <animate attributeName="stroke-dashoffset" values="0;82" dur="8s" repeatCount="indefinite"/>',
+        '      <ellipse cx="200" cy="136" rx="140" ry="72" transform="rotate(20 200 136)" fill="none" stroke="#ffffff" stroke-opacity="0.52" stroke-width="1.6" stroke-dasharray="3 9">',
+        '        <animate attributeName="stroke-dashoffset" values="0;94" dur="8s" repeatCount="indefinite"/>',
         '      </ellipse>',
-        '      <circle cx="170" cy="116" r="15" fill="#050505" fill-opacity="0.46" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">',
-        '        <animate attributeName="r" values="14;18;14" dur="4.6s" repeatCount="indefinite"/>',
-        '        <animate attributeName="opacity" values="0.72;1;0.72" dur="4.6s" repeatCount="indefinite"/>',
+        '      <circle cx="200" cy="136" r="19" fill="#050505" fill-opacity="0.62" stroke="#ffffff" stroke-opacity="0.66" stroke-width="1.5">',
+        '        <animate attributeName="r" values="18;23;18" dur="4.6s" repeatCount="indefinite"/>',
+        '        <animate attributeName="opacity" values="0.78;1;0.78" dur="4.6s" repeatCount="indefinite"/>',
         '      </circle>',
-        '      <text x="170" y="120" text-anchor="middle" fill="#ffffff" fill-opacity="0.94" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" letter-spacing="1">TECH</text>',
+        '      <text x="200" y="140" text-anchor="middle" fill="#ffffff" fill-opacity="0.98" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="700" letter-spacing="1">TECH</text>',
     ]
     for index, technology in enumerate(technologies):
         orbit = index % 2
         angle = (-math.pi / 2) + (index // 2) * (2 * math.pi / max(1, (total + 1) // 2)) + (0.16 if orbit else 0)
-        rx, ry = ((150, 76) if orbit == 0 else (116, 52))
-        x = 170 + math.cos(angle) * rx
-        y = 116 + math.sin(angle) * ry
+        rx, ry = ((184, 104) if orbit == 0 else (140, 72))
+        x = 200 + math.cos(angle) * rx
+        y = 136 + math.sin(angle) * ry
         duration = "22s" if orbit == 0 else "17s"
         mark = technology_mark(technology)
         lines.extend([
-            f'      <g transform="rotate(0 170 116)">',
+            f'      <g transform="rotate(0 200 136)">',
             f'        <title>{escape(technology)} detected in public repositories</title>',
-            f'        <rect x="{x - 13:.1f}" y="{y - 13:.1f}" width="26" height="26" rx="8" fill="#050505" fill-opacity="0.72" stroke="#ffffff" stroke-opacity="0.72" stroke-width="1.3"/>',
-            f'        <circle cx="{x:.1f}" cy="{y:.1f}" r="3.4" fill="#ffffff" fill-opacity="0.96">',
+            f'        <rect x="{x - 18:.1f}" y="{y - 18:.1f}" width="36" height="36" rx="11" fill="#050505" fill-opacity="0.78" stroke="#ffffff" stroke-opacity="0.82" stroke-width="1.6"/>',
+            f'        <circle cx="{x:.1f}" cy="{y:.1f}" r="4.4" fill="#ffffff" fill-opacity="0.98">',
             f'          <animate attributeName="opacity" values="0.48;1;0.48" dur="{2.2 + (index % 4) * 0.35:.2f}s" begin="{(index % 5) * 0.22:.2f}s" repeatCount="indefinite"/>',
             '        </circle>',
-            f'        <text x="{x:.1f}" y="{y + 3.5:.1f}" text-anchor="middle" fill="#ffffff" fill-opacity="0.98" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" letter-spacing="0.4">{escape(mark)}</text>',
-            f'        <animateTransform attributeName="transform" type="rotate" from="0 170 116" to="360 170 116" dur="{duration}" repeatCount="indefinite"/>',
+            f'        <text x="{x:.1f}" y="{y + 4.5:.1f}" text-anchor="middle" fill="#ffffff" fill-opacity="1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="700" letter-spacing="0.5">{escape(mark)}</text>',
+            f'        <animateTransform attributeName="transform" type="rotate" from="0 200 136" to="360 200 136" dur="{duration}" repeatCount="indefinite"/>',
             '      </g>',
         ])
     lines.append('    </g>')
@@ -496,14 +508,14 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
     contact_label = "[CORREO] CONTACTO · jfby13@gmail.com" if spanish else "[MAIL] CONTACT · jfby13@gmail.com"
     open_to = "DISPONIBLE PARA: oportunidades trainee / junior · construcciones colaborativas" if spanish else "OPEN TO: trainee / junior opportunities · collaborative builds"
     if spanish:
-        hero = picture("hero-es.svg?v=10", "hero-es-light.svg?v=10", "xFrankB — Francisco Baylón", width="100%")
+        hero = picture("hero-es.svg?v=11", "hero-es-light.svg?v=11", "xFrankB — Francisco Baylón", width="100%")
         content = picture("content-es.svg", "content-es-light.svg", "Perfil técnico, enfoque, proyecto, stack y contacto de xFrankB")
         evidence = picture("evidence-es.svg", "evidence-es-light.svg", "Evidencia pública del proyecto U3_APM y su estructura técnica")
         signal = picture("signal-es.svg", "signal-es-light.svg", "Señales técnicas verificables de xFrankB")
         footer = picture("footer-es.svg", "footer-es-light.svg", "Construir, aprender y repetir — xFrankB")
         contribution_alt = "Calendario de contribuciones públicas de xFrankB"
     else:
-        hero = picture("hero.svg?v=10", "hero-light.svg?v=10", "xFrankB — Francisco Baylón", width="100%")
+        hero = picture("hero.svg?v=11", "hero-light.svg?v=11", "xFrankB — Francisco Baylón", width="100%")
         content = picture("content.svg", "content-light.svg", "Technical profile, focus, project, stack and contact for xFrankB")
         evidence = picture("evidence.svg", "evidence-light.svg", "Public evidence of the U3_APM project and its technical structure")
         signal = picture("signal.svg", "signal-light.svg", "Verified technical signals for xFrankB")
