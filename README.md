@@ -3,8 +3,8 @@
 <img src="./assets/hero.svg" alt="xFrankB — Francisco Baylón" width="100%" />
 
 <div align="center">
-  <a href="https://github.com/xFrankB" title="GitHub"><img src="./assets/github-pill.png" alt="GitHub · @xFrankB" width="280" /></a><br />
-  <a href="mailto:jfby13@gmail.com" title="Contacto"><img src="./assets/contact-pill.png" alt="Contacto · jfby13@gmail.com" width="280" /></a>
+  <a href="https://github.com/xFrankB" title="GitHub"><img src="./assets/github-pill.png" alt="GitHub · @xFrankB" width="100%" /></a><br />
+  <a href="mailto:jfby13@gmail.com" title="Contacto"><img src="./assets/contact-pill.png" alt="Contacto · jfby13@gmail.com" width="100%" /></a>
 </div>
 
 </div>
