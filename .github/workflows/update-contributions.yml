@@ -11,6 +11,8 @@ on:
       - "README.md"
       - "README.es.md"
       - "assets/contributions*.svg"
+      - "assets/hero*.svg"
+      - "assets/hero*.gif"
       - "assets/*-es.svg"
       - "assets/*-es-light.svg"
       - "calendar/data.json"
@@ -38,6 +40,9 @@ jobs:
 
       - name: Build light theme variants
         run: python3 scripts/build_light_variants.py
+
+      - name: Build animated hero GIFs
+        run: python3 scripts/build_hero_gifs.py
 
       - name: Commit changed calendars and translations
         run: |
