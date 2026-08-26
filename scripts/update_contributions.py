@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import hashlib
 import json
 import math
 import os
@@ -269,58 +270,93 @@ def detected_technologies() -> list[str]:
     if not found:
         found.update(TECH_FALLBACK)
     priority = {name: index for index, name in enumerate(TECH_PRIORITY)}
-    return sorted(found, key=lambda name: (priority.get(name, 999), name.lower()))[:12]
+    return sorted(found, key=lambda name: (priority.get(name, 999), name.lower()))
 
 
-def render_technology_orbit(technologies: list[str]) -> str:
-    technologies = technologies[:12] or TECH_FALLBACK
-    total = len(technologies)
-    lines = [
-        '    <g transform="translate(790 20)" aria-label="Technology orbit">',
-        '      <ellipse cx="200" cy="136" rx="184" ry="104" transform="rotate(-16 200 136)" fill="none" stroke="#ffffff" stroke-opacity="0.72" stroke-width="2.2" stroke-dasharray="4 11">',
-        '        <animate attributeName="stroke-dashoffset" values="0;-118" dur="11s" repeatCount="indefinite"/>',
+def render_decorative_orbit() -> str:
+    return "\n".join([
+        '    <g transform="translate(820 28)" aria-label="Decorative technology orbit">',
+        '      <ellipse cx="170" cy="132" rx="172" ry="96" transform="rotate(-18 170 132)" fill="none" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4" stroke-dasharray="3 12">',
+        '        <animate attributeName="stroke-dashoffset" values="0;-120" dur="12s" repeatCount="indefinite"/>',
         '      </ellipse>',
-        '      <ellipse cx="200" cy="136" rx="140" ry="72" transform="rotate(20 200 136)" fill="none" stroke="#ffffff" stroke-opacity="0.52" stroke-width="1.6" stroke-dasharray="3 9">',
-        '        <animate attributeName="stroke-dashoffset" values="0;94" dur="8s" repeatCount="indefinite"/>',
+        '      <ellipse cx="170" cy="132" rx="136" ry="66" transform="rotate(18 170 132)" fill="none" stroke="#ffffff" stroke-opacity="0.26" stroke-width="1.1" stroke-dasharray="2 10">',
+        '        <animate attributeName="stroke-dashoffset" values="0;90" dur="9s" repeatCount="indefinite"/>',
         '      </ellipse>',
-        '      <circle cx="200" cy="136" r="19" fill="#050505" fill-opacity="0.62" stroke="#ffffff" stroke-opacity="0.66" stroke-width="1.5">',
-        '        <animate attributeName="r" values="18;23;18" dur="4.6s" repeatCount="indefinite"/>',
-        '        <animate attributeName="opacity" values="0.78;1;0.78" dur="4.6s" repeatCount="indefinite"/>',
+        '      <circle cx="170" cy="132" r="4" fill="#ffffff" fill-opacity="0.82">',
+        '        <animate attributeName="r" values="3;6;3" dur="4s" repeatCount="indefinite"/>',
+        '        <animate attributeName="opacity" values="0.35;0.9;0.35" dur="4s" repeatCount="indefinite"/>',
         '      </circle>',
-        '      <text x="200" y="140" text-anchor="middle" fill="#ffffff" fill-opacity="0.98" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="700" letter-spacing="1">TECH</text>',
-    ]
-    for index, technology in enumerate(technologies):
-        orbit = index % 2
-        angle = (-math.pi / 2) + (index // 2) * (2 * math.pi / max(1, (total + 1) // 2)) + (0.16 if orbit else 0)
-        rx, ry = ((184, 104) if orbit == 0 else (140, 72))
-        x = 200 + math.cos(angle) * rx
-        y = 136 + math.sin(angle) * ry
-        duration = "22s" if orbit == 0 else "17s"
-        mark = technology_mark(technology)
-        lines.extend([
-            f'      <g transform="rotate(0 200 136)">',
-            f'        <title>{escape(technology)} detected in public repositories</title>',
-            f'        <rect x="{x - 18:.1f}" y="{y - 18:.1f}" width="36" height="36" rx="11" fill="#050505" fill-opacity="0.78" stroke="#ffffff" stroke-opacity="0.82" stroke-width="1.6"/>',
-            f'        <circle cx="{x:.1f}" cy="{y:.1f}" r="4.4" fill="#ffffff" fill-opacity="0.98">',
-            f'          <animate attributeName="opacity" values="0.48;1;0.48" dur="{2.2 + (index % 4) * 0.35:.2f}s" begin="{(index % 5) * 0.22:.2f}s" repeatCount="indefinite"/>',
-            '        </circle>',
-            f'        <text x="{x:.1f}" y="{y + 4.5:.1f}" text-anchor="middle" fill="#ffffff" fill-opacity="1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="700" letter-spacing="0.5">{escape(mark)}</text>',
-            f'        <animateTransform attributeName="transform" type="rotate" from="0 200 136" to="360 200 136" dur="{duration}" repeatCount="indefinite"/>',
-            '      </g>',
-        ])
-    lines.append('    </g>')
-    return "\n".join(lines)
+        '    </g>',
+    ])
 
 
-def update_technology_orbit(technologies: list[str]) -> None:
+def update_decorative_orbit() -> None:
     source = ASSETS / "hero.svg"
     text = source.read_text(encoding="utf-8")
     pattern = r'    <!-- TECH_ORBIT_START -->.*?    <!-- TECH_ORBIT_END -->'
-    replacement = "    <!-- TECH_ORBIT_START -->\n" + render_technology_orbit(technologies) + "\n    <!-- TECH_ORBIT_END -->"
+    replacement = "    <!-- TECH_ORBIT_START -->\n" + render_decorative_orbit() + "\n    <!-- TECH_ORBIT_END -->"
     updated, count = re.subn(pattern, replacement, text, count=1, flags=re.S)
     if count != 1:
         raise RuntimeError("TECH_ORBIT markers were not found in assets/hero.svg")
     source.write_text(updated, encoding="utf-8")
+
+
+def render_technology_stack(technologies: list[str], spanish: bool = False) -> str:
+    """Render readable full technology names; the data is unique and stable."""
+    technologies = list(dict.fromkeys(technologies))
+    title = "TECH_STACK" if not spanish else "PILA_TECNOLÓGICA"
+    subtitle = "unique technologies detected across public repositories" if not spanish else "tecnologías únicas detectadas en repositorios públicos"
+    width = 1200
+    columns = 2
+    cell_w = 540
+    row_h = 68
+    rows = max(1, math.ceil(len(technologies) / columns))
+    height = 108 + rows * row_h
+    lines = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" style="background:transparent" role="img">',
+        f'  <title>{escape(title)}</title>',
+        f'  <desc>{escape(subtitle)}</desc>',
+        '  <defs>',
+        '    <linearGradient id="stackBg" x1="0" y1="0" x2="1" y2="1">',
+        '      <stop offset="0" stop-color="#050505"/>',
+        '      <stop offset="0.5" stop-color="#161616"/>',
+        '      <stop offset="1" stop-color="#030303"/>',
+        '    </linearGradient>',
+        '    <pattern id="stackGrid" width="42" height="42" patternUnits="userSpaceOnUse">',
+        '      <path d="M42 0H0V42" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>',
+        '      <circle cx="1" cy="1" r="1" fill="#ffffff" fill-opacity="0.12"/>',
+        '    </pattern>',
+        '  </defs>',
+        f'  <rect width="{width}" height="{height}" fill="none"/>',
+        f'  <rect x="18" y="18" width="1164" height="{height - 36}" rx="26" fill="url(#stackBg)"/>',
+        f'  <rect x="18" y="18" width="1164" height="{height - 36}" rx="26" fill="url(#stackGrid)"/>',
+        f'  <text x="58" y="55" fill="#ffffff" fill-opacity="0.68" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" letter-spacing="3">/ {escape(title)}</text>',
+        f'  <text x="1142" y="55" text-anchor="end" fill="#ffffff" fill-opacity="0.46" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11">{escape(subtitle)}</text>',
+        f'  <path d="M58 76H1142" stroke="#ffffff" stroke-opacity="0.18"/>',
+    ]
+    for index, technology in enumerate(technologies):
+        column = index % columns
+        row = index // columns
+        x = 58 + column * cell_w
+        y = 113 + row * row_h
+        label = escape(technology)
+        mark = escape(technology_mark(technology))
+        lines.extend([
+            f'  <g data-technology="{label}">',
+            f'    <rect x="{x}" y="{y - 29}" width="52" height="38" rx="10" fill="#050505" fill-opacity="0.84" stroke="#ffffff" stroke-opacity="0.56"/>',
+            f'    <text x="{x + 26}" y="{y - 3}" text-anchor="middle" fill="#ffffff" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="700">{mark}</text>',
+            f'    <text x="{x + 68}" y="{y - 3}" fill="#ffffff" fill-opacity="0.98" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700">{label}</text>',
+            f'    <line x1="{x + 68}" y1="{y + 18}" x2="{x + cell_w - 22}" y2="{y + 18}" stroke="#ffffff" stroke-opacity="0.14"/>',
+            '  </g>',
+        ])
+    lines.append('</svg>')
+    return "\n".join(lines) + "\n"
+
+
+def update_technology_assets(technologies: list[str]) -> None:
+    update_decorative_orbit()
+    (ASSETS / "tech-stack.svg").write_text(render_technology_stack(technologies), encoding="utf-8")
+    (ASSETS / "tech-stack-es.svg").write_text(render_technology_stack(technologies, spanish=True), encoding="utf-8")
 
 
 def available_years() -> list[int]:
@@ -502,20 +538,27 @@ def picture(asset_dark: str, asset_light: str, alt: str, width: str = "100%") ->
     ])
 
 
-def build_readme(years: list[int], calendars: dict[int, dict], language: str) -> str:
+def build_readme(years: list[int], calendars: dict[int, dict], technologies: list[str], language: str) -> str:
     spanish = language == "es"
+    stack_asset = "tech-stack-es.svg" if spanish else "tech-stack.svg"
+    stack_hash = hashlib.sha1((ASSETS / stack_asset).read_bytes()).hexdigest()[:10]
+    tech_stack = picture(
+        f"{stack_asset}?v={stack_hash}",
+        f"{('tech-stack-es-light.svg' if spanish else 'tech-stack-light.svg')}?v={stack_hash}",
+        "Tecnologías únicas detectadas automáticamente" if spanish else "Unique technologies detected automatically",
+    )
     github_label = "&lt;/&gt; GITHUB · @xFrankB"
     contact_label = "[CORREO] CONTACTO · jfby13@gmail.com" if spanish else "[MAIL] CONTACT · jfby13@gmail.com"
     open_to = "DISPONIBLE PARA: oportunidades trainee / junior · construcciones colaborativas" if spanish else "OPEN TO: trainee / junior opportunities · collaborative builds"
     if spanish:
-        hero = picture("hero-es.svg?v=11", "hero-es-light.svg?v=11", "xFrankB — Francisco Baylón", width="100%")
+        hero = picture("hero-es.svg?v=12", "hero-es-light.svg?v=12", "xFrankB — Francisco Baylón", width="100%")
         content = picture("content-es.svg", "content-es-light.svg", "Perfil técnico, enfoque, proyecto, stack y contacto de xFrankB")
         evidence = picture("evidence-es.svg", "evidence-es-light.svg", "Evidencia pública del proyecto U3_APM y su estructura técnica")
         signal = picture("signal-es.svg", "signal-es-light.svg", "Señales técnicas verificables de xFrankB")
         footer = picture("footer-es.svg", "footer-es-light.svg", "Construir, aprender y repetir — xFrankB")
         contribution_alt = "Calendario de contribuciones públicas de xFrankB"
     else:
-        hero = picture("hero.svg?v=11", "hero-light.svg?v=11", "xFrankB — Francisco Baylón", width="100%")
+        hero = picture("hero.svg?v=12", "hero-light.svg?v=12", "xFrankB — Francisco Baylón", width="100%")
         content = picture("content.svg", "content-light.svg", "Technical profile, focus, project, stack and contact for xFrankB")
         evidence = picture("evidence.svg", "evidence-light.svg", "Public evidence of the U3_APM project and its technical structure")
         signal = picture("signal.svg", "signal-light.svg", "Verified technical signals for xFrankB")
@@ -539,7 +582,7 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
         f'  <a href="https://github.com/xFrankB" title="GitHub"><kbd>{github_label}</kbd></a><br />',
         f'  <a href="mailto:jfby13@gmail.com" title="Contacto"><kbd>{contact_label}</kbd></a>',
         '</div>', '', '</div>', '',
-        '<div align="center">', '', content, '', evidence, '', signal, '',
+        '<div align="center">', '', tech_stack, '', content, '', evidence, '', signal, '',
         contribution,
         '</div>', '',
         '<div align="center">', '', footer, '',
@@ -551,7 +594,7 @@ def main() -> int:
     ASSETS.mkdir(parents=True, exist_ok=True)
     candidate_years = available_years()
     technologies = detected_technologies()
-    update_technology_orbit(technologies)
+    update_technology_assets(technologies)
     print(f"technologies={', '.join(technologies)}")
     build_translated_panels()
     calendars: dict[int, dict] = {}
@@ -585,8 +628,8 @@ def main() -> int:
     for path in ASSETS.glob("contributions-*.svg"):
         if path.name not in expected:
             path.unlink()
-    (ROOT / "README.md").write_text(build_readme(years, calendars, "en"), encoding="utf-8")
-    (ROOT / "README.es.md").write_text(build_readme(years, calendars, "es"), encoding="utf-8")
+    (ROOT / "README.md").write_text(build_readme(years, calendars, technologies, "en"), encoding="utf-8")
+    (ROOT / "README.es.md").write_text(build_readme(years, calendars, technologies, "es"), encoding="utf-8")
     print(f"years={','.join(map(str, years))}")
     return 0
 
