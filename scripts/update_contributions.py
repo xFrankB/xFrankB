@@ -329,14 +329,14 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
     contact_label = "[CORREO] CONTACTO · jfby13@gmail.com" if spanish else "[MAIL] CONTACT · jfby13@gmail.com"
     open_to = "DISPONIBLE PARA: oportunidades trainee / junior · construcciones colaborativas" if spanish else "OPEN TO: trainee / junior opportunities · collaborative builds"
     if spanish:
-        hero = picture("hero-es.svg?v=4", "hero-es-light.svg?v=4", "xFrankB — Francisco Baylón", width="100%")
+        hero = picture("hero-es.svg?v=6", "hero-es-light.svg?v=6", "xFrankB — Francisco Baylón", width="100%")
         content = picture("content-es.svg", "content-es-light.svg", "Perfil técnico, enfoque, proyecto, stack y contacto de xFrankB")
         evidence = picture("evidence-es.svg", "evidence-es-light.svg", "Evidencia pública del proyecto U3_APM y su estructura técnica")
         signal = picture("signal-es.svg", "signal-es-light.svg", "Señales técnicas verificables de xFrankB")
         footer = picture("footer-es.svg", "footer-es-light.svg", "Construir, aprender y repetir — xFrankB")
         contribution_alt = "Calendario de contribuciones públicas de xFrankB"
     else:
-        hero = picture("hero.svg?v=4", "hero-light.svg?v=4", "xFrankB — Francisco Baylón", width="100%")
+        hero = picture("hero.svg?v=6", "hero-light.svg?v=6", "xFrankB — Francisco Baylón", width="100%")
         content = picture("content.svg", "content-light.svg", "Technical profile, focus, project, stack and contact for xFrankB")
         evidence = picture("evidence.svg", "evidence-light.svg", "Public evidence of the U3_APM project and its technical structure")
         signal = picture("signal.svg", "signal-light.svg", "Verified technical signals for xFrankB")
