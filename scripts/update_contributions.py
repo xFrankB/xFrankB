@@ -323,7 +323,7 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
     contact_label = "[CORREO] CONTACTO · jfby13@gmail.com" if spanish else "[MAIL] CONTACT · jfby13@gmail.com"
     open_to = "DISPONIBLE PARA: oportunidades trainee / junior · construcciones colaborativas" if spanish else "OPEN TO: trainee / junior opportunities · collaborative builds"
     if spanish:
-        hero = picture("hero-es.svg", "hero-es-light.svg", "xFrankB — Francisco Baylón", width="82%")
+        hero = picture("hero-es.svg", "hero-es-light.svg", "xFrankB — Francisco Baylón", width="72%")
         content = picture("content-es.svg", "content-es-light.svg", "Perfil técnico, enfoque, proyecto, stack y contacto de xFrankB")
         evidence = picture("evidence-es.svg", "evidence-es-light.svg", "Evidencia pública del proyecto U3_APM y su estructura técnica")
         signal = picture("signal-es.svg", "signal-es-light.svg", "Señales técnicas verificables de xFrankB")
@@ -332,7 +332,7 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
         contribution_link_title = "Abrir el historial completo de contribuciones en GitHub"
         language_buttons = '<a href="./README.md" title="Leer en inglés"><kbd>EN</kbd></a><br /><a href="./README.es.md" title="Leer en español"><kbd>ES</kbd></a>'
     else:
-        hero = picture("hero.svg", "hero-light.svg", "xFrankB — Francisco Baylón", width="82%")
+        hero = picture("hero.svg", "hero-light.svg", "xFrankB — Francisco Baylón", width="72%")
         content = picture("content.svg", "content-light.svg", "Technical profile, focus, project, stack and contact for xFrankB")
         evidence = picture("evidence.svg", "evidence-light.svg", "Public evidence of the U3_APM project and its technical structure")
         signal = picture("signal.svg", "signal-light.svg", "Verified technical signals for xFrankB")
@@ -345,7 +345,7 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
     hero_layout = "\n".join([
         '<div align="center">',
         hero,
-        '<span style="display:inline-block;vertical-align:middle;margin-left:10px;line-height:1.8;">',
+        '<span style="display:inline-block;vertical-align:middle;margin-left:8px;line-height:2.0;text-align:center;">',
         f'<sub><code>{language_label}</code></sub><br />',
         language_buttons,
         '</span>',

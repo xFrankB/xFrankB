@@ -4,9 +4,9 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/hero.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/hero-light.svg" />
-  <img src="./assets/hero.svg" alt="xFrankB — Francisco Baylón" width="82%" />
+  <img src="./assets/hero.svg" alt="xFrankB — Francisco Baylón" width="72%" />
 </picture>
-<span style="display:inline-block;vertical-align:middle;margin-left:10px;line-height:1.8;">
+<span style="display:inline-block;vertical-align:middle;margin-left:8px;line-height:2.0;text-align:center;">
 <sub><code>LANGUAGE</code></sub><br />
 <a href="./README.es.md" title="Leer en español"><kbd>ES</kbd></a><br /><a href="./README.md" title="Read in English"><kbd>EN</kbd></a>
 </span>

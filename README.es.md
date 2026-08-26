@@ -4,9 +4,9 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/hero-es.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/hero-es-light.svg" />
-  <img src="./assets/hero-es.svg" alt="xFrankB — Francisco Baylón" width="82%" />
+  <img src="./assets/hero-es.svg" alt="xFrankB — Francisco Baylón" width="72%" />
 </picture>
-<span style="display:inline-block;vertical-align:middle;margin-left:10px;line-height:1.8;">
+<span style="display:inline-block;vertical-align:middle;margin-left:8px;line-height:2.0;text-align:center;">
 <sub><code>IDIOMA</code></sub><br />
 <a href="./README.md" title="Leer en inglés"><kbd>EN</kbd></a><br /><a href="./README.es.md" title="Leer en español"><kbd>ES</kbd></a>
 </span>
