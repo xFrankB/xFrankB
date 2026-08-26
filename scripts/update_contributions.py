@@ -188,9 +188,9 @@ TECH_PRIORITY = [
 ]
 TECH_FALLBACK = ["TypeScript", "JavaScript", "Python", "React", "Vite", "Node.js", "Express", "pnpm", "Git", "Linux", "HTML", "CSS"]
 TECH_MARKS = {
-    "TypeScript": "TS", "JavaScript": "JS", "Python": "PY", "React": "R",
-    "Vite": "V", "Node.js": "N", "Express": "EX", "pnpm": "PN",
-    "HTML": "HT", "CSS": "CS", "Tailwind CSS": "TW", "Git": "G",
+    "TypeScript": "TS", "JavaScript": "JS", "Python": "PY", "React": "RE",
+    "Vite": "VT", "Node.js": "ND", "Express": "EX", "pnpm": "PN",
+    "HTML": "HT", "CSS": "CS", "Tailwind CSS": "TW", "Git": "GI",
     "GitHub Actions": "CI", "Linux": "LX", "Docker": "DK",
 }
 
@@ -264,36 +264,36 @@ def render_technology_orbit(technologies: list[str]) -> str:
     technologies = technologies[:12] or TECH_FALLBACK
     total = len(technologies)
     lines = [
-        '    <g transform="translate(884 74)" aria-label="Technology orbit">',
-        '      <ellipse cx="110" cy="68" rx="84" ry="34" transform="rotate(-12 110 68)" fill="none" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="2 9">',
-        '        <animate attributeName="stroke-dashoffset" values="0;-80" dur="10s" repeatCount="indefinite"/>',
+        '    <g transform="translate(820 42)" aria-label="Technology orbit">',
+        '      <ellipse cx="170" cy="116" rx="150" ry="76" transform="rotate(-16 170 116)" fill="none" stroke="#ffffff" stroke-opacity="0.66" stroke-width="1.8" stroke-dasharray="3 10">',
+        '        <animate attributeName="stroke-dashoffset" values="0;-104" dur="11s" repeatCount="indefinite"/>',
         '      </ellipse>',
-        '      <ellipse cx="110" cy="68" rx="62" ry="22" transform="rotate(18 110 68)" fill="none" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="1 8">',
-        '        <animate attributeName="stroke-dashoffset" values="0;70" dur="8s" repeatCount="indefinite"/>',
+        '      <ellipse cx="170" cy="116" rx="116" ry="52" transform="rotate(20 170 116)" fill="none" stroke="#ffffff" stroke-opacity="0.44" stroke-width="1.3" stroke-dasharray="2 8">',
+        '        <animate attributeName="stroke-dashoffset" values="0;82" dur="8s" repeatCount="indefinite"/>',
         '      </ellipse>',
-        '      <circle cx="110" cy="68" r="8" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.48">',
-        '        <animate attributeName="r" values="7;11;7" dur="3.8s" repeatCount="indefinite"/>',
-        '        <animate attributeName="opacity" values="0.62;1;0.62" dur="3.8s" repeatCount="indefinite"/>',
+        '      <circle cx="170" cy="116" r="15" fill="#050505" fill-opacity="0.46" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">',
+        '        <animate attributeName="r" values="14;18;14" dur="4.6s" repeatCount="indefinite"/>',
+        '        <animate attributeName="opacity" values="0.72;1;0.72" dur="4.6s" repeatCount="indefinite"/>',
         '      </circle>',
-        '      <text x="110" y="72" text-anchor="middle" fill="#ffffff" fill-opacity="0.82" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8" letter-spacing="1">TECH</text>',
+        '      <text x="170" y="120" text-anchor="middle" fill="#ffffff" fill-opacity="0.94" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" letter-spacing="1">TECH</text>',
     ]
     for index, technology in enumerate(technologies):
         orbit = index % 2
         angle = (-math.pi / 2) + (index // 2) * (2 * math.pi / max(1, (total + 1) // 2)) + (0.16 if orbit else 0)
-        rx, ry = ((82, 34) if orbit == 0 else (62, 22))
-        x = 110 + math.cos(angle) * rx
-        y = 68 + math.sin(angle) * ry
+        rx, ry = ((150, 76) if orbit == 0 else (116, 52))
+        x = 170 + math.cos(angle) * rx
+        y = 116 + math.sin(angle) * ry
         duration = "22s" if orbit == 0 else "17s"
         mark = technology_mark(technology)
         lines.extend([
-            f'      <g transform="rotate(0 110 68)">',
+            f'      <g transform="rotate(0 170 116)">',
             f'        <title>{escape(technology)} detected in public repositories</title>',
-            f'        <rect x="{x - 7:.1f}" y="{y - 7:.1f}" width="14" height="14" rx="4" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.42"/>',
-            f'        <circle cx="{x:.1f}" cy="{y:.1f}" r="2.4" fill="#ffffff" fill-opacity="0.88">',
-            f'          <animate attributeName="opacity" values="0.45;1;0.45" dur="{2.2 + (index % 4) * 0.35:.2f}s" begin="{(index % 5) * 0.22:.2f}s" repeatCount="indefinite"/>',
+            f'        <rect x="{x - 13:.1f}" y="{y - 13:.1f}" width="26" height="26" rx="8" fill="#050505" fill-opacity="0.72" stroke="#ffffff" stroke-opacity="0.72" stroke-width="1.3"/>',
+            f'        <circle cx="{x:.1f}" cy="{y:.1f}" r="3.4" fill="#ffffff" fill-opacity="0.96">',
+            f'          <animate attributeName="opacity" values="0.48;1;0.48" dur="{2.2 + (index % 4) * 0.35:.2f}s" begin="{(index % 5) * 0.22:.2f}s" repeatCount="indefinite"/>',
             '        </circle>',
-            f'        <text x="{x:.1f}" y="{y + 2.5:.1f}" text-anchor="middle" fill="#ffffff" fill-opacity="0.88" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="6.5" font-weight="700" letter-spacing="0.4">{escape(mark)}</text>',
-            f'        <animateTransform attributeName="transform" type="rotate" from="0 110 68" to="360 110 68" dur="{duration}" repeatCount="indefinite"/>',
+            f'        <text x="{x:.1f}" y="{y + 3.5:.1f}" text-anchor="middle" fill="#ffffff" fill-opacity="0.98" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="700" letter-spacing="0.4">{escape(mark)}</text>',
+            f'        <animateTransform attributeName="transform" type="rotate" from="0 170 116" to="360 170 116" dur="{duration}" repeatCount="indefinite"/>',
             '      </g>',
         ])
     lines.append('    </g>')
@@ -496,14 +496,14 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
     contact_label = "[CORREO] CONTACTO · jfby13@gmail.com" if spanish else "[MAIL] CONTACT · jfby13@gmail.com"
     open_to = "DISPONIBLE PARA: oportunidades trainee / junior · construcciones colaborativas" if spanish else "OPEN TO: trainee / junior opportunities · collaborative builds"
     if spanish:
-        hero = picture("hero-es.svg?v=9", "hero-es-light.svg?v=9", "xFrankB — Francisco Baylón", width="100%")
+        hero = picture("hero-es.svg?v=10", "hero-es-light.svg?v=10", "xFrankB — Francisco Baylón", width="100%")
         content = picture("content-es.svg", "content-es-light.svg", "Perfil técnico, enfoque, proyecto, stack y contacto de xFrankB")
         evidence = picture("evidence-es.svg", "evidence-es-light.svg", "Evidencia pública del proyecto U3_APM y su estructura técnica")
         signal = picture("signal-es.svg", "signal-es-light.svg", "Señales técnicas verificables de xFrankB")
         footer = picture("footer-es.svg", "footer-es-light.svg", "Construir, aprender y repetir — xFrankB")
         contribution_alt = "Calendario de contribuciones públicas de xFrankB"
     else:
-        hero = picture("hero.svg?v=9", "hero-light.svg?v=9", "xFrankB — Francisco Baylón", width="100%")
+        hero = picture("hero.svg?v=10", "hero-light.svg?v=10", "xFrankB — Francisco Baylón", width="100%")
         content = picture("content.svg", "content-light.svg", "Technical profile, focus, project, stack and contact for xFrankB")
         evidence = picture("evidence.svg", "evidence-light.svg", "Public evidence of the U3_APM project and its technical structure")
         signal = picture("signal.svg", "signal-light.svg", "Verified technical signals for xFrankB")
