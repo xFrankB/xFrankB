@@ -94,6 +94,7 @@ def static_logo(technology: str, ordinal: int, total: int, opacity: float, light
             '        <svg x="138" y="100" width="64" height="64" viewBox="0 0 24 24" aria-hidden="true">',
             paths,
             "        </svg>",
+            f'        <text x="170" y="184" text-anchor="middle" textLength="138" lengthAdjust="spacingAndGlyphs" fill="{logo_color}" fill-opacity="0.62" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="0.2">{label}</text>',
             "      </g>",
         ]
     )
@@ -147,8 +148,9 @@ def build_gif(source_path: Path, output_path: Path) -> None:
         append_images=frames[1:],
         duration=durations,
         loop=0,
-        disposal=2,
+        disposal=1,
         optimize=True,
+        transparency=frames[0].info.get("transparency", 0),
     )
     print(f"{output_path.name}: {len(technologies)} technologies, {len(frames)} frames, {output_path.stat().st_size} bytes")
 
