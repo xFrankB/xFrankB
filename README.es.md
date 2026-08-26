@@ -39,13 +39,12 @@
   <img src="./assets/signal-es.svg" alt="Señales técnicas verificables de xFrankB" width="100%" />
 </picture>
 
-<a href="https://github.com/xFrankB?tab=overview" title="Abrir el historial completo de contribuciones en GitHub">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/contributions-es.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/contributions-es-light.svg" />
   <img src="./assets/contributions-es.svg" alt="Calendario de contribuciones públicas de xFrankB" width="100%" />
 </picture>
-</a>
+<sub><a href="https://github.com/xFrankB?tab=overview" title="Abrir el historial completo de contribuciones en GitHub"><kbd>VER HISTORIAL COMPLETO</kbd></a></sub>
 </div>
 
 <div align="center">

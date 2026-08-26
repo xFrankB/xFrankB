@@ -39,13 +39,12 @@
   <img src="./assets/signal.svg" alt="Verified technical signals for xFrankB" width="100%" />
 </picture>
 
-<a href="https://github.com/xFrankB?tab=overview" title="Open the complete contribution history on GitHub">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/contributions.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/contributions-light.svg" />
   <img src="./assets/contributions.svg" alt="Current-year public contribution calendar for xFrankB" width="100%" />
 </picture>
-</a>
+<sub><a href="https://github.com/xFrankB?tab=overview" title="Open the complete contribution history on GitHub"><kbd>VIEW COMPLETE HISTORY</kbd></a></sub>
 </div>
 
 <div align="center">

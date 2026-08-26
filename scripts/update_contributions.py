@@ -217,7 +217,11 @@ def render_calendar(calendar: dict, year: int, theme: dict, language: str) -> st
             fill = level_colors.get(level, theme["none"]) if count else theme["none"]
             date_value = escape(str(day.get("date", "")))
             word = labels["contribution"] if count == 1 else labels["contributions"]
-            lines.append(f'''      <rect x="{x}" y="{grid_y + weekday * step}" width="{cell}" height="{cell}" rx="3" fill="{fill}" stroke="{theme['cell_stroke']}" stroke-width="1"><title>{date_value}: {count} {word}</title></rect>''')
+            animate = ""
+            if count:
+                delay = ((week_index * 7 + weekday) % 13) * 0.18
+                animate = f'<animate attributeName="opacity" values="0.72;1;0.72" dur="4.8s" begin="{delay:.2f}s" repeatCount="indefinite"/>'
+            lines.append(f'''      <rect x="{x}" y="{grid_y + weekday * step}" width="{cell}" height="{cell}" rx="3" fill="{fill}" stroke="{theme['cell_stroke']}" stroke-width="1"><title>{date_value}: {count} {word}</title>{animate}</rect>''')
     legend_y = 306
     lines.append(f'''      <text x="58" y="316" fill="{theme['muted']}" opacity=".9" font-size="11">{labels['less']}</text>''')
     legend_colors = [theme["none"], level_colors["FIRST_QUARTILE"], level_colors["SECOND_QUARTILE"], level_colors["THIRD_QUARTILE"], level_colors["FOURTH_QUARTILE"]]
@@ -357,7 +361,11 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
         "contributions-es-light.svg" if spanish else "contributions-light.svg",
         contribution_alt,
     )
-    contribution = f'<a href="https://github.com/{LOGIN}?tab=overview" title="{contribution_link_title}">\n{contribution}\n</a>'
+    history_link_label = "VER HISTORIAL COMPLETO" if spanish else "VIEW COMPLETE HISTORY"
+    contribution = "\n".join([
+        contribution,
+        f'<sub><a href="https://github.com/{LOGIN}?tab=overview" title="{contribution_link_title}"><kbd>{history_link_label}</kbd></a></sub>',
+    ])
 
     return "\n".join([
         '<div align="center">', '', hero_layout, '',
