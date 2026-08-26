@@ -89,6 +89,7 @@
       <g opacity="0">
         <title>TypeScript — detected in public repositories</title>
         <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.00084;0.00588;0.04930;0.05518" dur="71.4s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.00084;0.00588;0.05518;1" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#f3f3ef" fill-opacity="0.74" stroke="#151515" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -99,6 +100,7 @@
       <g opacity="0">
         <title>JavaScript — detected in public repositories</title>
         <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.05966;0.06471;0.10812;0.11401" dur="71.4s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.05966;0.06471;0.11401;1" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#f3f3ef" fill-opacity="0.74" stroke="#151515" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -109,6 +111,7 @@
       <g opacity="0">
         <title>Python — detected in public repositories</title>
         <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.11849;0.12353;0.16695;0.17283" dur="71.4s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.11849;0.12353;0.17283;1" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#f3f3ef" fill-opacity="0.74" stroke="#151515" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -119,6 +122,7 @@
       <g opacity="0">
         <title>React — detected in public repositories</title>
         <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.17731;0.18235;0.22577;0.23165" dur="71.4s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.17731;0.18235;0.23165;1" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#f3f3ef" fill-opacity="0.74" stroke="#151515" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -129,6 +133,7 @@
       <g opacity="0">
         <title>Vite — detected in public repositories</title>
         <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.23613;0.24118;0.28459;0.29048" dur="71.4s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.23613;0.24118;0.29048;1" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#f3f3ef" fill-opacity="0.74" stroke="#151515" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -139,6 +144,7 @@
       <g opacity="0">
         <title>Node.js — detected in public repositories</title>
         <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.29496;0.30000;0.34342;0.34930" dur="71.4s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.29496;0.30000;0.34930;1" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#f3f3ef" fill-opacity="0.74" stroke="#151515" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -149,6 +155,7 @@
       <g opacity="0">
         <title>Express — detected in public repositories</title>
         <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.35378;0.35882;0.40224;0.40812" dur="71.4s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.35378;0.35882;0.40812;1" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#f3f3ef" fill-opacity="0.74" stroke="#151515" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -159,6 +166,7 @@
       <g opacity="0">
         <title>pnpm — detected in public repositories</title>
         <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.41261;0.41765;0.46106;0.46695" dur="71.4s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.41261;0.41765;0.46695;1" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#f3f3ef" fill-opacity="0.74" stroke="#151515" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -169,6 +177,7 @@
       <g opacity="0">
         <title>HTML — detected in public repositories</title>
         <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.47143;0.47647;0.51989;0.52577" dur="71.4s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.47143;0.47647;0.52577;1" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#f3f3ef" fill-opacity="0.74" stroke="#151515" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -179,6 +188,7 @@
       <g opacity="0">
         <title>CSS — detected in public repositories</title>
         <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.53025;0.53529;0.57871;0.58459" dur="71.4s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.53025;0.53529;0.58459;1" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#f3f3ef" fill-opacity="0.74" stroke="#151515" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -189,6 +199,7 @@
       <g opacity="0">
         <title>Tailwind CSS — detected in public repositories</title>
         <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.58908;0.59412;0.63754;0.64342" dur="71.4s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.58908;0.59412;0.64342;1" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#f3f3ef" fill-opacity="0.74" stroke="#151515" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -199,6 +210,7 @@
       <g opacity="0">
         <title>Git — detected in public repositories</title>
         <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.64790;0.65294;0.69636;0.70224" dur="71.4s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.64790;0.65294;0.70224;1" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#f3f3ef" fill-opacity="0.74" stroke="#151515" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -209,6 +221,7 @@
       <g opacity="0">
         <title>GitHub Actions — detected in public repositories</title>
         <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.70672;0.71176;0.75518;0.76106" dur="71.4s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.70672;0.71176;0.76106;1" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#f3f3ef" fill-opacity="0.74" stroke="#151515" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -219,6 +232,7 @@
       <g opacity="0">
         <title>Linux — detected in public repositories</title>
         <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.76555;0.77059;0.81401;0.81989" dur="71.4s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.76555;0.77059;0.81989;1" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#f3f3ef" fill-opacity="0.74" stroke="#151515" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -229,6 +243,7 @@
       <g opacity="0">
         <title>Axios — detected in public repositories</title>
         <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.82437;0.82941;0.87283;0.87871" dur="71.4s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.82437;0.82941;0.87871;1" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#f3f3ef" fill-opacity="0.74" stroke="#151515" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -239,6 +254,7 @@
       <g opacity="0">
         <title>Framer Motion — detected in public repositories</title>
         <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.88319;0.88824;0.93165;0.93754" dur="71.4s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.88319;0.88824;0.93754;1" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#f3f3ef" fill-opacity="0.74" stroke="#151515" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>
@@ -249,6 +265,7 @@
       <g opacity="0">
         <title>Zod — detected in public repositories</title>
         <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.94202;0.94706;0.99048;0.99636" dur="71.4s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.94202;0.94706;0.99636;1" dur="71.4s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#f3f3ef" fill-opacity="0.74" stroke="#151515" stroke-opacity="0.42" stroke-width="1.4">
           <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>
         </circle>

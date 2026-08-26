@@ -303,6 +303,7 @@ def render_technology_sequence(technologies: list[str]) -> str:
             '      <g opacity="0">',
             f'        <title>{label} — detected in public repositories</title>',
             f'        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;{start:.5f};{fade_in_end:.5f};{hold_end:.5f};{fade_out_end:.5f}" dur="{duration:.1f}s" begin="0s" repeatCount="indefinite"/>',
+            f'        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;{start:.5f};{fade_in_end:.5f};{fade_out_end:.5f};1" dur="{duration:.1f}s" begin="0s" repeatCount="indefinite"/>',
             '        <circle cx="170" cy="132" r="50" fill="#050505" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.42" stroke-width="1.4">',
             '          <animate attributeName="r" values="46;52;46" dur="4.2s" repeatCount="indefinite"/>',
             '        </circle>',
