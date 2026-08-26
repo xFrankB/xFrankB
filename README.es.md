@@ -1,14 +1,23 @@
 <div align="center">
 
+<table align="center" width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td width="86%" valign="top">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/hero-es.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/hero-es-light.svg" />
   <img src="./assets/hero-es.svg" alt="xFrankB — Francisco Baylón" width="100%" />
 </picture>
+</td>
+<td width="14%" align="center" valign="middle">
+<sub><code>IDIOMA</code></sub><br />
+<a href="./README.md" title="Leer en inglés"><kbd>EN</kbd></a><br /><a href="./README.es.md" title="Leer en español"><kbd>ES</kbd></a>
+</td>
+</tr>
+</table>
 
 <div align="center">
-  <a href="./README.md" title="Leer en inglés"><kbd>ENGLISH</kbd></a>  <a href="./README.es.md" title="Leer en español"><kbd>ESPAÑOL</kbd></a>
-  <br />  <a href="https://github.com/xFrankB" title="GitHub"><kbd>&lt;/&gt; GITHUB · @xFrankB</kbd></a><br />
+  <a href="https://github.com/xFrankB" title="GitHub"><kbd>&lt;/&gt; GITHUB · @xFrankB</kbd></a><br />
   <a href="mailto:jfby13@gmail.com" title="Contacto"><kbd>[CORREO] CONTACTO · jfby13@gmail.com</kbd></a>
 </div>
 
@@ -34,36 +43,11 @@
   <img src="./assets/signal-es.svg" alt="Señales técnicas verificables de xFrankB" width="100%" />
 </picture>
 
-<details name="contribution-years" open>
-  <summary>2026 · 25 contribuciones</summary>
-
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/contributions-2026-es.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./assets/contributions-2026-es-light.svg" />
-    <img src="./assets/contributions-2026-es.svg" alt="Calendario dinámico de contribuciones públicas de xFrankB — 2026" width="100%" />
-  </picture>
-</details>
-
-<details name="contribution-years">
-  <summary>2025 · 5 contribuciones</summary>
-
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/contributions-2025-es.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./assets/contributions-2025-es-light.svg" />
-    <img src="./assets/contributions-2025-es.svg" alt="Calendario dinámico de contribuciones públicas de xFrankB — 2025" width="100%" />
-  </picture>
-</details>
-
-<details name="contribution-years">
-  <summary>2023 · 1 contribución</summary>
-
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/contributions-2023-es.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./assets/contributions-2023-es-light.svg" />
-    <img src="./assets/contributions-2023-es.svg" alt="Calendario dinámico de contribuciones públicas de xFrankB — 2023" width="100%" />
-  </picture>
-</details>
-
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/contributions-history-es.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/contributions-history-es-light.svg" />
+  <img src="./assets/contributions-history-es.svg" alt="Calendario dinámico de contribuciones públicas de xFrankB" width="100%" />
+</picture>
 </div>
 
 <div align="center">

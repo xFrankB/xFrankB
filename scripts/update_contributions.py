@@ -62,8 +62,11 @@ LANG = {
         "less": "LESS", "more": "MORE",
         "weekdays": {1: "MON", 3: "WED", 5: "FRI"},
         "contribution": "contribution", "contributions": "contributions",
-        "desc": "Live contribution calendar for {login}, {total} contributions between {start} and {end}.",
-        "alt": "Live GitHub contribution calendar for {login} in {year}",
+        "desc": "Live contribution history for {login}, {total} contributions between {start} and {end}.",
+        "alt": "Live GitHub contribution history for {login}",
+        "history_title": "/ CONTRIBUTIONS / HISTORY",
+        "history_subtitle": "public activity · annual history · daily detail",
+        "year_word": "contributions",
     },
     "es": {
         "title": "/ CONTRIBUCIONES / {year}",
@@ -72,8 +75,11 @@ LANG = {
         "less": "MENOS", "more": "MÁS",
         "weekdays": {1: "LUN", 3: "MIÉ", 5: "VIE"},
         "contribution": "contribución", "contributions": "contribuciones",
-        "desc": "Calendario de contribuciones de {login}, {total} contribuciones entre {start} y {end}.",
-        "alt": "Calendario vivo de contribuciones de GitHub de {login} en {year}",
+        "desc": "Historial de contribuciones de {login}, {total} contribuciones entre {start} y {end}.",
+        "alt": "Historial vivo de contribuciones de GitHub de {login}",
+        "history_title": "/ CONTRIBUCIONES / HISTORIAL",
+        "history_subtitle": "actividad pública · historial anual · detalle diario",
+        "year_word": "contribuciones",
     },
 }
 
@@ -224,6 +230,72 @@ def render_calendar(calendar: dict, year: int, theme: dict, language: str) -> st
     return "\n".join(lines) + "\n"
 
 
+def render_history(calendars: dict[int, dict], years: list[int], theme: dict, language: str) -> str:
+    labels = LANG[language]
+    all_days = [day for year in years for week in calendars[year].get("weeks", []) for day in week.get("contributionDays", [])]
+    total = sum(int(day.get("contributionCount", 0)) for day in all_days)
+    dates = [str(day["date"]) for day in all_days if day.get("date")]
+    start_date = min(dates) if dates else "unknown"
+    end_date = max(dates) if dates else "unknown"
+    width, row_height, top = 1200, 218, 134
+    height = top + row_height * len(years) + 52
+    panel_x, panel_y, panel_w, panel_h, radius = 16, 16, 1168, height - 32, 34
+    grid_x, step, cell = 104, 20, 13
+    level_colors = theme["levels"]
+    lines: list[str] = []
+    lines.append(f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">''')
+    lines.append(f"  <title id=\"title\">{escape(labels['alt'])}</title>")
+    lines.append(f"  <desc id=\"desc\">{escape(labels['desc'].format(login=LOGIN, total=total, start=start_date, end=end_date))}</desc>")
+    lines.append("  <defs>")
+    lines.append(f'''    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{theme['bg_start']}"/><stop offset="0.55" stop-color="{theme['bg_mid']}"/><stop offset="1" stop-color="{theme['bg_end']}"/></linearGradient>''')
+    lines.append(f'''    <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse"><path d="M38 0H0V38" fill="none" stroke="{theme['grid']}" stroke-opacity=".055"/><circle cx="1" cy="1" r="1" fill="{theme['grid']}" opacity=".12"/></pattern>''')
+    lines.append(f'''    <clipPath id="clip"><rect x="{panel_x}" y="{panel_y}" width="{panel_w}" height="{panel_h}" rx="{radius}"/></clipPath>''')
+    lines.append("  </defs>")
+    lines.append(f'''  <g clip-path="url(#clip)"><rect x="{panel_x}" y="{panel_y}" width="{panel_w}" height="{panel_h}" rx="{radius}" fill="url(#bg)"/><rect x="{panel_x}" y="{panel_y}" width="{panel_w}" height="{panel_h}" rx="{radius}" fill="url(#grid)"/><rect x="{panel_x}" y="{panel_y}" width="{panel_w}" height="{panel_h}" rx="{radius}" fill="none" stroke="{theme['panel_stroke']}" stroke-opacity=".22"/>''')
+    lines.append("    <g font-family=\"monospace\">")
+    lines.append(f'''      <text x="58" y="64" fill="{theme['ink']}" opacity=".84" font-size="14" font-weight="600" letter-spacing="3">{escape(labels['history_title'])}</text>''')
+    lines.append(f'''      <text x="1142" y="64" text-anchor="end" fill="{theme['ink']}" font-size="22" font-weight="700">{total} <tspan font-size="12" opacity=".72">{labels['total']}</tspan></text>''')
+    lines.append(f'''      <text x="58" y="92" fill="{theme['body']}" opacity=".9" font-size="14">{escape(labels['history_subtitle'])}</text>''')
+    for row_index, year in enumerate(years):
+        row_y = top + row_index * row_height
+        calendar = calendars[year]
+        lines.append(f'''      <text x="58" y="{row_y + 30}" fill="{theme['ink']}" font-size="16" font-weight="700">{year}</text>''')
+        lines.append(f'''      <text x="58" y="{row_y + 51}" fill="{theme['muted']}" font-size="11">{int(calendar.get('totalContributions', 0))} {labels['year_word']}</text>''')
+        month_positions: dict[str, int] = {}
+        for index, week in enumerate(calendar.get("weeks", [])):
+            for day in week.get("contributionDays", []):
+                if day.get("date"):
+                    month_positions.setdefault(str(day["date"])[:7], index)
+        for month in calendar.get("months", []):
+            key = str(month.get("firstDay", ""))[:7]
+            if key in month_positions:
+                x = grid_x + month_positions[key] * step
+                lines.append(f'''      <text x="{x}" y="{row_y + 15}" fill="{theme['muted']}" opacity=".88" font-size="10" font-weight="600">{month_label(month, language)}</text>''')
+        for week_index, week in enumerate(calendar.get("weeks", [])):
+            x = grid_x + week_index * step
+            for day in week.get("contributionDays", []):
+                try:
+                    weekday = int(day.get("weekday", 0))
+                    count = int(day.get("contributionCount", 0))
+                except (TypeError, ValueError):
+                    weekday, count = 0, 0
+                level = day.get("contributionLevel", "NONE")
+                fill = level_colors.get(level, theme["none"]) if count else theme["none"]
+                date_value = escape(str(day.get("date", "")))
+                word = labels["contribution"] if count == 1 else labels["contributions"]
+                lines.append(f'''      <rect x="{x}" y="{row_y + 66 + weekday * step}" width="{cell}" height="{cell}" rx="3" fill="{fill}" stroke="{theme['cell_stroke']}" stroke-width="1"><title>{date_value}: {count} {word}</title></rect>''')
+    legend_y = top + row_height * len(years) + 10
+    lines.append(f'''      <text x="58" y="{legend_y + 10}" fill="{theme['muted']}" opacity=".9" font-size="11">{labels['less']}</text>''')
+    legend_colors = [theme["none"], level_colors["FIRST_QUARTILE"], level_colors["SECOND_QUARTILE"], level_colors["THIRD_QUARTILE"], level_colors["FOURTH_QUARTILE"]]
+    for index, fill in enumerate(legend_colors):
+        lines.append(f'''      <rect x="98" y="{legend_y}" width="14" height="14" rx="3" fill="{fill}" stroke="{theme['cell_stroke']}" stroke-width="1" transform="translate({index * 22} 0)"/>''')
+    lines.append(f'''      <text x="218" y="{legend_y + 10}" fill="{theme['muted']}" opacity=".9" font-size="11">{labels['more']}</text>''')
+    lines.append(f'''      <text x="1142" y="{legend_y + 10}" text-anchor="end" fill="{theme['muted']}" opacity=".8" font-size="11">{start_date} → {end_date}</text>''')
+    lines.append("    </g></g>")
+    lines.append("</svg>")
+    return "\n".join(lines) + "\n"
+
+
 def build_translated_panels() -> None:
     for name in ("hero", "content", "evidence", "signal", "footer"):
         for suffix in ("", "-light"):
@@ -257,7 +329,7 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
         signal = picture("signal-es.svg", "signal-es-light.svg", "Señales técnicas verificables de xFrankB")
         footer = picture("footer-es.svg", "footer-es-light.svg", "Construir, aprender y repetir — xFrankB")
         contribution_alt = "Calendario dinámico de contribuciones públicas de xFrankB"
-        language_buttons = '  <a href="./README.md" title="Leer en inglés"><kbd>ENGLISH</kbd></a>  <a href="./README.es.md" title="Leer en español"><kbd>ESPAÑOL</kbd></a>'
+        language_buttons = '<a href="./README.md" title="Leer en inglés"><kbd>EN</kbd></a><br /><a href="./README.es.md" title="Leer en español"><kbd>ES</kbd></a>'
     else:
         hero = picture("hero.svg", "hero-light.svg", "xFrankB — Francisco Baylón")
         content = picture("content.svg", "content-light.svg", "Technical profile, focus, project, stack and contact for xFrankB")
@@ -265,37 +337,37 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
         signal = picture("signal.svg", "signal-light.svg", "Verified technical signals for xFrankB")
         footer = picture("footer.svg", "footer-light.svg", "Build, learn, repeat — xFrankB")
         contribution_alt = "Dynamic public contribution calendar for xFrankB"
-        language_buttons = '  <a href="./README.es.md" title="Leer en español"><kbd>ESPAÑOL</kbd></a>  <a href="./README.md" title="Read in English"><kbd>ENGLISH</kbd></a>'
+        language_buttons = '<a href="./README.es.md" title="Leer en español"><kbd>ES</kbd></a><br /><a href="./README.md" title="Read in English"><kbd>EN</kbd></a>'
 
-    contribution_blocks: list[str] = []
-    for index, year in enumerate(years):
-        total = int(calendars[year].get("totalContributions", 0))
-        if spanish:
-            dark = f"contributions-{year}-es.svg"
-            light = f"contributions-{year}-es-light.svg"
-        else:
-            dark = f"contributions-{year}.svg"
-            light = f"contributions-{year}-light.svg"
-        open_attr = " open" if index == 0 else ""
-        if spanish:
-            word = "contribución" if total == 1 else "contribuciones"
-        else:
-            word = "contribution" if total == 1 else "contributions"
-        contribution_blocks.append(f'<details name="contribution-years"{open_attr}>')
-        contribution_blocks.append(f"  <summary>{year} · {total} {word}</summary>")
-        contribution_blocks.append("")
-        contribution_blocks.extend(f"  {line}" for line in picture(dark, light, f"{contribution_alt} — {year}").splitlines())
-        contribution_blocks.extend(["</details>", ""])
+    language_label = "IDIOMA" if spanish else "LANGUAGE"
+    hero_layout = "\n".join([
+        '<table align="center" width="100%" cellpadding="0" cellspacing="0">',
+        '<tr>',
+        '<td width="86%" valign="top">',
+        hero,
+        '</td>',
+        '<td width="14%" align="center" valign="middle">',
+        f'<sub><code>{language_label}</code></sub><br />',
+        language_buttons,
+        '</td>',
+        '</tr>',
+        '</table>',
+    ])
+
+    contribution = picture(
+        "contributions-history-es.svg" if spanish else "contributions-history.svg",
+        "contributions-history-es-light.svg" if spanish else "contributions-history-light.svg",
+        contribution_alt,
+    )
 
     return "\n".join([
-        '<div align="center">', '', hero, '',
+        '<div align="center">', '', hero_layout, '',
         '<div align="center">',
-        language_buttons,
-        f'  <br />  <a href="https://github.com/xFrankB" title="GitHub"><kbd>{github_label}</kbd></a><br />',
+        f'  <a href="https://github.com/xFrankB" title="GitHub"><kbd>{github_label}</kbd></a><br />',
         f'  <a href="mailto:jfby13@gmail.com" title="Contacto"><kbd>{contact_label}</kbd></a>',
         '</div>', '', '</div>', '',
         '<div align="center">', '', content, '', evidence, '', signal, '',
-        *contribution_blocks,
+        contribution,
         '</div>', '',
         '<div align="center">', '', footer, '',
         f'<sub><code>{open_to}</code></sub>', '', '</div>', ''
@@ -317,23 +389,15 @@ def main() -> int:
     if not years:
         years = [max(candidate_years)]
         calendars[years[0]] = {"totalContributions": 0, "months": [], "weeks": []}
-    expected = set()
-    for year in years:
-        expected.update({
-            f"contributions-{year}.svg",
-            f"contributions-{year}-light.svg",
-            f"contributions-{year}-es.svg",
-            f"contributions-{year}-es-light.svg",
-        })
-        calendar = calendars[year]
-        outputs = {
-            ASSETS / f"contributions-{year}.svg": render_calendar(calendar, year, DARK, "en"),
-            ASSETS / f"contributions-{year}-light.svg": render_calendar(calendar, year, LIGHT, "en"),
-            ASSETS / f"contributions-{year}-es.svg": render_calendar(calendar, year, DARK, "es"),
-            ASSETS / f"contributions-{year}-es-light.svg": render_calendar(calendar, year, LIGHT, "es"),
-        }
-        for path, content in outputs.items():
-            path.write_text(content, encoding="utf-8")
+    outputs = {
+        ASSETS / "contributions-history.svg": render_history(calendars, years, DARK, "en"),
+        ASSETS / "contributions-history-light.svg": render_history(calendars, years, LIGHT, "en"),
+        ASSETS / "contributions-history-es.svg": render_history(calendars, years, DARK, "es"),
+        ASSETS / "contributions-history-es-light.svg": render_history(calendars, years, LIGHT, "es"),
+    }
+    for path, content in outputs.items():
+        path.write_text(content, encoding="utf-8")
+    expected = {path.name for path in outputs}
     for path in ASSETS.glob("contributions-*.svg"):
         if path.name not in expected:
             path.unlink()
