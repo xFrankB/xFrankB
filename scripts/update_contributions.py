@@ -546,6 +546,7 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
         hero = animated_picture("hero-es.webp?v=23", "hero-es-light.webp?v=23", "hero-es.gif?v=18", "hero-es-light.gif?v=18", "xFrankB — Francisco Baylón", width="100%")
         content = picture("content-es.svg", "content-es-light.svg", "Perfil técnico, enfoque, proyecto, stack y contacto de xFrankB")
         evidence = picture("evidence-es.svg", "evidence-es-light.svg", "Evidencia pública del proyecto U3_APM y su estructura técnica")
+        mindforce = picture("mindforce-es.svg", "mindforce-es-light.svg", "Proyecto público MindForce Grip: sistema web y móvil de seguimiento de rehabilitación")
         signal = picture("signal-es.svg", "signal-es-light.svg", "Señales técnicas verificables de xFrankB")
         footer = picture("footer-es.svg", "footer-es-light.svg", "Construir, aprender y repetir — xFrankB")
         contribution_alt = "Calendario de contribuciones públicas de xFrankB"
@@ -553,6 +554,7 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
         hero = animated_picture("hero.webp?v=23", "hero-light.webp?v=23", "hero.gif?v=18", "hero-light.gif?v=18", "xFrankB — Francisco Baylón", width="100%")
         content = picture("content.svg", "content-light.svg", "Technical profile, focus, project, stack and contact for xFrankB")
         evidence = picture("evidence.svg", "evidence-light.svg", "Public evidence of the U3_APM project and its technical structure")
+        mindforce = picture("mindforce.svg", "mindforce-light.svg", "Public MindForce Grip project: web and mobile rehabilitation tracking system")
         signal = picture("signal.svg", "signal-light.svg", "Verified technical signals for xFrankB")
         footer = picture("footer.svg", "footer-light.svg", "Build, learn, repeat — xFrankB")
         contribution_alt = "Current-year public contribution calendar for xFrankB"
@@ -570,7 +572,7 @@ def build_readme(years: list[int], calendars: dict[int, dict], language: str) ->
     )
     return "\n".join([
         '<div align="center">', '', hero_layout, '', '</div>', '',
-        '<div align="center">', '', content, '', evidence, '', signal, '',
+        '<div align="center">', '', content, '', evidence, '', mindforce, '', signal, '',
         contribution,
         '</div>', '',
         '<div align="center">', '', footer, '',

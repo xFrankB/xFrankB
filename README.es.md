@@ -27,6 +27,12 @@
 </picture>
 
 <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/mindforce-es.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/mindforce-es-light.svg" />
+  <img src="./assets/mindforce-es.svg" alt="Proyecto público MindForce Grip: sistema web y móvil de seguimiento de rehabilitación" width="100%" />
+</picture>
+
+<picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/signal-es.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/signal-es-light.svg" />
   <img src="./assets/signal-es.svg" alt="Señales técnicas verificables de xFrankB" width="100%" />

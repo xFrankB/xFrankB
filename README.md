@@ -27,6 +27,12 @@
 </picture>
 
 <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/mindforce.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/mindforce-light.svg" />
+  <img src="./assets/mindforce.svg" alt="Public MindForce Grip project: web and mobile rehabilitation tracking system" width="100%" />
+</picture>
+
+<picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/signal.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/signal-light.svg" />
   <img src="./assets/signal.svg" alt="Verified technical signals for xFrankB" width="100%" />
