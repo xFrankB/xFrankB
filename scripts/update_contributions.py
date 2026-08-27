@@ -56,6 +56,8 @@ query($login: String!) {
         cargo: object(expression: "HEAD:Cargo.toml") { ... on Blob { text } }
         dockerfile: object(expression: "HEAD:Dockerfile") { ... on Blob { text } }
         pom: object(expression: "HEAD:pom.xml") { ... on Blob { text } }
+        pubspec: object(expression: "HEAD:pubspec.yaml") { ... on Blob { text } }
+        mobilePubspec: object(expression: "HEAD:mobile/pubspec.yaml") { ... on Blob { text } }
         workflows: object(expression: "HEAD:.github/workflows") { __typename }
       }
     }
@@ -179,11 +181,12 @@ DEPENDENCY_LABELS = {
     "fastapi": "FastAPI", "flask": "Flask", "django": "Django", "numpy": "NumPy",
     "pandas": "Pandas", "torch": "PyTorch", "pytorch": "PyTorch", "scikit-learn": "scikit-learn",
     "matplotlib": "Matplotlib", "axios": "Axios", "zod": "Zod",
+    "flutter": "Flutter", "supabase": "Supabase", "supabase_flutter": "Supabase",
 }
 
 TECH_PRIORITY = [
     "TypeScript", "JavaScript", "Python", "React", "Vite", "Node.js", "Express",
-    "pnpm", "HTML", "CSS", "Tailwind CSS", "FastAPI", "Flask", "Django", "NumPy",
+    "pnpm", "HTML", "CSS", "Dart", "Flutter", "Supabase", "Tailwind CSS", "FastAPI", "Flask", "Django", "NumPy",
     "Pandas", "PyTorch", "Git", "GitHub Actions", "Linux", "Docker", "Go", "Rust",
 ]
 TECH_FALLBACK = ["TypeScript", "JavaScript", "Python", "React", "Vite", "Node.js", "Express", "pnpm", "Git", "Linux", "HTML", "CSS"]
@@ -192,18 +195,19 @@ TECH_ALIASES = {
     "npm": "npm", "pnpm": "pnpm", "github-actions": "GitHub Actions",
     "tailwind": "Tailwind CSS", "tailwindcss": "Tailwind CSS", "scikit learn": "scikit-learn",
     "pytorch": "PyTorch", "torch": "PyTorch", "numpy": "NumPy", "pandas": "Pandas",
+    "flutter": "Flutter", "supabase-flutter": "Supabase", "supabase": "Supabase",
 }
 
 TECH_MARKS = {
     "TypeScript": "TS", "JavaScript": "JS", "Python": "PY", "React": "RE",
     "Vite": "VT", "Node.js": "ND", "Express": "EX", "pnpm": "PN",
-    "HTML": "HT", "CSS": "CS", "Tailwind CSS": "TW", "Git": "GI",
+    "HTML": "HT", "CSS": "CS", "Dart": "DT", "Flutter": "FL", "Supabase": "SB", "Tailwind CSS": "TW", "Git": "GI",
     "GitHub Actions": "CI", "Linux": "LX", "Docker": "DK",
 }
 TECH_ICON_FILES = {
     "TypeScript": "typescript.svg", "JavaScript": "javascript.svg", "Python": "python.svg",
     "React": "react.svg", "Vite": "vite.svg", "Node.js": "nodedotjs.svg", "Express": "express.svg",
-    "pnpm": "pnpm.svg", "HTML": "html5.svg", "CSS": "css.svg", "Tailwind CSS": "tailwindcss.svg",
+    "pnpm": "pnpm.svg", "HTML": "html5.svg", "CSS": "css.svg", "Dart": "dart.svg", "Flutter": "flutter.svg", "Supabase": "supabase.svg", "Tailwind CSS": "tailwindcss.svg",
     "Git": "git.svg", "GitHub Actions": "githubactions.svg", "Linux": "linux.svg", "Axios": "axios.svg",
     "Framer Motion": "framer.svg", "Zod": "zod.svg",
 }
@@ -276,7 +280,7 @@ def detected_technologies() -> list[str]:
                 found.add(canonical_technology(LANGUAGE_LABELS.get(language_name, language_name)))
         package_json = repository.get("packageJson") or {}
         _scan_package_json(package_json.get("text", ""), found)
-        for field in ("requirements", "pyproject", "goMod", "cargo", "dockerfile", "pom"):
+        for field in ("requirements", "pyproject", "goMod", "cargo", "dockerfile", "pom", "pubspec", "mobilePubspec"):
             manifest = repository.get(field) or {}
             _scan_manifest(manifest.get("text", ""), found)
         if repository.get("dockerfile"):
