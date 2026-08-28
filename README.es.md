@@ -23,19 +23,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/evidence-es.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/evidence-es-light.svg" />
-  <img src="./assets/evidence-es.svg" alt="Evidencia pública del proyecto U3_APM y su estructura técnica" width="100%" />
-</picture>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/mindforce-es.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/mindforce-es-light.svg" />
-  <img src="./assets/mindforce-es.svg" alt="Proyecto público MindForce Grip: sistema web y móvil de seguimiento de rehabilitación" width="100%" />
-</picture>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/signal-es.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="./assets/signal-es-light.svg" />
-  <img src="./assets/signal-es.svg" alt="Señales técnicas verificables de xFrankB" width="100%" />
+  <img src="./assets/evidence-es.svg" alt="Evidencia pública de U3_APM y MindForce Grip, presentada en un solo bloque de proyectos" width="100%" />
 </picture>
 
 <picture>

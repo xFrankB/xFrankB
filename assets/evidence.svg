@@ -1,49 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="330" viewBox="0 0 1200 330" role="img" aria-labelledby="title desc">
-  <title id="title">Proof of work — U3_APM</title>
-  <desc id="desc">Animated monochrome proof panel describing the public U3_APM full-stack project and its verified structure.</desc>
+  <title id="title">Featured public projects — U3_APM and MindForce Grip</title>
+  <desc id="desc">One unified monochrome project panel presenting U3_APM and MindForce Grip with their verified technologies.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#050505"/><stop offset="0.55" stop-color="#141414"/><stop offset="1" stop-color="#060606"/></linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#050505"/><stop offset=".55" stop-color="#141414"/><stop offset="1" stop-color="#060606"/></linearGradient>
     <filter id="blur28" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="28"/></filter>
     <filter id="blur8" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="8"/></filter>
     <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse"><path d="M38 0H0V38" fill="none" stroke="#fff" stroke-opacity=".055"/><circle cx="1" cy="1" r="1" fill="#fff" opacity=".14"/></pattern>
     <clipPath id="clip"><rect x="16" y="16" width="1168" height="298" rx="32"/></clipPath>
-    <style>
-      .mono { font-family: monospace; }
-      .label { fill: #fff; opacity: .66; font-size: 13px; font-weight: 600; letter-spacing: 3px; }
-      .body { fill: #fff; opacity: .88; font-size: 17px; }
-      .strong { fill: #fff; opacity: 1; font-size: 20px; font-weight: 700; }
-      .muted { fill: #fff; opacity: .60; font-size: 14px; }
-      .line { stroke: #fff; stroke-opacity: .25; }
-    </style>
+    <style>.mono{font-family:monospace}.label{fill:#fff;opacity:.66;font-size:13px;font-weight:600;letter-spacing:3px}.body{fill:#fff;opacity:.88;font-size:16px}.strong{fill:#fff;font-size:21px;font-weight:700}.muted{fill:#fff;opacity:.60;font-size:14px}.line{stroke:#fff;stroke-opacity:.25}.chip{fill:#fff;opacity:.83;font-size:14px;font-weight:700;letter-spacing:1px}</style>
   </defs>
   <rect width="1200" height="330" fill="none"/>
   <g clip-path="url(#clip)">
-    <rect x="16" y="16" width="1168" height="298" rx="32" fill="url(#bg)"/>
-    <rect x="16" y="16" width="1168" height="298" rx="32" fill="url(#grid)"/>
-    <g filter="url(#blur28)" opacity=".16">
-      <circle cx="160" cy="45" r="105" fill="#fff"><animate attributeName="cx" values="160;280;160" dur="17s" repeatCount="indefinite"/></circle>
-      <circle cx="1040" cy="280" r="130" fill="#888"><animate attributeName="cy" values="280;210;280" dur="14s" repeatCount="indefinite"/></circle>
-    </g>
+    <rect x="16" y="16" width="1168" height="298" rx="32" fill="url(#bg)"/><rect x="16" y="16" width="1168" height="298" rx="32" fill="url(#grid)"/>
+    <g filter="url(#blur28)" opacity=".16"><circle cx="1030" cy="54" r="105" fill="#fff"><animate attributeName="cx" values="1030;900;1030" dur="17s" repeatCount="indefinite"/></circle><circle cx="160" cy="280" r="125" fill="#888"><animate attributeName="cy" values="280;210;280" dur="14s" repeatCount="indefinite"/></circle></g>
     <g class="mono">
-      <text x="58" y="62" class="label">/ PROOF_OF_WORK</text>
-      <text x="58" y="104" class="strong">U3_APM</text>
-      <text x="58" y="132" class="body">Aplicación full-stack organizada para crecer por módulos.</text>
-      <text x="58" y="158" class="muted">public repository · main · MIT</text>
-      <path d="M58 184H1142" class="line"/>
-      <g transform="translate(58 224)">
-        <text x="0" y="0" class="label">TYPE</text>
-        <text x="0" y="30" class="strong">FULL-STACK</text>
-        <text x="250" y="0" class="label">PRIMARY_LANGUAGE</text>
-        <text x="250" y="30" class="strong">TYPESCRIPT 97%</text>
-        <text x="545" y="0" class="label">STRUCTURE</text>
-        <text x="545" y="30" class="strong">CLIENT / SERVER / SHARED</text>
-        <text x="870" y="0" class="label">SCRIPTS</text>
-        <text x="870" y="30" class="strong">DEV · BUILD · CHECK</text>
-      </g>
-      <text x="58" y="286" class="muted">architecture visible in repository · modular boundaries · reproducible commands</text>
+      <text x="58" y="62" class="label">/ FEATURED_PROJECTS / 02</text>
+      <text x="58" y="98" class="body">Public project evidence · two implementations, one portfolio block.</text>
+      <path d="M58 122H1142" class="line"/><path d="M600 142V248" class="line"/>
+      <text x="58" y="158" class="label">01 / U3_APM</text><text x="58" y="192" class="strong">FULL-STACK MODULAR APPLICATION</text><text x="58" y="218" class="muted">TypeScript · React · Vite · Express</text><text x="58" y="248" class="chip">CLIENT / SERVER / SHARED</text>
+      <text x="640" y="158" class="label">02 / MINDFORCE_GRIP</text><text x="640" y="192" class="strong">REHABILITATION TRACKING</text><text x="640" y="218" class="muted">Flutter / Dart · Supabase · web + mobile</text><text x="640" y="248" class="chip">PROGRESS / PDF HISTORY</text>
+      <path d="M58 266H1142" class="line"/><text x="58" y="290" class="muted">public repositories · reproducible setup · demonstration data only</text>
     </g>
-    <rect x="16" y="16" width="1168" height="298" rx="32" fill="none" stroke="#fff" stroke-opacity=".2"/>
-    <rect x="16" y="16" width="1168" height="298" rx="32" fill="none" stroke="#fff" stroke-opacity=".045" stroke-width="7" filter="url(#blur8)"/>
+    <rect x="16" y="16" width="1168" height="298" rx="32" fill="none" stroke="#fff" stroke-opacity=".2"/><rect x="16" y="16" width="1168" height="298" rx="32" fill="none" stroke="#fff" stroke-opacity=".045" stroke-width="7" filter="url(#blur8)"/>
     <rect x="30" y="16" width="2" height="298" fill="#fff" opacity=".08" filter="url(#blur8)"><animate attributeName="x" values="30;1168;30" dur="18s" repeatCount="indefinite"/></rect>
   </g>
 </svg>
