@@ -85,8 +85,8 @@
       <g opacity="0">
         <title>TypeScript — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.00075;0.00355;0.03330;0.03629" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.00075;0.00355;0.03629;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.00070;0.00331;0.03100;0.03379" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.00070;0.00331;0.03379;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -97,8 +97,8 @@
       <g opacity="0">
         <title>JavaScript — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.03779;0.04059;0.07033;0.07333" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.03779;0.04059;0.07333;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.03518;0.03779;0.06548;0.06827" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.03518;0.03779;0.06827;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -109,8 +109,8 @@
       <g opacity="0">
         <title>Python — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.07482;0.07763;0.10737;0.11036" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.07482;0.07763;0.11036;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.06966;0.07227;0.09997;0.10275" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.06966;0.07227;0.10275;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -121,8 +121,8 @@
       <g opacity="0">
         <title>React — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.11186;0.11467;0.14441;0.14740" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.11186;0.11467;0.14740;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.10414;0.10676;0.13445;0.13723" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.10414;0.10676;0.13723;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -133,8 +133,8 @@
       <g opacity="0">
         <title>Vite — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.14890;0.15170;0.18144;0.18444" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.14890;0.15170;0.18444;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.13863;0.14124;0.16893;0.17172" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.13863;0.14124;0.17172;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -145,8 +145,8 @@
       <g opacity="0">
         <title>Node.js — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.18593;0.18874;0.21848;0.22147" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.18593;0.18874;0.22147;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.17311;0.17572;0.20341;0.20620" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.17311;0.17572;0.20620;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -157,8 +157,8 @@
       <g opacity="0">
         <title>Express — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.22297;0.22578;0.25552;0.25851" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.22297;0.22578;0.25851;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.20759;0.21021;0.23790;0.24068" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.20759;0.21021;0.24068;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -169,8 +169,8 @@
       <g opacity="0">
         <title>pnpm — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.26001;0.26281;0.29256;0.29555" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.26001;0.26281;0.29555;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.24208;0.24469;0.27238;0.27517" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.24208;0.24469;0.27517;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -181,8 +181,8 @@
       <g opacity="0">
         <title>HTML — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.29704;0.29985;0.32959;0.33259" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.29704;0.29985;0.33259;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.27656;0.27917;0.30686;0.30965" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.27656;0.27917;0.30965;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -193,8 +193,8 @@
       <g opacity="0">
         <title>CSS — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.33408;0.33689;0.36663;0.36962" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.33408;0.33689;0.36962;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.31104;0.31365;0.34134;0.34413" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.31104;0.31365;0.34413;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -205,8 +205,8 @@
       <g opacity="0">
         <title>Dart — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.37112;0.37392;0.40367;0.40666" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.37112;0.37392;0.40666;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.34552;0.34814;0.37583;0.37861" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.34552;0.34814;0.37861;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -217,8 +217,8 @@
       <g opacity="0">
         <title>Flutter — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.40816;0.41096;0.44070;0.44370" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.40816;0.41096;0.44370;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.38001;0.38262;0.41031;0.41310" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.38001;0.38262;0.41310;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -229,8 +229,8 @@
       <g opacity="0">
         <title>Supabase — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.44519;0.44800;0.47774;0.48073" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.44519;0.44800;0.48073;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.41449;0.41710;0.44479;0.44758" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.41449;0.41710;0.44758;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -241,8 +241,8 @@
       <g opacity="0">
         <title>Tailwind CSS — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.48223;0.48504;0.51478;0.51777" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.48223;0.48504;0.51777;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.44897;0.45158;0.47928;0.48206" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.44897;0.45158;0.48206;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -253,8 +253,8 @@
       <g opacity="0">
         <title>Git — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.51927;0.52207;0.55181;0.55481" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.51927;0.52207;0.55481;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.48346;0.48607;0.51376;0.51654" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.48346;0.48607;0.51654;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -265,8 +265,8 @@
       <g opacity="0">
         <title>GitHub Actions — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.55630;0.55911;0.58885;0.59184" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.55630;0.55911;0.59184;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.51794;0.52055;0.54824;0.55103" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.51794;0.52055;0.55103;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -277,8 +277,8 @@
       <g opacity="0">
         <title>Linux — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.59334;0.59615;0.62589;0.62888" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.59334;0.59615;0.62888;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.55242;0.55503;0.58272;0.58551" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.55242;0.55503;0.58551;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -289,8 +289,8 @@
       <g opacity="0">
         <title>Axios — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.63038;0.63318;0.66293;0.66592" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.63038;0.63318;0.66592;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.58690;0.58952;0.61721;0.61999" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.58690;0.58952;0.61999;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -299,10 +299,22 @@
         </svg>
       </g>
       <g opacity="0">
+        <title>Batchfile — detected in public repositories</title>
+        <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.62139;0.62400;0.65169;0.65448" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.62139;0.62400;0.65448;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
+          <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
+        </circle>
+        <svg x="138" y="100" width="64" height="64" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm0 3a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13Zm-1.5 3h3v3h-3v-3Zm0 4.5h3v3h-3v-3Z" fill="#d3d3d3" fill-opacity="0.66"/>
+        </svg>
+      </g>
+      <g opacity="0">
         <title>C — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.66741;0.67022;0.69996;0.70296" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.66741;0.67022;0.70296;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.65587;0.65848;0.68617;0.68896" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.65587;0.65848;0.68896;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -313,8 +325,8 @@
       <g opacity="0">
         <title>C++ — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.70445;0.70726;0.73700;0.73999" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.70445;0.70726;0.73999;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.69035;0.69296;0.72065;0.72344" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.69035;0.69296;0.72344;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -325,8 +337,8 @@
       <g opacity="0">
         <title>CMake — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.74149;0.74429;0.77404;0.77703" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.74149;0.74429;0.77703;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.72483;0.72745;0.75514;0.75792" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.72483;0.72745;0.75792;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -337,8 +349,8 @@
       <g opacity="0">
         <title>Framer Motion — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.77853;0.78133;0.81107;0.81407" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.77853;0.78133;0.81407;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.75932;0.76193;0.78962;0.79241" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.75932;0.76193;0.79241;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -349,8 +361,8 @@
       <g opacity="0">
         <title>Kotlin — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.81556;0.81837;0.84811;0.85110" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.81556;0.81837;0.85110;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.79380;0.79641;0.82410;0.82689" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.79380;0.79641;0.82689;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -361,8 +373,8 @@
       <g opacity="0">
         <title>Objective-C — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.85260;0.85541;0.88515;0.88814" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.85260;0.85541;0.88814;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.82828;0.83090;0.85859;0.86137" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.82828;0.83090;0.86137;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -373,8 +385,20 @@
       <g opacity="0">
         <title>PLpgSQL — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.88964;0.89244;0.92218;0.92518" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.88964;0.89244;0.92518;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.86277;0.86538;0.89307;0.89586" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.86277;0.86538;0.89586;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
+          <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
+        </circle>
+        <svg x="138" y="100" width="64" height="64" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm0 3a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13Zm-1.5 3h3v3h-3v-3Zm0 4.5h3v3h-3v-3Z" fill="#d3d3d3" fill-opacity="0.66"/>
+        </svg>
+      </g>
+      <g opacity="0">
+        <title>Shell — detected in public repositories</title>
+        <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.89725;0.89986;0.92755;0.93034" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.89725;0.89986;0.93034;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -385,8 +409,8 @@
       <g opacity="0">
         <title>Swift — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.92667;0.92948;0.95922;0.96221" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.92667;0.92948;0.96221;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.93173;0.93434;0.96203;0.96482" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.93173;0.93434;0.96482;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
@@ -397,8 +421,8 @@
       <g opacity="0">
         <title>Zod — detected in public repositories</title>
         <circle cx="170" cy="132" r="56" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1"/>
-        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.96371;0.96652;0.99626;0.99925" dur="106.9s" begin="0s" repeatCount="indefinite"/>
-        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.96371;0.96652;0.99925;1" dur="106.9s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.96621;0.96883;0.99652;0.99930" dur="114.8s" begin="0s" repeatCount="indefinite"/>
+        <animate attributeName="display" values="none;inline;inline;none;none" keyTimes="0;0.96621;0.96883;0.99930;1" dur="114.8s" begin="0s" repeatCount="indefinite"/>
         <circle cx="170" cy="132" r="50" fill="#ffffff" fill-opacity="0.045" stroke="#ffffff" stroke-opacity="0.54" stroke-width="1.2">
           <animate attributeName="r" values="48;51;48" dur="3.96s" repeatCount="indefinite"/>
         </circle>
